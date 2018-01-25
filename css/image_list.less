@@ -1,0 +1,599 @@
+.container-image-list {
+    .df;
+    background-color: white;
+    height: 100%;
+
+    &>.container-image {
+        position: relative;
+        width: 37.8%;
+        min-width: 390px;
+        height: 100%;
+        box-sizing: border-box;
+        background-color: white;
+        border: 1px solid #d0d0d0;
+        .df;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        &>.img-box {
+            position: relative;
+            // width: 100%;
+            // height: 100%;
+
+            &>.img {
+                // width: 100%;
+                background: #fff;
+                // height: auto;
+            }
+
+            &>.mark {
+                position: absolute;
+                border: 3px solid #3385ff;
+                .mark-notfind{
+                    position: absolute;
+                    top: -31px;
+                    width: 98px;
+                    z-index: 0;
+                    font-size: 10px;
+                    background: #fff;
+                    left: -50px;
+                    padding: 5px;
+                    box-shadow: 0 0 4px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.24);
+                }
+            }
+        }
+
+        &>.container-utils {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 28px;
+            height: 120px;
+            margin-right: 8px;
+            margin-top: 8px;
+            .df;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            &>a {
+                display: block;
+                width: 26px;
+                height: 26px;
+                background: white;
+                box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.40);
+                border-radius: 2px;
+            }
+
+            &>a:active {
+                box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.40);
+            }
+
+            &>.enlarge {
+                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -1040px;
+                background-size: 40px;
+            }
+
+            &>.shrink {
+                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -1120px;
+                background-size: 40px;
+                animation: none !important;
+            }
+
+            &>.reset {
+                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -1200px;
+                background-size: 40px;
+            }
+
+            &>.transform {
+                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -1280px;
+                background-size: 40px;
+            }
+
+            &>.widescreen {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+
+    &>.widescreen {
+        width: 61.8%;
+        min-width: 630px;
+    }
+
+    &>.container-message {
+        .df;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        // background-color: orange;
+        color: #ff3333;
+        border: 1px solid #d8d8d8;
+        border-top: transparent;
+    }
+
+    &>.container-list {
+        position: relative;
+        flex: 1;
+        margin: 0 0 0 4px;
+        height: 100%;
+        .df;
+        flex-direction: column;
+        overflow-x: auto;
+        border: 1px solid #ddd;
+        border-bottom: none;
+        box-sizing: border-box;
+        &>div {
+            min-width: 618px;
+        }
+        .list-item {
+            border-right: 1px solid #d8d8d8;
+            border-bottom: 1px solid #d8d8d8;
+            min-height: 40px;
+            .df;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+            word-break: break-all;
+            background-color: white;
+
+            .part-name-span {                      //超出4行隐藏并且……
+                padding-left: 5px;
+                padding-right: 0px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                transition: all  2s;
+            }
+            &>span {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+            }
+            .sa-code {  //品牌编码
+                cursor: pointer;
+                padding-right: 10px;
+                box-sizing: border-box;
+                .sa-code-icon {
+                    width: 12px;
+                    height: 16px;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    display: inline-block;
+                    background: url(/img/spirit.png) no-repeat;
+                    background-size: 40px auto;
+                    background-position: 2px -2400px;
+                }
+            }
+            .shopping-list{
+                width: 40px;
+                height: 40px;
+                background: url(/img/spirit.png) no-repeat 10px -908px;
+                background-size: 40px;
+                span{
+                    position: absolute;
+                    font-size: 12px;
+                    background: #dcdcdc;
+                    width: 97px;
+                    height: 20px;
+                    display: none;
+                    line-height: 20px;
+                    border: 1px solid #ddd;
+                    text-align: center;
+                    top: 7px;
+                    right: 43px;
+                    z-index: 1;
+                    background: #EFEFEF;
+                    border: 0px solid #BBBBBB;
+                    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.20);
+                    border-radius: 2px;
+                    
+                }
+                &:active{
+                    span{
+                        display: block;
+                    }
+                }
+            }
+            .price-list{
+                // position: relative;
+                cursor: pointer;
+                .manyCount{
+                    width: 20px;
+                    height: 20px;
+                    position: absolute;
+                    right: -3px;
+                    top: -3px;
+                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                    background-size: 50px auto;
+                    background-position: 4px -2747px;
+                    width: 20px;
+                    height: 20px;
+                    position: absolute;
+
+                    background: url(/img/spirit.png) no-repeat;
+                    background-size: 50px auto;
+                    background-position: 4px -2747px;
+                }
+                .manyMoney{
+                    background-position: 4px -2797px;
+                }
+                .morePrice{
+                    display: none;
+                    position: absolute;
+                    top: 0;
+                    left: -89px;
+                    height: 20px;
+                    z-index: 1;
+                    text-align: center;
+                    font-size: 10px;
+                    width: 86px;
+                    background: #EFEFEF;
+                    border: 0px solid #BBBBBB;
+                    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.20);
+                    border-radius: 2px;
+                }
+                &:hover{
+                    .morePrice{
+                        display: block;
+                    }
+                }
+            }
+
+            .replaceMsg{
+                position: relative;
+                cursor: pointer;
+                text-align: center;
+                span{
+                    display: none;
+                    position: absolute;
+                    top: 0;
+                    // left: -89px;
+                    // left: -63px;        
+                    left: -97px;
+                    width: 94px;            
+                    // height: 20px;
+                    z-index: 1;
+                    text-align: center;
+                    font-size: 10px;
+                    // width: 86px;
+                    background: #EFEFEF;
+                    border: 0px solid #BBBBBB;
+                    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.20);
+                    border-radius: 2px;
+                }
+            }
+            .canHover:hover {
+                span{
+                    display: block;
+                }
+            }
+        }
+        &>.container-header {
+            .df;
+            min-height: 40px;
+            border-left: 1px solid #d8d8d8;
+            border-top: 1px solid #d8d8d8;
+            border-bottom: 1px solid #d8d8d8;
+            background: #F5F5F5;
+            border: 1px solid #EFEFEF;
+            .list-item {
+                background: none;
+                border-right: none;
+            }
+        }
+
+        &>.container-message {
+            .df;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            // background-color: orange;
+            color: #ff3333;
+            border: 1px solid #d8d8d8;
+            border-top: transparent;
+        }
+
+        // &>.hidden {
+        //     display: none;
+        // }
+
+        &>.container-footer {
+            position: relative;
+            width: 100%;
+            flex: 1;
+            height: e('calc(100vh - 241px)');
+            // height: e('calc(100% - 80px)');
+            overflow-y: auto;
+
+            .list-foot-loading {
+                display: none;
+                width: 100%;
+                height: 100%;
+                background: url(https://cdns.007vin.com/img/mum.gif) no-repeat center;
+            }
+
+            .itemselect {
+                border:2px solid rgb(51, 133, 255);
+                box-shadow: 0px 0px 4px 0px black inset;
+                .list-item {
+                    &>span {
+                        display: block;
+                    }
+                    .part-name-span {
+                        display: block;
+                    }
+                }
+            }
+
+            &>.container-footer-item {
+                position: relative;
+                // .df;
+                // flex-direction: column;
+
+                &>.footer-item {
+                    .df;
+                    // transition: all 0.5s;
+                    .list-item{
+                        position: relative;
+
+                    }
+
+                    &>.filter,&>.filter div,&>.filter span{
+                        color: #ff3333 !important;
+                    }
+
+                    .show_seealso{
+                        .show_seealso_seealso{
+                            display: flex;
+                            flex-direction: column;
+                            &>.seealse_hover{
+                                color: #4990E2;
+                                cursor: pointer;
+                            }
+                            &>.seealse_hover:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+
+                    .list-item-partcode{
+                        width: 100%;
+                        text-align: right;
+                        padding-right: 25px;
+                        .coby-icon{
+                            position: absolute;
+                            top:0;
+                            right: 0;
+                            width: 18px;
+                            height: 18px;
+                            background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                            background-size: 50px auto;
+                            background-position: 4px -1700px;
+                            cursor: pointer;
+                            .cody-success{
+                                display: none;
+                                position: absolute;
+                                font-size: 12px;
+                                background: #dcdcdc;
+                                width: 59px;
+                                height: 20px;
+                                line-height: 20px;
+                                border: 1px solid #ddd;
+                                text-align: center;
+                                top: 0;
+                                right: -62px;
+                                z-index: 1;
+                            }
+                            .coby-msg{
+                                display: none;
+                                position: absolute;
+                                font-size: 12px;
+                                background: #dcdcdc;
+                                width: 59px;
+                                height: 20px;
+                                line-height: 20px;
+                                border: 1px solid #ddd;
+                                text-align: center;
+                                top: 0;
+                                right: 15px;
+                                z-index: 1;
+                            }
+                            &:active .cody-success{
+                                display: block;
+                            }
+                            &:hover .coby-msg{
+                                display: block;
+
+                            }
+                        }
+                    }
+
+                    &>.list-item:nth-child(1) {
+                        // border-left: 1px solid #d8d8d8;
+                        cursor: pointer;
+                    }
+                    &>.list-item:nth-child(2) {
+                        .search-result {
+                            padding-left: 10px;
+                            line-height: 12px;
+                            img {
+                                width: 10px;
+                                position: absolute;
+                                left: 0;
+                            }
+                        }
+                        .ugc-icon {
+                            background: url(/img/sprite2.png) no-repeat;
+                            background-size: 40px;
+                            display: block;
+                            width: 12px;
+                            height: 17px;
+                            cursor: pointer;
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                        }
+                        .blue {
+                            background-position: 0px -600px;   
+                        }
+                        .gray {
+                            background-position: 0px -559px; 
+                        }
+                        .nothing {
+                            display: none;
+                        }
+                    }
+                    &>.list-item:nth-child(11) {
+                        cursor: pointer;
+                    }
+                    &>.list-item:nth-child(10) {
+                        &:hover .block .detailmsg{
+                            display: block
+                        }
+                        text-decoration: underline;
+                        cursor: pointer;
+                        position: relative;
+                        span{
+                            div{
+                                .icon-cert{
+                                    background-image: linear-gradient(-180deg, #FFE900 0%, #FFC802 100%);
+                                    border-radius: 2px;
+                                    height: 10px;
+                                    width: 10px;
+                                    position: absolute;
+                                    right: 0;
+                                    top: 0;
+                                }
+                                .detailmsg{
+                                    position: absolute;
+                                    display: none;
+                                    left: -37px;
+                                    top: 1px;
+                                    background: #EFEFEF;
+                                    border: 0px solid #BBBBBB;
+                                    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.20);
+                                    border-radius: 2px;
+                                    font-size: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
+                        box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.30);
+                        margin-bottom: 2px;
+                    }
+                }
+
+                // &>.hidden {
+                //     display: none;
+                // }
+            }
+
+            &>.container-footer-item:hover{
+                // box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.30);
+                // margin-bottom: 2px;
+             }
+
+            &>.selected{
+                border:2px solid rgb(51, 133, 255);
+                box-shadow: 0px 0px 4px 0px black inset;
+            }
+            // &>.container-footer-item>.itemselect{
+        }
+        &>.container-addalias {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+
+            &>.close {
+                position: absolute;
+                top: 2px;
+                right: 2px;
+                width: 28px;
+                height: 28px;
+                background: url(https://cdns.007vin.com/img/icon_san.png) -10px;
+                cursor: pointer;
+            }
+
+            &>.container-header {
+                width: 100%;
+                height: 32px;
+                display: flex;
+                background-color: #d0d0d0;
+            }
+
+            .item {
+                height: 100%;
+                color: white;
+                font-size: 14px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &>.container-footer {
+                width: 100%;
+                height: e('calc(100% - 88px)');
+                overflow-y: scroll;
+                margin-bottom: 56px;
+
+                &>.addalias-save {
+                    position: absolute;
+                    bottom: 10px;
+                    left: e('calc(50% - 120px)');
+                    width: 240px;
+                    height: 32px;
+                    background-color: #1aa0f3;
+                    box-shadow: 0 2px 8px 0 rgba(25, 160, 243, 0.4);
+                    border-radius: 1px;
+                    border-style: none;
+                    // outline: none;
+                    color: white;
+                    font-size: 14px;
+                    cursor: pointer;
+                    &:active {
+                        border: 1px solid #d8d8d8;
+                    }
+                }
+
+                &>.container-footerrow {
+                    width: 100%;
+                    min-height: 40px;
+                    display: flex;
+
+                    &>.item {
+
+                        &>.addalias-input {
+                            width: 238px;
+                            height: 30px;
+                            background-color: #f6f6f6;
+                            color: #333;
+                            font-size: 12px;
+                            border: 1px solid #d8d8d8;
+                            padding: 0;
+                            padding-left: 10px;
+                            // outline: 0;
+                        }
+                    }
+                }
+
+                .item {
+                    height: inherit;
+                    color: #333;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

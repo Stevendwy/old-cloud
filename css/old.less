@@ -1,0 +1,185 @@
+.danger-title{
+	height: 40px;
+	background: #FF0000;
+	border-radius: 4px 4px 0 0;
+	/* font-family: PingFang-SC-Semibold; */
+	font-size: 16px;
+	color: #FFFFFF;
+	line-height: 40px;
+	text-align: center;
+  }
+.msg{
+	width: 600px;
+    position: absolute;
+    _position: absolute;
+    top: 52px;
+    left: 0;
+    font-size: 16px;
+    color: #333;
+    line-height: 30px;
+    /* font-family: PingFang-SC-Semibold; */
+    font-size: 16px;
+    color: #FF0000;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.msg>p{
+	text-align: center;
+	margin: 0px;
+	line-height: 30px;
+}
+
+#browserChange .choose{
+	position: absolute;
+	top:137px;
+	left: 30px;
+	width: 540px;
+}
+
+.browserItem{
+	float: left;
+	width: 134px;
+	text-align: center;
+}
+.browserItem>a{
+	display:inline-block;
+	width: 100%;
+	text-align: center;
+}
+
+.browserItem img{
+    width: 110px;
+    background: none;
+}
+
+.browserItem span{
+	font-size: 12px;
+	color: #333;
+}
+
+.notAgain{
+	width: 630px;
+
+	display: none;
+}
+
+.notAgain>p{
+	text-align: center;
+}
+
+.choose>span{
+	position: absolute;
+	top: 200px;
+	left: 235px;
+	font-size: 12px;
+	color: #999;
+}
+
+.choose>span>img{
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.noAgain{
+	position: relative;
+	top:210px;
+}
+
+#browserChange .close{
+	// position: absolute;
+    // top: 2px;
+    // right: 0;
+    // width: 32px;
+    // height: 32px;
+    // cursor: pointer;
+    // background: url(/img/sprite2.png) no-repeat 0 -117px;
+	// background-size: 40px;
+
+	position: absolute;
+    top: 5px;
+    right: 2px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    background: url(../img/operate_spirit.png) no-repeat 0 -237px;
+    display: block;
+    background-size: 40px;
+
+	&:hover{
+		// background: url(/img/sprite2.png) no-repeat 0 -157px;
+		// background-size: 40px;
+
+		background: url(../img/operate_spirit.png) no-repeat 0 -277px;
+		background-size: 40px;
+	}
+    img{
+        background: none;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+
+.errorMainText{
+	min-width: 600px;
+    // margin: 0 0 0 20px;
+    // margin-left: 100px;
+}
+.errorMainText>p{
+	margin-bottom: 10px;
+	margin-top:10px;
+	display: inline-block;
+	margin-right: 20px;
+}
+.errorMainText span{
+	font-size: 14px;
+	color: #1AA0F3;
+}
+.errorMainText span:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+.errorMainText ol{
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.SearchHead>div:first-child{
+	margin-top: 0;
+	color:#666;
+	font-size: 12px;
+}
+.resultContainer{
+	padding-top: 0;
+}
+.errorMainText ol>li{
+	height: 32px;
+}
+.ErrorContainer{
+	display: flex;
+	width: 100%;
+	height: e('calc(100% - 88px)');
+	overflow: auto;
+	background: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+.bigSearchModal1{
+	margin: 0 auto;
+	width: 603px;
+	
+	.vin-list-container{
+		background: #fff;
+		width: 100%;
+		.vin-list-title{
+			display: flex;
+			justify-content: space-between;
+			font-size: 14px;
+			color: #666666;
+		}
+	}
+}

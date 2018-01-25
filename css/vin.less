@@ -1,0 +1,663 @@
+.vin,
+.cars{
+    // height: 100%;
+    &>.container-search-part-result {
+        position: fixed;
+        z-index: 22;
+        top:0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // width: 100%;
+        overflow: auto;
+
+        .container-overauto {
+            position: absolute;
+            width: 100%;
+            min-width: 1024px;
+            min-height: 460px;
+            // background: white;
+            background: rgba(0,0,0,0.40);
+            
+            .title-main-bar {
+                height: 44px;
+                background: #4a90e2;
+                color: #fff;
+                position: relative;
+                line-height: 44px;
+                padding-left: 20px;
+                &>.close {
+                    position: absolute;
+                    top: 7px;
+                    right: 14px;
+                    width: 28px;
+                    height: 28px;
+                    cursor: pointer;
+                    background: url(../img/operate_spirit.png) no-repeat 0px -237px;
+                    display: block;
+                    background-size: 40px;
+    
+                    &:hover {
+                        background: url(../img/operate_spirit.png) no-repeat 0px -277px;
+                        background-size: 40px;
+                    }
+                }
+            }
+
+            &>.container-title {
+                height: 44px;
+                width: 100%;
+                // background-color: white;
+                // background: #D4D3D4;
+                color:white;
+                z-index: 1;
+                background: #4A90E2;
+                box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
+                .df;
+                // justify-content: space-between;
+                align-items: center;
+                justify-content: center;
+                background: #D4D3D4;
+                box-shadow: 0 1px 4px 0 rgba(0,0,0,0.20);
+                position: relative;
+                .back-setting {
+                    background-size: 40px;
+                    background-color: white;
+                }
+               
+                .btn-container{
+                    position: absolute;
+                    right: 66px;
+                    width: 116px;
+                    display: flex;
+                    // margin-right: 100px; 
+                    justify-content: space-around;
+                    // position: relative;
+                    div{
+                        width: 45px;
+                        cursor: pointer;
+                        height: 24px;
+                        border-radius: 4px;
+                        box-shadow: 0 0 1px rgba(51,51,51,0.5);
+                    }
+                    &>.config {
+                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 12px -1596px;
+                        .back-setting;
+                    }
+                    &>.filter {
+                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1636px;
+                        .back-setting;
+                    }
+                    &>.no-filter {
+                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1676px;
+                        .back-setting;
+                    }
+                }
+
+                .title-part{
+                    color:white;
+                    // padding-left: 10px;
+                    font-size: 14px;
+                    color: #333;
+                    position: absolute;
+                    left: 20px;
+                }
+                .back{
+                    margin-right: 20px;
+                    outline: none;
+                    border: 0;
+                    border-radius: 4px;
+                    font-size: 12px;
+                    margin-left: 12px;
+                    background-color: white;
+                    cursor: pointer;
+                }
+
+                img{
+                    width: 76px;
+                    background: none;
+                }
+
+                .container-input {
+                    position: relative;
+                    .search-type {
+                        position: absolute;
+                        left: -165px;
+                        width: 160px;
+                        height: 24px;
+                        align-items: center;
+                        justify-content: center;
+                        line-height: 28px;
+                        padding-left: 5px;
+                        padding-right: 3px;
+                        font-size: 12px;
+                        height: 28px;
+                        color: #333333;
+                        top: -1px;
+                        box-sizing: border-box;
+                        cursor: pointer;
+                        &>span {
+                            margin-left: 10px;
+                            label {
+                                margin-left: 5px;
+                                vertical-align: bottom;
+                            }
+                        }
+                        &:hover {
+                            .choose-item-container {
+                                display: block;
+                            }
+                        }
+
+                        .choose-sure-box {
+                            line-height: 26px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            span {
+                                font-size: 12px;
+                                color: #333333;
+                            }
+                            b {
+                                width: 0;
+                                height: 0;
+                                border-left: 4px solid transparent;
+                                border-right: 4px solid transparent;
+                                border-top: 8px solid #666;
+                            }
+                        }
+                        .choose-item-container {
+                            position: absolute;
+                            width: 100%;
+                            display: none;
+                            top: 25px;
+                            left: 0px;
+                            background: #FFFFFF;
+                            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.40);
+                            border-radius: 4px;
+                            span {
+                                width: 100%;
+                                font-size: 12px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                height: 32px;
+                                background: #fff;
+                                transition: all .5s;
+                                &:hover {
+                                    background: #EDEDEF;
+                                }
+                            }
+                        }
+                    }
+
+                    &>.input {
+                        width: 200px;
+                        height: 26px;
+                        margin-right: 10px;
+                        background: #F9F9F9;
+                        border-radius: 4px;
+                        box-sizing: border-box;
+                        font-size: 12px;
+                        padding-left: 6px;
+                        box-shadow: 0 0 1px rgba(51,51,51,0.5);
+                    }
+                    &>.clear {
+                        position: absolute;
+                        top: 3px;
+                        right: 52px;
+                        width: 20px;
+                        height: 20px;
+                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                        background-size: 200%;
+                        cursor: pointer;
+                    }
+
+                    &>.img {
+                        position: absolute;
+                        top: 0;
+                        color: #fff;
+                        display: flex;
+                        line-height: 25px;
+                        right: 10px;
+                        /* text-align: center; */
+                        width: 41px;
+                        background-color: #fff;
+                        height: 26px;
+                        background: url(https://cdns.007vin.com/img/p_search.png) no-repeat;
+                        cursor: pointer;
+                        background: #4A90E2;
+                        background-size: 24px;
+                        /* background-image: url(/img/p_search.png); */
+                        background-position: center;
+                        text-align: center;
+                        align-items: center;
+                        justify-content: center;
+                        &:hover {
+                            background-color: #1d77e0;
+                        }
+
+                        &:active {
+                            background-color: #135eb6;
+                        }
+                        .search-button-loading,
+                        .search-button-loading-result{
+                            position: absolute;
+                            width: 100%;
+                            /* z-index: 1211231; */
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            background-color: #4A90E2;
+                            display: none;
+                            background-image: url(https://cdns.007vin.com/img/load.gif);
+                            background-repeat: no-repeat;
+                            background-size: 20px;
+                            background-position: center;
+                        }
+                    }
+                    .input-part-search-error,
+                    .part-search-error{
+                        position: absolute;
+                        top: 28px;
+                        font-size: 12px;
+                        color: #333333;
+                        z-index: 11;
+                        right: 10px;
+                        height: 25px;
+                        background: #fff;
+                        text-align: left;
+                        line-height: 25px;
+                        padding-left: 20px;
+                        width: 179px;
+                        color: #333;
+                        box-shadow: rgba(0,0,0,0.12) 0 0 4px 0, rgba(0,0,0,0.24) 0 2px 4px 0;
+                    }
+                    // &>.hidden {
+                    //     display: none;
+                    // }
+                    .key-words-container{
+                        background: #FFFFFF;
+                        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.40);
+                        border-radius: 4px;
+                        width: e('calc(100% - 10px)');
+                        position: absolute;
+                        z-index: 2;
+                        .key-words-title{
+                            font-size: 12px;
+                            color: #999999;
+                        }
+                        &>div{
+                            height: 32px;
+                            line-height: 32px;
+                            padding-left: 12px;
+                        }
+                        .key-word-item{
+                            font-size: 14px;
+                            color: #333333;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            &:hover{
+                                background: #EDEDEF;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &>.container-result-main{
+                height: e('calc(100% - 88px)');
+            }
+            &>.container-image-list {
+                height: e('calc(100% - 42px)');
+                width: 100%;
+            }
+
+            .icon-cert{
+                // position: fixed;
+                position: absolute;                
+                top: 100px;
+                left: 15px;
+                height: 40px;
+                background: url(/img/sprite2.png) no-repeat 0 0;
+                background-size:40px; 
+                // background: #fafafa;
+                cursor: pointer;
+                width: 40px;
+                div {
+                    position: absolute;
+                    height: 40px;
+                    left: 50px;
+                    padding: 0 5px;
+                    top: -3px;
+                    display: flex;
+                    align-items: center;
+                    width: max-content;
+                    // background: rgba(255,255,255,0.6);
+                    // border: 1px solid #ddd;
+                }
+                span{
+                    position: relative;
+                    left: 24px;
+                    background: #4990E2;
+                    border: 1px solid rgba(74,144,226,0.40);
+                    box-shadow: 0 2px 4px 0 rgba(74,144,226,0.40);
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                &:hover{
+                    background: url(/img/sprite2.png) no-repeat 0 -40px;                    
+                    background-size: 40px;
+                }
+                &::active{
+                    background: url(/img/sprite2.png) no-repeat 0 -80px;                    
+                    background-size: 40px;                    
+                }
+            }
+
+            .container-subgroups {
+                // height: auto;
+                // position: fixed;
+                position: absolute;
+                /* bottom: 0; */
+                bottom: 0;
+                // top: 128px;
+                top: 88px;
+                min-width: 390px;
+                width: 37.8%;
+                height: e('calc(100% - 88px)');
+                background-color: #F5F5F5;
+                display: flex;
+                flex-direction: column;
+                .subgroup-title{
+                    height: 40px;
+                    width: e('calc(100% - 11px)');
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding-left:9px;
+                    border: 1px solid #D8D8D8;
+                    background: #f2f2f2;
+                    .title-up-button{
+                        // background: red;
+                        // background: url(https://cdns.007vin.com/img/icon_down.png);
+                        // border-radius:50%;
+                        // border: 1px solid #d8d8d8;
+                        // width: 32px;
+                        // background-position-x: center;
+                        // background-position-y: center;
+                        height: 32px;
+                        position: absolute;
+                        right: 10px;
+                        color:#4990E2;
+                        line-height: 32px;
+                        // font-size: 12px;
+                        margin-right: 10px;
+                        // transform:rotate(180deg);
+                        // transition: all 0.3s;
+                        cursor: pointer;
+                        // background: url(/img/sprite2.png) no-repeat 0 -120px;
+                        // background-size: 40px; 
+                        &:hover{
+                            // background-color: #fff;
+                            // background: url(/img/sprite2.png) no-repeat 0 -160px;
+                            // background-size: 40px; 
+                            text-decoration: underline;
+                        }
+                        &:active{
+                            // background-color: #fff;
+                            // background: url(/img/sprite2.png) no-repeat 0 -200px;
+                            // background-size: 40px; 
+                        }
+                    }
+                    .sub-up{
+                        // transform:rotate(360deg)
+                    }
+                    .title{
+                        display: flex;
+                        .filter-title{
+                            display: flex;
+                            margin-left: 20px;
+                            color: rgb(255, 50, 50);
+                        }
+                    }
+                    .container-input{
+                        position: relative;
+                        display: none;
+
+                        .input{
+                            width: 171px;
+                            height: 24px;
+                            margin-right: 10px;
+                            background: #F9F9F9;
+                            border-radius: 4px;
+                            padding-left: 10px;
+                            padding-right: 20px;
+                            box-shadow: 0 0 1px rgba(51,51,51,0.5);
+                        }
+
+                        .clear{
+                            position: absolute;
+                            top: 3px;
+                            right: 52px;
+                            width: 20px;
+                            height: 20px;
+                            background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                            background-size: 200%;
+                            cursor: pointer;
+                        }
+
+                        .img{
+                            position: absolute;
+                            top: 0;
+                            right: 10px;
+                            width: 24px;
+                            height: 24px;
+                            background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -716px;
+                            background-size: 40px;
+                            cursor: pointer;
+                        }
+                    }
+                    .changeTitle{
+                        width: 80px;
+                        height: 40px;
+                        display: flex;
+                        border: 1px solid #d8d8d8;
+                        border-right: none;
+                        cursor: pointer;
+                        span{
+                            flex:1;
+                        }
+                        .imgList{
+                            background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                            background-position-y: -548px;
+                            background-size: 100%;
+                            background-position-x: 12px;
+                        }
+                        .imgListSelected{
+                            background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                            background-position-y: -587px;
+                            background-size: 100%;
+                            background-position-x: 12px;
+                            background-color: #fff;
+                        }
+                        .dataListSelected{
+                            background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                            background-position-y: -665px;
+                            background-size: 100%;
+                            background-position-x: 12px;
+                            background-color: #fff;
+                        }
+                        .dataList{
+                            // background: green;
+                            background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                            background-position-y: -624px;
+                            background-size: 100%;
+                            background-position-x: 12px;
+                        }
+                    }
+                }
+
+                .sub-imgs{
+                    // // display: flex;
+                    // // display: block;
+                    // flex: 1;
+                    // // float: left;
+                    // overflow-y: auto;
+                    // justify-content: flex-start;
+                    // flex-wrap: wrap;
+                    // align-items: flex-start;
+                    border: 1px solid #d8d8d8;
+                    // // height: 158px;
+                    // padding-left: 10px;
+                    // padding-top: 10px;
+                    // background: #fff;
+
+                    // display: flex;
+                    flex-wrap: wrap;
+                    overflow-y: auto;
+                    height: e('calc(100% - 42px)');
+                    background: #fff;
+                    .sub-group{
+                        margin: 10px !important;
+                        float: left;
+                        box-sizing: border-box;
+                    }
+                    .sub-group-data {
+                        display: flex;
+                        align-items: center;
+                        // height: 40px;
+                        width: 100%;
+                        background: #fff;
+                        &:hover {
+                            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                            margin-bottom: 2px;
+                        }
+                        .title {
+                            width: 100px;
+                            border-left: none;
+                            padding-left: 8px;
+                            word-wrap: break-word;                            
+                            justify-content: flex-end;
+                        }
+                        .content{
+                            height: 100%;
+                            max-width: e('calc(100% - 120px)');
+                            // margin-left: 8px;
+                            display: -webkit-flex;
+                            display: -ms-flex;
+                            display: flex;
+                            padding: 10px 0 10px 10px;
+                            align-items: center;
+                            border-left: 1px solid #ddd;
+                        }
+                        &:nth-child(2n) {
+                            background-color: #F2F2F2;
+                        }
+                    }
+                    .selected{
+                        border: 2px solid #3385FF !important;
+                        box-sizing: border-box;
+                    }
+                }
+
+                .search {
+                    // border: 1px solid #3385ff;
+                    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                    // margin-bottom: 2px;
+                }
+            }
+        }
+        
+        &>.vin-part-result-container{
+            // top: 174px;
+            // height: e('calc(100% - 174px)');
+            top: 40px;
+            height: e('calc(100% - 40px)');
+        }
+
+        &>.group-part-result-container{
+            // top:128px;
+            // height: e('calc(100% - 128px)');
+            top: 40px;
+            height: e('calc(100% - 40px)');
+        }
+
+    }
+}
+.vin {
+    height: 100%;
+}
+// .search-type {
+//     position: absolute;
+//     left: -74px;
+//     background: #f9f9f9;
+//     border: 1px solid #CAC9CA;
+//     box-shadow: 0 0 0 0 rgba(0,0,0,0.3);
+//     border-radius: 4px;
+//     width: 70px;
+//     height: 24px;
+//     align-items: center;
+//     justify-content: center;
+//     line-height: 24px;
+//     padding-left: 5px;
+//     padding-right: 3px;
+//     font-size: 12px;
+//     height: 28px;
+//     color: #333333;
+//     top: -1px;
+//     box-sizing: border-box;
+//     cursor: pointer;
+//     &:hover {
+//         .choose-item-container {
+//             display: block;
+//         }
+//     }
+
+//     .choose-sure-box {
+//         line-height: 26px;
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         span {
+//             font-size: 12px;
+//             color: #333333;
+//         }
+//         b {
+//             width: 0;
+//             height: 0;
+//             border-left: 4px solid transparent;
+//             border-right: 4px solid transparent;
+//             border-top: 8px solid #666;
+//         }
+//     }
+//     .choose-item-container {
+//         position: absolute;
+//         width: 100%;
+//         display: none;
+//         top: 25px;
+//         left: 0px;
+//         background: #FFFFFF;
+//         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.40);
+//         border-radius: 4px;
+//         span {
+//             width: 100%;
+//             font-size: 12px;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             height: 32px;
+//             background: #fff;
+//             transition: all .5s;
+//             &:hover {
+//                 background: #EDEDEF;
+//             }
+//         }
+//     }
+// }

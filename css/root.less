@@ -1,0 +1,180 @@
+* {
+    border: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100% !important;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+}
+
+body{
+    min-width: 1024px;
+    overflow: auto;
+
+    .commentPlugin {
+      div, span, a, input, textarea {
+        font-size: 14px;
+        color: #fff;
+      }
+    }
+}
+
+div, span, a, input, textarea {
+    font-size: 14px;
+    color: #333;
+}
+// img{
+//     background-image: url(https://cdns.007vin.com/img/mum.gif);
+//     background-size: 50% 50%;
+//     background-repeat: no-repeat;
+//     background-position: center;
+// }
+
+// 特殊处理 倒计时格式
+
+.digit div,.digit span{
+   font-size: 90px;
+    color: #FFF; 
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+input:focus{
+    border: 1px solid #4A90E2;
+    outline: none;
+}
+
+::-webkit-input-placeholder {
+    font-size: 14px;
+    color: @fcRemind;
+}
+
+::-moz-placeholder {
+    font-size: 14px;
+    color: @fcRemind;
+}
+
+.df {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+}
+
+@w: 100%;
+// @w: 1024px;
+
+// out: ./base.css, compress: true
+
+@zero: 0;
+@auto: "auto";
+
+//百分比
+@cFive: 5%;
+@cTen: 10%;
+@cQuarter: 25%;
+@cOneThird: 33.3%;
+@cHalf: 50%;
+@cFull: 100%;
+
+//像素
+@pOne: 1px;
+@pTwo: 2px;
+@pThree: 3px;
+@pFive: 5px;
+@pSeven: 7px;
+@pTen: 10px;
+
+//颜色
+@lucency: rgba(0, 0, 0, 0);
+.color(@color: #FFF) {
+    color: @color;
+}
+
+//字色
+@fcMain: #333;
+@fcSub: #666;
+@fcRemind: #999;
+.fontSize(@fontSize: 14px) {
+    font-size: @fontSize;
+}
+
+//边框颜色
+@bColor: #D8D8D8;
+@bColorActive: #45C0FF;
+@bColorLine: #DFDFDF; //单根颜色
+
+//按钮颜色
+@buttonColor: #0D6FB8;
+
+//层级
+@zOne: 1;
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.block {
+    display: block;
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.position(@topPosition: 0, @rightPosition: 0, @bottomPosition: 0, @leftPosition: 0) {
+    top: @topPosition;
+    right: @rightPosition;
+    bottom: @bottomPosition;
+    left: @leftPosition;
+}
+
+.rect(@topRect: 0, @widthRect: "auto", @heightRect: "auto") {
+    top: @topRect;
+    width: @widthRect;
+    height: @heightRect;
+}
+
+.rectLeft(@leftRect: 0, @topRect: 0, @widthRect: "auto", @heightRect: "auto") {
+    left: @leftRect;
+    .rect(@topRect, @widthRect, @heightRect)
+}
+
+.rectRight(@rightRect: 0, @topRect: 0, @widthRect: "auto", @heightRect: "auto") {
+    right: @rightRect;
+    .rect(@topRect, @widthRect, @heightRect)
+}
+
+.size(@widthSize: "auto", @heightSize: "auto") {
+    width: @widthSize;
+    height: @heightSize;
+}
+
+.sizeFull {
+    width: @cFull;
+    height: @cFull;
+}
+
+.sizeFullWidth {
+    width: @cFull;
+}
+
+.sizeFullHeight {
+    height: @cFull;
+}

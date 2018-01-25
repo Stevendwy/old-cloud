@@ -1,0 +1,245 @@
+#FeedBackButton {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  display: none;
+  top: auto;
+  z-index: 11111111111;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  background: url("https://cdns.007vin.com/img/icon_fankui.png") no-repeat 0 0;
+}
+#FeedBackButton:active {
+  background: url("https://cdns.007vin.com/img/icon_fankuaidian.png") no-repeat 0 0;
+}
+.FeedBackButton {
+  position: absolute;
+  right: 84px;
+  cursor: pointer;
+  top: 10px;
+  display: none;
+  z-index: 99999999999999999;
+}
+.FeedBackButton > b {
+  width: 20px;
+  height: 20px;
+  background: url("https://cdns.007vin.com/img/p_group.png") no-repeat -11px -10px;
+  float: left;
+  margin-top: 12px;
+  margin-right: 7px;
+}
+.FeedBackButton > span {
+  float: left;
+  color: #fff;
+  font-size: 14px;
+}
+.FeedbackContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000000000000;
+  display: none;
+}
+.FeedbackContainer .textAreaContainer {
+  position: fixed;
+  bottom: -179px;
+  right: 0px;
+  height: 210px;
+  width: 259px;
+  font-size: 14px;
+  z-index: 11111111111111111;
+  background: rgba(216, 216, 216, 0.8);
+  border: 1px solid #D8D8D8;
+  border-radius: 4px;
+}
+.FeedbackContainer .textAreaContainer .chooseItem {
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.FeedbackContainer .textAreaContainer .chooseItem .itemsTitle {
+  font-size: 12px;
+  color: #333333;
+  cursor: move;
+  padding-left: 12px;
+  height: 32px;
+  line-height: 32px;
+}
+.FeedbackContainer .textAreaContainer .chooseItem .itemsBody .item {
+  background: #FFFFFF;
+  height: 24px;
+  float: left;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 4px;
+  width: 80px;
+  font-size: 12px;
+  color: #666666;
+  cursor: pointer;
+  margin: 3px;
+}
+.FeedbackContainer .textAreaContainer .chooseItem .itemsBody .item:hover {
+  background: #1D77E0;
+  color: #fff;
+}
+.FeedbackContainer .textAreaContainer .chooseItem .itemsBody .item:active {
+  background: #135EB6;
+  color: #fff;
+}
+.FeedbackContainer .textAreaContainer .chooseItem .itemsBody .selected {
+  background: #4A90E2;
+  color: #fff;
+}
+.FeedbackContainer .textAreaContainer .textAreaHearder {
+  background: #1AA0F3;
+  line-height: 28px;
+  text-align: center;
+  color: #fff;
+  cursor: move;
+}
+.FeedbackContainer .textAreaContainer .textAreaInput {
+  color: #333;
+  border: 0;
+  resize: none;
+  outline: none;
+  border: 1px solid #999;
+  margin-left: 7px;
+  font-size: 14px;
+  padding: 5px;
+  background: transparent;
+}
+.FeedbackContainer .ImageParkContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.FeedbackContainer .ImageParkContainer #canvas {
+  position: relative;
+}
+.FeedbackContainer .ImageParkContainer .Image {
+  position: relative;
+}
+.FeedbackContainer .ImageParkContainer .ImageParkSelectorContainer {
+  position: relative;
+  display: flex;
+  background: rgba(255, 255, 255, 0.9);
+  height: 40px;
+  border-radius: 4px;
+  z-index: 111111111111111111;
+  justify-content: flex-end;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+}
+.FeedbackContainer .ImageParkContainer .ImageParkSelectorContainer .cutLine {
+  width: 1px;
+  height: 40px;
+  background: 1px solid #000;
+}
+.FeedbackContainer .ImageParkContainer .ImageParkSelectorContainer .ImageParkSelector {
+  position: relative;
+  margin-right: 4px;
+  padding-right: 3px;
+}
+.FeedbackContainer .ImageParkContainer .ImageParkSelectorContainer .ImageParkSelector .msgalert {
+  position: absolute;
+  bottom: 43px;
+  left: 0;
+  display: none;
+  padding-left: 5px;
+  background: url('https://cdns.007vin.com/img/icon_zi_1.png') no-repeat 0 0;
+  width: 58px;
+  height: 23px;
+  line-height: 23px;
+  font-size: 10px;
+  color: #333;
+}
+.FeedbackContainer .ImageParkContainer .ImageParkSelectorContainer .ImageParkSelector:hover .msgalert {
+  display: block;
+}
+.FeedbackContainer .ImageParkContainer .ImageParkSelectorContainer .ImageParkSelector .ImageParkSelectorImg {
+  top: 6px;
+  width: 30px;
+  position: relative;
+  background: none;
+  cursor: pointer;
+}
+.FeedbackContainer .ImageParkContainer .ImageParkSelectorContainer .ImageParkSelector .ImageParkSelectorImg:hover {
+  background-color: #EAEAEA;
+}
+.FeedbackContainer .ImageParkContainer .ImageParkSelectorContainer .ImageParkSelector:nth-child(4) img {
+  border-right: 1px solid #d8d8d8;
+}
+.feedSuccessContainer {
+  position: fixed;
+  width: 160px;
+  z-index: 1000000000;
+  height: 110px;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+  color: #FFFFFF;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+}
+.feedSuccessContainer p {
+  text-align: center;
+  color: #fff;
+  height: 40px;
+  line-height: 20px;
+  margin-top: 18px;
+  margin-bottom: 14px;
+  display: block;
+}
+.feedSuccessContainer span {
+  display: block;
+  text-align: center;
+  color: #fff;
+}
+.flexDivs .flexBorder {
+  position: fixed;
+  top: 40px;
+  right: 10px;
+  width: calc(100% - 26px);
+  height: calc(100% - 86px);
+  background: transparent;
+  border: 3px solid #45C0FF;
+}
+.flexDivs > div {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 11111111;
+}
+.flexTop {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 40px;
+}
+.flexRight {
+  top: 40px;
+  right: 0px;
+  height: calc(100% - 80px);
+  width: 10px;
+}
+.flexBottom {
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 40px;
+}
+.flexLeft {
+  top: 40px;
+  left: 0px;
+  height: calc(100% - 80px);
+  width: 10px;
+}
+.hm-t-container {
+  display: none;
+}

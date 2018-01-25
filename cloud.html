@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <meta name='renderer' content='webkit'>
+  <meta HTTP-EQUIV='pragma' CONTENT='no-cache'>
+  <meta HTTP-EQUIV='Cache-Control' CONTENT='no-cache, must-revalidate'>
+  <meta HTTP-EQUIV='expires' CONTENT='0'>
+  <meta name='keywords'content='车架号查询,零件号查询,配件查询,零部件查询,零配件查询,汽配查询,EPC,ETK,ETKA' />
+  <meta name='description' content='零零汽007vin.com-专业的汽配查询工具,随时随地上网就能查。通过车架号查询与原厂一致的车辆配置表和零件分组,支持超过500万的零件名、零件号搜索，让配件查询更简单!' />
+  <link rel='shortcut icon' href='https://cdns.007vin.com/img/logo.ico'>
+  <title>零零汽(007vin.com)-汽配查询云服务，简单、快捷、准确</title>
+  <link rel="stylesheet" type="text/css" href="https://cdns.007vin.com/css/gtconfig.min.css" />
+  <!-- <link rel="stylesheet" href="https://cdns.007vin.com/css/flipTimer.css"> -->
+  <link rel="stylesheet" href="https://cdns.007vin.com/css/cloud.css">
+  <script src="/js/language.js"></script>
+  
+</head>
+
+<body>
+  <div id='header'>
+    <div class='content'>
+      <img id='logo' src='https://cdns.007vin.com/img/p_007.png' alt='logo' onclick="showHomepage()" />      
+      <!-- <div id='any-activity' onclick="showAnyActivity()"> -->
+      <!-- <div id='any-activity' onclick="loopLocation('/activity/activity_page?activity_code=2017buy1get1free_audi')"> -->
+      <div id='any-activity'>
+        <!-- <img class="any-activity-run" src="https://cdns.007vin.com/img/p_moon.png" alt=""> -->
+        <!-- <img class="any-activity-cartoon" src="https://cdns.007vin.com/img/p_moon1.gif" alt=""> -->
+        <div id="any-activity-poster-back">
+          <div class="any-activity-poster">
+            <img class="any-activity-poster-img" src="https://cdns.007vin.com/img/p_moonp.png" alt="any-activity-poster-img" />
+            <!-- <div class="any-activity-poster-time">
+              <div class="dowebok">
+                <div class="days"></div>
+                <div class="hours"></div>
+                <div class="minutes"></div>
+                <div class="seconds"></div>
+              </div>
+            </div> -->
+            <div class="any-activity-poster-close" onclick="hiddenAnyActivity(event)"></div>
+          </div>
+        </div>
+      </div>
+      <div class='inquires'>
+        <span class="error-refash" style="display:none" onclick="showdanger()">
+
+        </span>
+        <!-- 全局函数，react 中申明使用 window.changeType -->
+        <b class="combo-home">
+            <a id="_home" href='javascript:showHomepage()' }>
+              <!-- <h1 style="font-weight: bold;">首页</h1> -->
+              <script>
+                document.getElementById("_home").innerHTML="<h1 style='font-weight: bold'>"+ lg["首页"][lge] + "</h1>"  
+              </script>
+            </a>
+        </b>
+        <b class="combo-com">
+          <a id="_vin" href='javascript:changeType("vin")' }>
+            <script>
+              document.getElementById("_vin").innerHTML="<h1>"+ lg["车架号查询"][lge] +"</h1>"  
+            </script>
+            <!-- <h1>车架号查询</h1> -->
+
+          </a>
+          <a id="_car" href='javascript:changeType("car")' }>
+            <script>
+              document.getElementById("_car").innerHTML="<h1>"+ lg["车型查询"][lge] +"</h1>"  
+            </script>
+            <!-- <h1></h1> -->
+          </a>
+          <a id="_part" href='javascript:changeType("part")' }>
+            <!-- <h1>零件号查询</h1> -->
+            <script>
+              document.getElementById("_part").innerHTML="<h1>"+ lg["零件号查询"][lge] +"</h1>"  
+            </script>
+          </a>
+          <img src="/img/p_wait.png"  onclick='location.href = "/user/profile?binds=home"' alt="待开通">
+        </b>
+        <b class="combo-cell">
+          <a id="_partEng" href='javascript:changeType("partEng")' }>
+            <!-- <h1>品牌号查询</h1> -->
+            <script>
+              document.getElementById("_partEng").innerHTML="<h1>"+ lg["品牌号查询"][lge] +"</h1>"  
+            </script>
+          </a>
+          <img src="/img/p_wait.png" onclick='location.href = "/user/profile?binds=home"' alt="待开通">          
+        </b>
+      </div>
+      <div id='header-account' class='account'>
+        <div class="operateGuide" id="help-lge" onclick="window.operateGuideClick()">
+          <!-- 操作指引 -->
+          <script>
+            document.getElementById("help-lge").innerHTML = lg["操作指引"][lge]
+          </script>
+        </div>
+        <a href='/user/register_web' id="regist-lge">
+          <script>
+            document.getElementById("regist-lge").innerHTML = lg["注册"][lge]
+          </script>
+        </a>
+        <a href='javascript:login()' id="login-lge">
+          <!-- 登录 -->
+          <script>
+            document.getElementById("login-lge").innerHTML = lg["登录"][lge]
+          </script>
+        </a>
+      </div>
+      <div id='header-utils' class='utils'>
+        <div class='show'>
+          <div class="shoppingCart" onclick="window.showShoppingCart()" title='查看购物车'>
+            <span class="cret_icon"></span>
+          </div>
+          <div class="operateGuide" onclick="window.operateGuideClick()">
+            <span id="operate-lge">
+                <script>
+                  document.getElementById("operate-lge").innerHTML = lg["操作指引"][lge]
+                </script>
+            </span>
+            <div class="update-box">
+              <div class="update-title">
+                零零汽新版本更新啦！                  
+              </div>
+              <div class="update-main">
+                  零件列表支持专家留言， <br>
+                  空购物车可以跳转历史报价单。 <br>
+                  赶快试试吧～ <br>
+              </div>
+              <div class="update-footer">
+                <span>
+                  查看全部操作说明
+                </span>
+              </div>
+              <span class="update-close" onclick="window.closeupdatebox(event)">
+                <img src="/img/icon_close_black.png" alt="关闭">
+              </span>
+            </div>
+          </div>
+          <a>
+ 
+          </a>
+          <div id='person' class='person'>
+            <div class="center">
+              <span class="icon"></span>
+               <span id="user-lge">
+                  <!-- 个人中心                   -->
+                  <script>
+                    document.getElementById("user-lge").innerHTML = lg["个人中心"][lge]
+                    
+                  </script>
+              </span> 
+
+              <div class="RedPoint" style="display:none;"></div>
+            </div>
+            <div class='person-hidden'>
+              <div class="LogoutItem" onclick='location.href = "/user/profile?binds=search&type=messages"'>
+                <img src="https://cdns.007vin.com/img/icon_mess.png" />
+                <span>
+                  消息中心
+                </span>
+                <div class="RedPoint" style="display:none"></div>
+              </div>
+              <div class="LogoutItem" onclick='location.href = "/user/profile?binds=search"'>
+                <img src="https://cdns.007vin.com/img/user_icon.png" />
+                <span>
+                  个人中心
+                </span>
+              </div>
+              <div class="LogoutItem" onclick='location.href = "/user/profile?binds=home"'>
+                <img src="https://cdns.007vin.com/img/p_pay.png" />
+                <span>
+                  续费
+                </span>
+              </div>
+              <div class="LogoutItem" onclick='location.href = "/logout"'>
+                <img src="https://cdns.007vin.com/img/icon_exit.png" />
+                <span>
+                  退出
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="FeedBackButton">问题反馈</div>
+  <div id='app'></div>
+  <div id="homepage">
+    <div class="homepage-top-container">
+      <div class='homepage-carousel'>
+        <div id="homepage-banners" class='container-banners'></div>
+        <div class='homepage-carousel-previous' onclick='carouselPrevious()'>
+          <img src='img/banner_previous.png' alt='previous' />
+        </div>
+        <div class='homepage-carousel-next' onclick='carouselNext()'>
+          <img src='img/banner_next.png' alt='next' />
+        </div>
+        <div id='homepage-index-points'></div>
+      </div>
+      <div id="homepage-login" class='container-login'>
+        <span class='title' id="login-lge">
+          <!-- 登录 -->
+          <script>
+            document.getElementById("login-lge").innerHTML = lg["登录"][lge]
+          </script>
+        </span>
+        <div class='container-input'>
+          <input id="login-username" class='input' placeholder='输入手机号' oninput="loginUsernameInput(event)" />
+          <div id="login-username-clear" class='clear' onclick="clearUsername()"></div>
+        </div>
+        <div class='container-input'>
+          <input id="login-password" type='password' class='input' placeholder='输入密码' oninput="loginPasswordInput(event)" onkeydown="passwordKeyEvent(event)"
+            onkeyup="passwordKeyEvent(event)" />
+          <div id="login-password-caps" class='caps' onclick="clear"></div>
+          <div id="login-password-clear" class='clear' onclick="clearPassword()"></div>
+        </div>
+        <div class='util-password'>
+          <label style="color: #999">
+            <input id="login-remember" type='checkbox' onchange="rememberChange(event)" /> 
+            <!-- 记住密码 -->
+            <span stylee="color: #999" id="remember-lge">
+                <script> 
+                    document.getElementById("remember-lge").innerHTML = lg["记住密码"][lge]
+                </script>
+            </span>
+          </label>
+          <a href='https://007vin.com/findpwd' id="forget-lge">
+            <!-- 忘记密码 -->
+            <script>
+              document.getElementById("forget-lge").innerHTML = lg["忘记密码"][lge] + "?"         
+            </script>
+            
+          </a>
+        </div>
+        <input class='button-login' type='button' value='登录' onclick="login()" />
+        <span id='homepage-login-loading' class="login-loading"></span>
+        <div class='container-regist'>
+          <span id="no-count-lge">
+            <!-- 没有账号？ -->
+            <script>
+              document.getElementById("no-count-lge").innerHTML = lg["没有账号"][lge] + "?" 
+            </script>
+          </span>
+          <a href='https://007vin.com/user/register_web' id="regist-now-lge">
+            
+            <script>
+              document.getElementById("regist-now-lge").innerHTML = lg["立即注册"][lge] 
+            </script>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="homepage-title" id="h-t-lge">
+        <!-- 零零汽当前覆盖品牌 -->
+      <script>
+        document.getElementById("h-t-lge").innerHTML = lg["零零汽当前覆盖品牌"][lge] 
+      </script>
+    </div>
+    <img class="homepage-brands-img" src="https://cdns.007vin.com/img/p_logo.png" alt="零零汽汽配搜索列表, 涵盖宝马, 路虎, 奔驰, 奥迪, 大众, 保时捷等 22 种品牌">
+    <div class='homepage-data'>
+      <div class='homepage-data-run'>
+        <span id="run-cars">-</span>
+        <span id="modle-lge">
+          <!-- 车型数据 -->
+          <script>
+            document.getElementById("modle-lge").innerHTML = lg["车型数据"][lge]
+          </script>
+        </span>
+      </div>
+      <div class='homepage-data-run'>
+        <span id="run-brands">-</span>
+        <span id="over-lge">
+          <!-- 覆盖品牌 -->
+          <script>
+            document.getElementById("over-lge").innerHTML = lg["覆盖品牌"][lge]
+          </script>
+        </span>
+      </div>
+      <div class='homepage-data-run'>
+        <span id="run-parts">-</span>
+        <span id="part-lge">
+          <script>
+            document.getElementById("part-lge").innerHTML = lg["零件数据"][lge]
+          </script>
+        </span>
+      </div>
+    </div>
+    <div class="homepage-car">
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">阿尔法罗密欧配件查询</a></span>          
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">奥迪配件查询</a></span>  
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">阿斯顿马丁配件查询</a></span>          
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">宝马配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">保时捷配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">北汽配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">奔驰配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">本田配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">宾利配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">大众配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">法拉利配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">菲亚特配件查询</a></span>        
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">丰田配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">捷豹配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">Jeep配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">克莱斯勒配件查询</a></span>        
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">兰博基尼配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">劳斯莱斯配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">雷克萨斯配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">路虎配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">迈巴赫配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">玛莎拉蒂配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">MINI配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">讴歌配件查询</a></span>  
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">三菱配件查询</a></span>          
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">斯柯达配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">Smart配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">特斯拉配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">沃尔沃配件查询</a></span>
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">现代配件查询</a></span>        
+        <span><a class="homepage-car-list-item" href="javascript:changeType('car')">西雅特配件查询</a></span>
+    </div>
+    <div class='homepage-bottom'>
+      <div class='homepage-bottom-about'>
+        <span onclick="window.open('http://www.peipeiyun.com/')" id="about-us-lge">
+          <!-- 关于我们 -->
+            <script>
+              document.getElementById("about-us-lge").innerHTML = lg["关于我们"][lge]
+            </script>
+        </span>
+        <span onclick="_userAgreementClick()" id='userAgree-lge'>
+          
+          <script>
+            document.getElementById("userAgree-lge").innerHTML = lg["用户协议"][lge]
+          </script>
+        </span>
+        <span onclick="showCooperation()" id='cooperation-lge'>
+          <!-- 数据合作 -->
+          <script>
+            document.getElementById("cooperation-lge").innerText = lg["数据合作"][lge]
+          </script>
+          <div id="any-activity-poster-cooperation">
+            <div class="any-activity-poster">
+              <img class="any-activity-poster-img" src="https://cdns.007vin.com/img/p_hezuo.png" alt="any-activity-poster-img" />
+              <div class="any-activity-poster-close" onclick="hiddenCooperation(event)"></div>
+            </div>
+          </div>
+        </span>
+      </div>
+      <div class='homepage-bottom-license'>
+        © 2016-2017 007vin.com
+        <span> 版权所有 浙ICP备：<span onclick="window.open('http://www.miitbeian.gov.cn/')">17026959号-2</span></span>
+      </div>
+    </div>
+  </div>
+  <div id="mum"></div>
+  <div id="container-gt">
+    <div id="content-gt">
+      <div id="title-gt">
+        <span>尊敬的用户，因您的查询过于频繁，</span>
+        <span>您需要点击下方按钮进行验证，</span>
+        <span>验证通过即可继续查询。</span>
+      </div>
+      <div id="play-gt"></div>
+    </div>
+  </div>
+  <div id="browserChange" style="display:none">
+    <div id="mainError">
+      <div class="danger-title">
+        警告
+      </div>
+      <!--<img src="https://cdns.007vin.com/img/p_jian.png" alt="浏览器版本不支持">-->
+      <div class="msg">
+        <p>
+          当前浏览器无法使用零零汽全部功能!
+        </p>
+        <p>
+          请使用以下浏览器:
+        </p>
+      </div>
+      <div class="choose">
+        <div class="browserItem">
+          <a href="http://se.360.cn/">
+            <img src="https://cdns.007vin.com/img/img_360.png" alt="360安全浏览器">
+          </a>
+          <span>版本号8.0以上</span>
+        </div>
+        <div class="browserItem">
+          <a href="http://ie.sogou.com/">
+            <img src="https://cdns.007vin.com/img/img_dog.png" alt="搜狗浏览器">
+          </a>
+          <span>版本号6.0以上</span>
+        </div>
+        <div class="browserItem">
+          <a href="http://www.chromeliulanqi.com/">
+            <img src="https://cdns.007vin.com/img/img_chrome.png" alt="谷歌浏览器">
+          </a>
+          <span>版本号55以上</span>
+        </div>
+        <div class="browserItem">
+          <a href="http://www.firefox.com.cn/">
+            <img src="https://cdns.007vin.com/img/img_firefox.png" alt="火狐浏览器">
+          </a>
+          <span>版本号50以上</span>
+        </div>
+        <span class="notAgain">
+          <img src="https://cdns.007vin.com/img/icon_zhifuxuanzhe.png" alt="不再提示" />不再提示</span>
+      </div>
+      <div class="close">
+        <!-- <img src="https://cdns.007vin.com/img/icon_closes.png" alt="关闭"> -->
+      </div>
+    </div>
+  </div>
+  <div id="vue"></div>
+  <script src="https://cdns.007vin.com/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <!-- <script src="https://cdns.007vin.com/js/jquery.flipTimer.js"></script> -->
+  <script src="https://cdns.007vin.com/js/html2canvas.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://cdns.007vin.com/js/drawDom.js" type="text/javascript"></script>
+  <script src="https://cdns.007vin.com/js/gt.js"></script>
+  <script src="https://cdns.007vin.com/js/gtconfig.js"></script>
+  <script src='https://cdns.007vin.com/js/cloud.js' charset='utf-8'></script>
+  <script src="https://cdns.007vin.com/js/browsertest.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    var isLanbo = false //兰博基尼车型图片隐形处理
+    var listWhichClick = -1 //列表点击选中状态处理
+    var VINLANBO = ""
+    var listClickType = false //点击类型处理 用于判断零件号定位 右边点击
+    function showAnyActivity() {
+      document.getElementById('any-activity-poster-back').style.display = 'flex'
+    }
+
+    function hiddenAnyActivity(e) {
+      e.stopPropagation()
+      document.getElementById('any-activity-poster-back').style.display = 'none'
+    }
+
+    function showCooperation() {
+      document.getElementById('any-activity-poster-cooperation').style.display = 'flex'
+    }
+    function loopLocation(link) {
+      // console.log(link)
+      // location.href = link
+      window.open(link)
+    } 
+
+    function hrefLoop(link) {
+      location.href = link
+    }
+
+    function hiddenCooperation(e) {
+      e.stopPropagation()
+      document.getElementById('any-activity-poster-cooperation').style.display = 'none'
+    }
+    
+    function closeupdatebox(e) {
+      if(e) {
+        e.stopPropagation()
+      }
+      $(".update-box").hide()
+      localStorage.setItem("update", 4)
+    }
+
+    (function(){
+      if(localStorage.getItem("update") == 4) {
+        
+      }else {
+        localStorage.setItem("update", 2)
+        $(".update-box").show()
+      }
+    })()
+
+    // var treeIndex = 1   //logo右边的图片动画
+    // function flash(){
+    //   var treeSrc = $(".any-activity-cartoon").attr('src')
+    //   var newSrc 
+    //   treeSrc = "https://cdns.007vin.com/" + treeSrc
+    //   // console.log(treeSrc)
+    //   switch(treeSrc) {
+    //     case "https://cdns.007vin.com/img/p_moon1.png":
+    //       newSrc = "https://cdns.007vin.com/img/p_moon2.png"
+    //       break;
+    //     case "https://cdns.007vin.com/img/p_moon2.png":
+    //       newSrc = "https://cdns.007vin.com/img/p_moon3.png"
+    //       break; 
+    //     case "https://cdns.007vin.com/img/p_moon3.png":
+    //       newSrc = "https://cdns.007vin.com/img/p_moon4.png"
+    //       break; 
+    //     case "https://cdns.007vin.com/img/p_moon4.png":
+    //       newSrc = "https://cdns.007vin.com/img/p_moon1.png"
+    //       break; 
+    //   }
+
+    //   $(".any-activity-cartoon").attr('src', newSrc)
+    //   // if($(".any-activity-run").attr('src') == "https://cdns.007vin.com/img/1111.png") {
+    //   //   $(".any-activity-run").attr('src', "https://cdns.007vin.com/img/2222.png")
+    //   // }else{
+    //   //   $(".any-activity-run").attr('src', "https://cdns.007vin.com/img/1111.png")
+    //   // }
+    // }
+
+
+    // (function() {
+    //   setInterval(flash, 500)
+    // })()
+
+
+    // })
+    // $(function(){
+    //     var d = new Date()
+    //     var myDate = d.getFullYear() + '/' + 10 + '/' + '01' + ' 00:00:00'
+
+    //     $('.dowebok').flipTimer({
+    //         direction: 'down',
+    //         date: myDate
+    //     })
+    // })
+
+  </script>
+  <script async src="dist/app.js"></script>
+</body>
+
+</html>

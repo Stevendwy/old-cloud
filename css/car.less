@@ -1,0 +1,398 @@
+// out: ./car.css, compress: true
+
+.cars{
+  flex-direction: column;
+  .cars-body-title-btn{
+    display: flex;
+    height: 40px;
+    /* border: 1px solid; */
+    flex-direction: row;
+    background-color: #EDEDEF;
+    .btn-include{
+      flex: 158;
+      min-width: 158px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      &>div{
+        width: 52px;
+        height: 24px;
+        margin-left: 12px;
+        border: 1px solid #CAC9CA;
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.30);
+        border-radius: 4px;
+        cursor: pointer;
+
+        background-image: url(https://cdns.007vin.com/img/spirit.png);
+        background-repeat: no-repeat;
+        background-size: 40px;
+        background-position: 16px -1955px;
+      }
+      .btn-right{
+        background-position: 16px -1995px;
+      }
+    }
+    .title-include{
+      flex: 864;
+      min-width: 864px;
+      padding-left: 20px;
+      display: inline-flex;
+      align-items: center;
+      &>span{
+          margin-right: 5px;
+      }
+      &>span:hover{
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+	.cars-body{
+        min-width: 1024px;
+        min-height: 540px;
+        width: 100%;
+        height: e('calc(100vh - 40px)');
+        margin: 0 auto;
+        display: flex;
+
+        .car-body-left{
+             flex: 158;
+             min-width: 158px;
+        	 height: e('calc(100% - 2px)');
+        	 background-color: #EDEDEF;
+             border: 1px solid #A7A7A8;
+             display: flex;
+             flex-direction: column;
+        }
+
+        .car-body-left-stairs{
+           width: e('calc(100% - 15px)');
+           padding-left: 15px;
+           height: 40px;
+           font-size: 14px;
+           color: #333333;
+           line-height: 40px;
+           cursor: pointer;
+        }
+
+        .car-body-left-stairsclicked{
+        	   width: e('calc(100% - 19px)');
+           height: 36px;
+           font-size: 14px;
+           color: #FFFFFF;
+        	   background-color: #4A90E2;
+           border: 2px solid #3385FF;
+           padding-left: 15px;
+           text-align: left;
+           line-height: 36px;
+           cursor: pointer;
+        }
+
+        .car-body-right{
+            flex: 864;
+            min-width: 864px;
+            height: e('calc(100% - 2px)');
+            display: inline-flex;
+            flex-direction: column;
+
+        	   .car-body-right-content{
+            	   	background: #FFFFFF;
+                  border: 1px solid #D8D8D8;
+                  width: 100%;
+                  min-height: 490px;
+                  height: 100%;
+
+                .car-body-right-search{
+                	  background: #F2F2F2;
+                	  width: 100%;
+                	  height: 40px;
+                    display: flex;
+                    justify-content: space-between;
+                    .car-body-right-title-cloud{
+                        margin: 4px 12px;
+                        display: inline-flex;
+                        line-height: 32px;
+                    }
+
+                	  .car-body-right-search-body{
+                      width: 200px;
+                      height: 32px;
+                      background: #FFFFFF;
+                      border-radius: 4px;
+                      margin: 4px 12px;
+                      display: inline-flex;
+                      position: relative;
+                      float: right;
+
+                	  	.car-body-right-search-input{
+                	  		width: e('calc(100% - 8px)');
+                	  		padding-left:8px;
+                        font-size: 14px;
+                        color: #999999;
+                        border-radius: 4px;
+                	  	}
+
+                      .car-body-right-search-result{
+                        width: calc(100% - 8px);
+                        font-size: 12px;
+                        color: #333333;
+                        position: absolute;
+                        bottom: -18px;
+                        background-color: white;
+                        padding-left: 8px;
+                        background: #FFFFFF;
+                        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
+                      }
+
+                	  	.car-body-right-search-imgclear{
+                        // height: 18px;
+                        // width: 18px;
+                        // background: url(https://cdns.007vin.com/img/spirit.png) no-repeat left top;
+                        // background-size: 200% auto;
+                        // background-position-y: 2px;
+                        // background-position-x: 2px;
+                        // position: absolute;
+                        // right: 40px;
+                        // top: 6px;
+                        // cursor: pointer;
+                          position: absolute;
+                          top: 6px;
+                          right: 32px;
+                          width: 20px;
+                          height: 20px;
+                          background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                          background-size: 200%;
+                          cursor: pointer;
+                     }
+
+                	  	.car-body-right-search-imgsearch{
+                        // height: 30px;
+                        // width: 30px;
+                        // background: url(https://cdns.007vin.com/img/spirit.png) no-repeat left top;
+                        // background-size: 100%;
+                        // background-position-y: -531px;
+                        // background-position-x: 7px;
+                        // position: absolute;
+                        // right: 4px;
+                        // top: 0;
+                        position: absolute;
+                        top: 7px;
+                        left: 172px;
+                        width: 20px;
+                        height: 20px;
+                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -720px;
+                        background-size: 40px;
+                        cursor: pointer;
+                	  	}
+                	  }
+                }
+            }
+        }
+    }
+}
+
+//数据 和 图片 显示处理
+.car-body-right-result{
+   .car-body-right-result-img{
+   	display: flex;
+   	flex-direction: row;
+   	flex-wrap: wrap;
+   	padding: 12px;
+
+   	&>div{
+   		margin: 0 18px 20px 0;
+   	}
+
+   	&>div:hover{
+        box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.30);
+        cursor: pointer;
+    }
+//  &>div:hover img{
+//      -webkit-transform: scale(1.05);
+//      -moz-transform: scale(1.05);
+//      -ms-transform: scale(1.05);
+//      transform: scale(1.05);
+//  }
+
+    .car-body-right-result-imgpop{
+    	  width: 96px;
+    	  height: 96px;
+    	  background: #FFFFFF;
+        border: 1px solid #D8D8D8;
+        border-radius: 4px;
+        text-align: center;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        word-break: break-word;
+
+       &>img{
+       	width: 50%;
+       }
+    }
+    .car-body-right-result-imgclc{
+    	width: 94px;
+      height: 94px;
+      background: #FFFFFF;
+      border: 2px solid #3385FF;
+      border-radius: 4px;
+      text-align: center;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      word-break: break-word;
+
+       &>img{
+        width: 50%;
+       }
+    }
+
+    .choice{
+       order: 0;
+       box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.30);
+    }
+
+    .notchoice{
+       order: 1;
+    }
+}
+
+.car-body-right-result-world{
+    display: flex;
+    flex-direction: column;
+
+    .car-body-right-result-worldpop{
+        	height: 32px;
+        	line-height: 32px;
+        	width:e('calc(100% - 20px)');
+    }
+
+    .car-body-right-result-worldclc{
+    	    height: 28px;
+    	    line-height:28px;
+    	    border: 2px solid #3385FF;
+    	    width: e('calc(100% - 24px)');
+    }
+
+    &>div{
+        padding-left: 20px;
+        text-align: left;
+        display: flex;
+        &>div{
+          flex:1;
+        }
+        &>div:nth-child(2){
+          border-left: 1px solid #efefef;
+          padding-left: 10px;
+        }
+    }
+
+    &>div:nth-child(even){
+        background: #F2F2F2;
+    }
+
+    &>div:hover{
+        box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.30);
+        margin-bottom: 2px;
+        cursor: pointer;
+    }
+
+    .choice{
+    	   order: 0;
+    	   color: blue;
+    }
+
+    .notchoice{
+       order: 1;
+    }
+   }
+
+   &:nth-child(n+2){
+   	    overflow-y: auto;
+        width: 100%;
+        height: e('calc(100% - 40px)');
+        // 新加车型图片大小处理
+        &>div:nth-child(n+2){
+          .car-body-right-result-imgclc{
+                width: 106px;
+                height: 106px;
+          }
+          .car-body-right-result-imgpop{
+                width: 108px;
+                height: 108px;
+          }
+        }
+   }
+}
+
+//重要消息弹框设置
+.container-content{
+	.okFatherSearch{
+		position: fixed;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.4);
+        .okContentMoveSearch{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            margin: auto;
+            background: url(https://cdns.007vin.com/img/p_tongzhimessage.png) no-repeat center center;
+            border-radius: 6px;
+            height: 295px;
+            width: 360px;
+            background-size: 360px 295px;
+            .okMessageClose{
+                position: absolute;
+                width: 37px;
+                height: 30px;
+                right: 0;
+                top: 0;
+                border-radius: 17px;
+            }
+            .okMessageSearch{
+                position: relative;
+                font-size: 14px;
+                color: #666666;
+                width: 92%;
+                height: e('calc(60% - 8%)');
+                line-height: 25px;
+                text-align: left;
+                top: 56px;
+                left: 6px;
+                padding: 4% 2%;
+                text-indent: 2em;
+                overflow: auto;
+            }
+            .okFooterLeftSearch,.okFooterRightSearch{
+                position: absolute;
+                bottom: 17px;
+                color: #666666;
+                font-size: 14px;
+                height: 40px;
+                width: 120px;
+                text-align: center;
+                line-height: 40px;
+                border-radius: 2px;
+
+            }
+            .okFooterLeftSearch{
+                left: 35px;
+                border: 1px solid #D8D8D8;
+            }
+            .okFooterRightSearch{
+                right: 35px;
+                background: #4A90E2;
+                border: 1px solid #4A90E2;
+                color: #FFFFFF;
+            }
+        }
+	}
+}

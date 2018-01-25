@@ -1,0 +1,134 @@
+.container-list {
+  width: 100%;
+}
+.container-list .brand-show {
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+}
+.container-list .list-container {
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 600px;
+}
+.container-list .list-container .list-head {
+  height: 40px;
+  display: flex;
+  background: #e6e6e6;
+}
+.container-list .list-container .list-head div {
+  text-align: left;
+  font-size: 14px;
+  color: #333333;
+  padding: 0 10px;
+  line-height: 40px;
+}
+.container-list .list-container .list-body {
+  max-height: calc(100% - 40px);
+  overflow: auto;
+}
+.container-list .list-container .list-body .listitems {
+  background: #FFFFFF;
+  height: auto;
+  display: flex;
+  border-bottom: 1px solid #d8d8d8;
+}
+.container-list .list-container .list-body .listitems:hover {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+  margin-bottom: 2px;
+}
+.container-list .list-container .list-body .listitems .listitem {
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+}
+.container-list .list-container .list-body .listitems .listitem .listitem-content > span {
+  color: #4990E2;
+}
+.container-list .list-container .list-body .listitems .listitem .listitem-content div span {
+  text-decoration: underline;
+  color: #4990E2;
+  cursor: pointer;
+}
+.container-list .list-container .list-body .listitems .listitem:last-child {
+  border: none;
+}
+.container-list .list-container .list-body .listitems .listitem div {
+  display: flex;
+  align-items: center;
+}
+.container-list .list-container .list-body .listitems .listitem:nth-child(1) div {
+  justify-content: center;
+}
+.container-list .list-container .list-body .listitems .listitem:nth-child(2) div {
+  justify-content: flex-end;
+}
+.container-list .list-container .list-body .listitems .listitem:nth-child(3) div {
+  justify-content: flex-start;
+}
+.container-list .list-container .list-body .listitems .listitem:nth-child(4) div {
+  justify-content: center;
+}
+.container-list .list-container .list-body .listitems .listitem:nth-child(5) div {
+  justify-content: center;
+}
+.container-list .list-container .list-body .listitems .listitem .ControlBubble {
+  background-image: url(https://cdns.007vin.com/img/icon_xinghaof.png);
+  width: 106px;
+  right: 60px;
+  top: 1px;
+  background-size: 105% 100%;
+  position: absolute;
+  line-height: 10px;
+  border-radius: 4px;
+  display: none;
+  z-index: 1;
+  height: auto;
+  padding: 15px 5px;
+}
+.container-list .list-container .list-body .listitems .isBuble:hover .ControlBubble {
+  display: block;
+}
+.container-list .list-container .list-body .listitems .toSee:hover {
+  color: #1AA0F3;
+}
+.container-list .list-container .list-body .red div {
+  color: #FF3333 !important;
+}
+.sildeDown {
+  display: flex;
+  position: relative;
+  animation: slideDown 2s linear 2s infinite alternate;
+  -webkit-animation: slideDown 2s linear 2s infinite alternate;
+}
+.slideUp {
+  display: flex;
+}
+@keyframes slideDown {
+  /* Safari 和 Chrome */
+  0% {
+    top: 0;
+  }
+  99% {
+    top: calc(100vh - 40px);
+  }
+  100% {
+    display: none;
+  }
+}
+@-webkit-keyframes slideDown {
+  /* Safari 和 Chrome */
+  0% {
+    top: 0;
+  }
+  99% {
+    top: calc(100vh - 40px);
+  }
+  100% {
+    display: none;
+  }
+}

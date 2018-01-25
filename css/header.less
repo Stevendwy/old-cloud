@@ -1,0 +1,293 @@
+//container-header
+@keyframes danger
+{
+    0%   {opacity: 1;}
+    50%  {opacity: 0.3;}
+    100% {opacity: 1;}
+}
+.df{
+    display: flex
+};
+#header {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    .df;
+    justify-content: center;
+    box-shadow: 0 2px 2px #d8d8d8;
+    z-index: 10;
+
+    .content {
+        .df;
+        justify-content: space-between;
+        width: @w;
+        height: 100%;
+
+        &>div {
+            height: 100%;
+        }
+
+        .sizeWidth {
+            width: 160px;
+        }
+
+        &>img {
+            width: 95px;
+            height: 23px;
+            margin-top: 9px;
+            background: none;
+            margin-left: 20px;
+            // padding-right: 45px; 
+            background: none;
+            cursor: pointer;
+        }
+
+        .inquires {
+
+            
+
+            position: relative;
+            .combo-home,
+            .combo-com,
+            .combo-cell {
+                padding: 6px 7px;
+                display: flex;
+                margin-right: 6px;
+                position: relative;
+                img {
+                    display: none;
+                    
+                }
+                #_part,
+                #_partEng {
+                    margin: 0;
+                }
+                a {
+                    margin-right: 20px;
+                }
+            }
+            
+            .com-active,
+            .cell-active {
+                background: #ECF5FF;
+                border-radius: 4px;
+                img {
+                    position: absolute;
+                    width: 36px;
+                    cursor: pointer;
+                    height: 22px;
+                    right: -21px;
+                    z-index: 1;
+                    top: -5px;
+                    display: block;
+                }
+            }
+            
+            .error-refash{
+                cursor: pointer;
+                position: absolute;
+                width: 22px;
+                height: 22px;  
+                left: -40px;
+                top:10px;
+                background: url(/img/sprite2.png) no-repeat 0 -239px;
+                background-size: 40px;
+                // opacity: 1; 
+                animation: danger ease 1s infinite;
+                -moz-animation: danger ease 1s infinite;	/* Firefox */
+                -webkit-animation: danger ease 1s infinite;	/* Safari 和 Chrome */
+                -o-animation: danger 1s ease infinite;	   
+            }
+
+            .df;
+            align-items: center;
+            a {
+                margin-right: 20px;
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+
+        .account {
+            .df;
+            align-items: center;
+            margin-right: 40px;
+            &>a {
+                margin-left: 20px;
+
+            }
+        }
+
+        .utils {
+            .sizeWidth;
+            line-height: 40px;
+            cursor: pointer;
+            display: none;
+
+            .show {
+                .df;
+                width: 100%;
+                justify-content: space-between;
+
+                &>a>div {
+                    // padding-left: 16px;
+                    // background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -146px;
+                    background-size: 40px;
+                    // width: 40px;
+                }
+                .shoppingCart{
+                    position: absolute;
+                    right: 220px;
+                    color: #333;
+                    padding-left: 30px;
+                    // background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -867px;
+                    background: url(/img/spirit.png) no-repeat 0 -872px;                    
+                    background-size: 40px;
+                    height: 40px;
+                    
+                    .cret_icon{
+                        position: absolute;
+                        width: 20px;
+                        height: 14px;
+                        top: 0;
+                        display: none;
+                        left: 14px;
+                        background: #4A90E2;
+                        border-radius: 100px;
+                        line-height: 14px;
+                        color: #fff;
+                        font-size: 10px;
+                        text-align: center;
+                    }
+                }   
+
+                .operateGuide {
+                    position: relative;
+                    height: 40px;
+                    right: 50px;
+                    .update-box {
+                        position: absolute;
+                        width: 186px;
+                        display: none;
+                        box-sizing: border-box;
+                        padding-left: 10px;
+                        background: #FFFDE1;
+                        border: 2px solid #FFD100;
+                        box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+                    }
+                    .update-title {
+
+                    }
+                    .update-main {
+                        // height: 40px;
+                        line-height: 20px;
+                        font-size: 12px;
+                        color: #666;
+                        font-size: 12px;
+                        color: #2A2A2A;
+                        line-height: 20px;
+                        margin-bottom: 10px;
+                    }
+                    .update-footer {
+                        line-height: 20px;
+                        margin-bottom: 5px;
+                        span {
+                            height: 20px;
+                            line-height: 20px;
+                            text-decoration: underline;
+                            cursor: pointer;
+                            font-size: 12px;
+                            color: #0076FF;
+                            line-height: 20px;
+                            margin-bottom: 5px;
+                        }
+                    }
+                    .update-close {
+                        position: absolute;
+                        right: 11px;
+                        top: 5px;
+                        img {
+                            width: 20px;
+                        }
+                    }
+                }
+
+                &>.person {
+                    height: 40px;
+                    position: relative;
+                    &:hover .person-hidden{
+                        display: block;
+                    }
+                    &>.center {
+                        padding-right: 16px;
+                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 60px -182px;
+                        background-size: 40px;
+                        width: 60px;
+                        // overflow-y: hidden;
+                        position:relative;
+                        .RedPoint {
+                            position: absolute;
+                            right: 17px;
+                            top: 13px;
+                            width: 4px;
+                            height: 4px;
+                            background-color: #ff3232;
+                            border-radius: 2px;
+                        }
+                        #user-lge {
+                            width: 80px;
+                            display: inline-table;
+                            height: 40px;
+                            position: relative;
+                            left: -29px;
+                            text-align: right;
+                        }
+                    }
+                    .person-hidden {
+                        position: absolute;
+                        display: none;
+                        background-color: white;
+                        z-index: 999;
+                        right: 0px;
+                        text-align: left;
+                        cursor: pointer;
+                        top: 40px;
+                        background: #FFFFFF;
+                        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
+                        padding: 0px;
+                        width: 110px;
+                        .LogoutItem{
+                            width: 100%;
+                            height: 32px;
+                            line-height: 32px;
+                            position: relative;
+                            display: flex;
+                            font-size: 12px;
+                            align-items: center;
+                            color: #333333;
+                            img{
+                                width: 32px;
+                                height: auto;
+                                margin-right: 8px;
+                                background: none;
+                            }
+                            .RedPoint{
+                                position: absolute;
+                                right: 7px;
+                                top: 8px;
+                                width: 4px;
+                                height: 4px;
+                                background-color: #ff3232;
+                                border-radius: 2px;
+                            }
+                            &:hover{
+                                background: #EAEAEA;
+                            }
+                        }
+
+                    }}
+            }
+        }
+    }
+}

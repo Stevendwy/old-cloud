@@ -1,0 +1,2702 @@
+@import './root';
+.vin, #cars, #part ,#seealso{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .df;
+    justify-content: center;
+
+    @keyframes shrink {
+        from {transform: scale(1, 1);}
+        to {transform: scale(0, 0);}
+    }
+
+    @-webkit-keyframes shrink {
+        from {transform: scale(1, 1);}
+        to {transform: scale(0, 0);}
+    }
+
+    @keyframes enlarge {
+        from {transform: scale(0, 0);}
+        to {transform: scale(1, 1);}
+    }
+
+    @-webkit-keyframes enlarge {
+        from {transform: scale(0, 0);}
+        to {transform: scale(1, 1);}
+    }
+
+    //缩小
+    .shrink {
+        // animation: shrink 0.3s forwards;
+    }
+
+    .enlarge {
+        // animation: enlarge 0.3s forwards;
+    }
+
+    input {
+        // outline: none;
+        // border: 0;
+    }
+
+    &>.container-search {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        height: 100%;
+        left: 0;
+        min-height: 100px;
+        width: 100%;
+        .df;
+        background: url(https://cdns.007vin.com/img/img_logo2.png) 50% 50% no-repeat;
+        background-size: 23%;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        .search-loading-container {
+            height: e('calc(100% - 88px)');
+            width: 100%;
+            background: #fff;
+            // align-items: center;
+            justify-content: center;
+            display: none;
+            opacity: 0;
+            transition: all 0.3s;
+            .loading-special {
+                width: 186px;
+                margin-top: 80px;
+                height: 95px;
+                position: relative;
+                .nmuber-box {
+
+                }
+                .bg-red-box {
+                    position: relative;
+                    z-index: 1;
+                    .bg-red {
+                        width: 186px;
+                        height: 95px;
+                    }
+                    @keyframes flag {
+                        0% {right: 20px}
+                        50% {right: 155px}
+                        100% {right: 20px}
+                    }
+                    .move-flag {
+                        position: absolute;
+                        top: 63px;
+                        right: 20px;
+                        // animation: 
+                        // animation: flag 3s 0s infinite alternate;
+                        animation: flag 3s linear 0s infinite alternate;
+                        
+                    }
+                }
+                @keyframes page {
+                    0% {top: 6px}
+                    100% {top: 86px}
+                }
+                .page-box {
+                    width: 168px;
+                    position: absolute;
+                    background: #FFFFFF;
+                    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+                    border-radius: 2px;
+                    height: 120px;
+                    left: 9px;
+                    top: 86px;
+                    display: none;
+                    animation: page 6s linear 0s alternate;
+                    flex-direction: column;
+                    span {
+                        height: 40px;
+                        line-height: 40px;
+                        width: 100%;
+                        font-size: 12px;
+                        color: #5F87B0;
+                        align-items: center;
+                        padding-left: 10px;
+                        box-sizing: border-box;
+                        display: flex;
+                    }
+                }
+            }
+        }
+        .fadein {
+            opacity: 1;
+        }
+        &>.search {
+            position: relative;
+            width: 100%;
+            height: 88px;
+            z-index:2;
+            background-color: #ececec;
+            .df;
+            flex-direction: column;
+            align-items: center;
+
+            .left-brand {
+
+            }
+
+            &>.container-step {
+                position: absolute;
+                left: 0;
+                display: flex;
+                width: 206px;
+                top: 45px;
+                div{
+                    width: 52px;
+                    height: 24px;
+                    margin-left: 12px;
+                    border: 1px solid #CAC9CA;
+                    box-shadow: 0 0 0 0 rgba(0,0,0,0.3);
+                    border-radius: 4px;
+                    cursor: pointer;
+                    background-image: url(https://cdns.007vin.com/img/spirit.png);
+                    background-repeat: no-repeat;
+                    background-size: 40px;
+                    background-position: 16px -1955px;
+                    background-color: rgba(51, 51, 51, 0.2);
+                }
+                .btn-right{
+                    background-color: rgb(249, 249, 249);
+                    background-position:16px -1995px;
+                }
+            }
+
+            &>.container-search-vin {
+                position: relative;
+                height: 40px;
+                margin-bottom: 10px;
+                outline: none;
+                .left-brand {
+                    position: absolute;
+                    left: -200px;
+                    width: 200px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    font-size: 14px;
+                    padding-right: 10px;
+                    box-sizing: border-box;
+                    color: #666666;
+                    .choosed-item {
+                        border: 1px dashed #4A90E2;
+                        border-radius: 2px;
+                        padding: 3px 5px;
+                        font-size: 14px;
+                        margin-left: 10px;
+                        color: #4A90E2;
+                        display: flex;
+                        .clear {
+                            width: 14px;
+                            background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 4px;
+                            background-size: 200%;
+                            cursor: pointer;
+                            margin-left: 5px;
+                        }
+                    }
+                }
+                &>.remind {
+                    position: absolute;
+                    top: 44px;
+                    left: 0;
+                    color: #4A90E2;
+                }
+                .vin-search-loading{
+                    position: absolute;
+                    top:10px;
+                    right: 3px;
+                    width: 20px;
+                    height: 20px;
+                    display: none;
+                    background: url(/img/load.gif) no-repeat;
+                    background-size: 20px;
+                }
+                &>.brandImg{
+                    position: absolute;
+                    top: -9px;
+                    left: -98px;
+                    width: 100px;
+                    background: none;
+                }
+
+                &>input {
+                    padding: 0;
+                }
+
+                &>.input {
+                    width: 470px;
+                    height: 38px;
+                    vertical-align: top;
+                    background-color: white;
+                    border: 1px solid @bColor;
+                    padding-left: 10px;
+                }
+
+                &>.clear {
+                    position: absolute;
+                    top: 12px;
+                    right: 150px;
+                    width: 20px;
+                    height: 20px;
+                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                    background-size: 200%;
+                    cursor: pointer;
+                }
+
+                &>.number {
+                    position: absolute;
+                    top: 12px;
+                    right: 130px;
+                    color: #999;
+                }
+
+                &>.search {
+                    width: 120px;
+                    height: 40px;
+                    color: white;
+                    background-color: #4A90E2;
+                    cursor: pointer;
+                    border-radius: 0;
+                    &:hover {
+                        background-color: #1d77e0;
+                    }
+
+                    &:active {
+                        background-color: #135eb6;
+                    }
+                }
+            }
+
+            &>.container-radios {
+                width: 600px;
+                // margin-bottom: 10px;
+                margin-bottom: 2px;
+                margin-top: 14px;
+                &>.container-radio {
+                    margin-right: 15px;
+
+                    &>input[type='radio'] {
+                        margin-right: 4px;
+                    }
+                }
+            }
+
+            &>.container-history {
+                position: absolute;
+                top: 76px;
+                left: e('calc(50% - 300px)');
+                width: 480px;
+                background-color: white;
+                box-shadow: 0 0 1px @bColor;
+                z-index: 1;
+
+                &>.history {
+                    width: 460px;
+                    height: 40px;
+                    padding: 0 10px;
+                    .df;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                &>.history:hover{
+                    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.30);
+                    margin-bottom: 2px;
+                }
+
+                &>.container-more {
+                    width: 460px;
+                    height: 40px;
+                    background-color: #c9c9c9;
+                    padding: 0 10px;
+                    .df;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    &>a {
+                        font-size: 14px;
+                        color: #333;
+                    }
+
+                    &>.more {
+                        &>div {
+                            padding-left: 20px;
+                            background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -477px;
+                            background-size: 40px;
+                            width: 80px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &>.error {
+            width: 600px;
+            height: 438px;
+            font-size: 14px;
+            .df;
+            flex-direction: column;
+
+            &>.title {
+                color: #333;
+            }
+
+            &>.handle {
+                color: #4a90e2;
+            }
+        }
+
+        &>.choose {
+            .df;
+            flex: 1;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 6px;
+            overflow: auto;
+            width: 100%;
+            background: #fff;
+            height: e('calc(100% - 116px)');
+
+            &>.title {
+                .df;
+                align-items: center;
+                // justify-content: space-between;
+                background-color: white;
+                width: e('calc(100% - 26px)');
+                height: 40px;
+                z-index: 1;
+                // padding-left: 18px;
+                padding: 0  13px;
+                position: relative;
+                &>span {
+                    color: #4990E2;
+                }
+                .title-right{
+                    display: flex;
+                    position: absolute;
+                    right:0;
+                    top:0;
+                    height: 40px;
+                    align-items: center;
+                    justify-content: center;
+                    img{
+                        width: 70px;
+                        background: none;
+    
+                    }
+    
+                    .container-input {
+                        position: relative;
+                        flex:1;
+                        &>.input {
+                            width: 200px;
+                            height: 26px;
+                            margin-right: 10px;
+                            background: #F9F9F9;
+                            border-radius: 4px;
+                            box-sizing: border-box;
+                            font-size: 12px;
+                            padding-left: 6px;
+                            box-shadow: 0 0 1px rgba(51,51,51,0.5);
+                        }
+                        &>.clear {
+                            position: absolute;
+                            top: 3px;
+                            right: 52px;
+                            width: 20px;
+                            height: 20px;
+                            background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                            background-size: 200%;
+                            cursor: pointer;
+                        }
+    
+                        &>.img {
+                            position: absolute;
+                            top: 0;
+                            color: #fff;
+                            display: flex;
+                            line-height: 25px;
+                            right: 10px;
+                            width: 41px;
+                            background-color: #fff;
+                            height: 26px;
+                            background: url(/img/p_search.png) no-repeat;
+                            cursor: pointer;
+                            background: #4A90E2;
+                            background-size: 24px;
+                            background-position: center;
+                            text-align: center;
+                            align-items: center;
+                            justify-content: center;
+                            &:hover {
+                                background-color: #1d77e0;
+                            }
+    
+                            &:active {
+                                background-color: #135eb6;
+                            }
+                            .search-button-loading{
+                                position: absolute;
+                                width: 100%;
+                                /* z-index: 1211231; */
+                                top: 0;
+                                left: 0;
+                                height: 100%;
+                                background-color: #4A90E2;
+                                display: none;
+                                background-image: url(/img/load.gif);
+                                background-repeat: no-repeat;
+                                background-size: 20px;
+                                background-position: center;
+                            }
+                        }
+                        .input-part-search-error{
+                            position: absolute;
+                            top: 28px;
+                            font-family: PingFang-SC-Regular;
+                            font-size: 12px;
+                            color: #333333;
+                            z-index: 11;
+                            right: 10px;
+                            height: 25px;
+                            background: #fff;
+                            text-align: left;
+                            line-height: 25px;
+                            padding-left: 20px;
+                            width: 179px;
+                            color: #333;
+                            box-shadow: rgba(0,0,0,0.12) 0 0 4px 0, rgba(0,0,0,0.24) 0 2px 4px 0;
+                        }
+                        .key-words-container{
+                            background: #FFFFFF;
+                            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.40);
+                            border-radius: 4px;
+                            position: absolute;
+                            top: 27px;
+                            left: 0;
+                            width: e('calc(100% - 10px)');
+                            .key-words-title{
+                                font-size: 12px;
+                                color: #999999;
+                            }
+                            &>div{
+                                height: 32px;
+                                line-height: 32px;
+                                padding-left: 12px;
+                            }
+                            .key-word-item{
+                                font-size: 14px;
+                                color: #333333;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                &:hover{
+                                    background: #EDEDEF;
+                                }
+                            }
+                        }
+                    }
+                }
+               
+            }
+            &>.special-container{
+                position: relative;
+                .df;
+                flex: 1;
+                justify-content: center;
+                align-items: center;
+                // padding-top: 6px;
+                overflow: auto;
+                width: 100%;
+                height: e('calc(100% - 40px)');
+                .left-control-box{
+                    width: 160px;
+                    height: 100%;
+                    box-sizing: border-box;
+                    background: #EDEDEF;
+                    border: 1px solid #A7A7A8;
+                    .left-item{
+                        padding-left:10px;
+                        cursor: pointer;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                    }
+                    .selected{
+                        color:#fff;
+                        background: #4990E2;
+                    }
+                }
+                .right-control-box{
+                    height: 100%;
+                    flex:1;
+                    .header{
+                        height: 40px;
+                        background: #EDEDEF;
+                        display: flex;
+                        .title-item{
+                            display: flex;
+                            flex:1;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                    }
+                    .list-body{
+                        // height: 40px;
+                        .item-row{
+                            height: 40px;
+                            display: flex;
+                            cursor: pointer;
+                            .item-cell{
+                                flex:1;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                            &:nth-child(even){
+                                background: #EDEDEF;
+                            }
+                            &:hover{
+
+                            }
+                        }
+                    }
+                    &>.container-main-group {
+                        // width: 37.8%;
+                        min-width: 378px;
+                        height: 100%;
+                        background: #fff;
+                        &>.header {
+                            height: 40px;
+                            background: #F5F5F5;
+                            font-size: 14px;
+                            color: #333;
+                            padding-left: 10px;
+                            justify-content: space-between;
+                            border-bottom: 1px solid @bColor;
+                            position: relative;
+                            .df;
+                            align-items: center;
+                            &>.search {
+                                position: absolute;
+                                flex: 1;
+                                right: 86px;
+                                height: 40px;
+                                height: 40px;
+                                &>.input {
+                                    position: absolute;
+                                    top: 4px;
+                                    right: 7px;
+                                    width: 174px;
+                                    height: 30px;
+                                    padding-left: 10px;
+                                    padding-right: 40px;
+                                    border-radius: 4px;
+                                    background-color: white;
+                                }
+                                .input-search-error{
+                                    position: absolute;
+                                    top: 36px;
+                                    right: 7px;
+                                    height: 30px;
+                                    background: rgb(255, 255, 255);
+                                    text-align: left;
+                                    line-height: 30px;
+                                    padding-left: 20px;
+                                    width: 204px;
+                                    color: rgb(51, 51, 51);
+                                    box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.24) 0px 2px 4px 0px;
+                                }
+                                &>.img {
+                                    position: absolute;
+                                    top: 11px;
+                                    right: 17px;
+                                    width: 20px;
+                                    height: 20px;
+                                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -720px;
+                                    background-size: 40px;
+                                }
+    
+                                &>.clear {
+                                    position: absolute;
+                                    top: 10px;
+                                    right: 41px;
+                                    width: 20px;
+                                    height: 20px;
+                                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                                    background-size: 200%;
+                                    cursor: pointer;
+                                }
+                            }
+    
+                            .changeTitle{
+                                width: 80px;
+                                height: 40px;
+                                display: flex;
+                                border: 1px solid #d8d8d8;
+                                cursor: pointer;
+                                span{
+                                    flex:1;
+                                }
+                                .imgList{
+                                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                    background-position-y: -548px;
+                                    background-size: 100%;
+                                    background-position-x: 12px;
+                                }
+                                .imgListSelected{
+                                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                    background-position-y: -587px;
+                                    background-size: 100%;
+                                    background-position-x: 12px;
+                                    background-color: #fff;
+                                }
+                                .dataListSelected{
+                                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                    background-position-y: -665px;
+                                    background-size: 100%;
+                                    background-position-x: 12px;
+                                    background-color: #fff;
+                                }
+                                .dataList{
+                                    // background: green;
+                                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                    background-position-y: -624px;
+                                    background-size: 100%;
+                                    background-position-x: 12px;
+                                }
+                            }
+                        }
+                        &>.content {
+                            .df;
+                            flex-wrap: wrap;
+                            // overflow-y: auto;
+                            background: #fff;
+                            &>.main-group-data {
+                                .df;
+                                align-items: center;
+                                height: 40px;
+                                width: 100%;
+                                background: #fff;
+                                &:hover {
+                                    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.30);
+                                    margin-bottom: 2px;
+                                }
+                                &>div {
+                                    height: 100%;
+                                    margin-left: 8px;
+                                    .df;
+                                    align-items: center;
+                                }
+    
+                                &>.title {
+                                    width: 54px;
+                                    border-right: 1px solid @bColor;
+                                    padding-right: 5px;
+                                    justify-content: flex-end;
+                                }
+                            }
+    
+                            .search{
+                                box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                margin-bottom: 2px;
+                            }
+                            &>.main-group-data:nth-child(2n) {
+                                background-color: #F2F2F2;
+                            }
+                            &>.main-group {
+                                // margin-top: 10px;
+                                width: 110px;
+                                height: 110px;
+                                .df;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                border: 1px solid #d8d8d8;
+                                border-radius: 4px;
+                                font-size: 12px;
+                                box-sizing: border-box;
+                                color: #333;
+                                background-color: white;
+                                // margin: 0 10px 10px 0;
+                                margin: 10px;
+                                span{
+                                    word-break: break-all;
+                                    text-align: center;
+                                }
+                                &:hover {
+                                    width: 110px;
+                                    height: 110px;
+                                    // border: 1px solid #4A90E2;
+                                    // box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.12), 0px 2px 4px 0px rgba(0,0,0,0.24);
+                                    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                    cursor: pointer;
+                                }
+                                .search{
+                                    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                }
+                                &>img {
+                                    width: 50%;
+                                    height: 50%;
+                                }
+                            }
+                            &>.selected {
+                                // box-shadow: 0 0 2px black;
+                                border: 2px solid #3385FF !important;
+                                width: e('calc(100% - 4px)');
+                            }
+    
+                            &>.main-group:last-child {
+                                margin-bottom: 10px;
+                            }
+
+                            .one-row {
+                                height: 32px;
+                                line-height: 32px;
+                                padding-left: 20px;
+                                width: 100%;
+                                background: #fff;
+                                box-sizing: border-box;
+                                &:nth-child(even) {
+                                    background: #F2F2F2;
+                                }
+                                &:hover {
+                                    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                    margin-bottom: 2px;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        .overflow-container{
+                            max-height: e('calc(100% - 41px)');
+                            overflow: auto;                            
+                            &>.content {
+                                .df;
+                                flex-wrap: wrap;
+                                // overflow-y: auto;
+                                background: #fff;
+                                &>.main-group-data {
+                                    .df;
+                                    align-items: center;
+                                    height: 40px;
+                                    width: 100%;
+                                    background: #fff;
+                                    &:hover {
+                                        box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.30);
+                                        margin-bottom: 2px;
+                                    }
+                                    &>div {
+                                        height: 100%;
+                                        margin-left: 8px;
+                                        .df;
+                                        align-items: center;
+                                    }
+        
+                                    &>.title {
+                                        width: 54px;
+                                        border-right: 1px solid @bColor;
+                                        padding-right: 5px;
+                                        justify-content: flex-end;
+                                    }
+                                }
+        
+                                .search{
+                                    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                    margin-bottom: 2px;
+                                }
+                                &>.main-group-data:nth-child(2n) {
+                                    background-color: #F2F2F2;
+                                }
+                                &>.main-group {
+                                    // margin-top: 10px;
+                                    width: 110px;
+                                    height: 110px;
+                                    .df;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                                    border: 1px solid #d8d8d8;
+                                    border-radius: 4px;
+                                    font-size: 12px;
+                                    box-sizing: border-box;
+                                    color: #333;
+                                    background-color: white;
+                                    // margin: 0 10px 10px 0;
+                                    margin: 10px;
+                                    span{
+                                        word-break: break-all;
+                                        text-align: center;
+                                    }
+                                    &:hover {
+                                        width: 110px;
+                                        height: 110px;
+                                        // border: 1px solid #4A90E2;
+                                        // box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.12), 0px 2px 4px 0px rgba(0,0,0,0.24);
+                                        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                        cursor: pointer;
+                                    }
+                                    .search{
+                                        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                    }
+                                    &>img {
+                                        width: 50%;
+                                        height: 50%;
+                                    }
+                                }
+                                &>.selected {
+                                    // box-shadow: 0 0 2px black;
+                                    border: 2px solid #3385FF !important;
+                                    width: e('calc(100% - 4px)');
+                                }
+        
+                                &>.main-group:last-child {
+                                    margin-bottom: 10px;
+                                }
+    
+                                .one-row {
+                                    height: 32px;
+                                    line-height: 32px;
+                                    padding-left: 20px;
+                                    width: 100%;
+                                    background: #fff;
+                                    box-sizing: border-box;
+                                    &:nth-child(even) {
+                                        background: #F2F2F2;
+                                    }
+                                    &:hover {
+                                        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                        margin-bottom: 2px;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                        }
+                       
+                    }
+    
+                }
+            }
+            &>.special-container-box{
+                position: relative;
+                .df;
+                flex: 1;
+                justify-content: center;
+                align-items: center;
+                // padding-top: 6px;
+                overflow: auto;
+                width: 100%;
+                flex-direction: column;
+                height: e('calc(100% - 40px)');
+                .special-title {
+                    height: 40px;
+                    background: #EDEDEF;
+                    border: 1px solid #A7A7A8;
+                    width: 100%;
+                    display: flex;
+                    .step-container {
+                        display: flex;
+                        width: 160px;
+                        align-items: center;
+                        height: 40px;
+                        div {
+                            width: 52px;
+                            height: 24px;
+                            margin-left: 12px;
+                            border: 1px solid #CAC9CA;
+                            box-shadow: 0 0 0 0 rgba(0,0,0,0.3);
+                            border-radius: 4px;
+                            cursor: pointer;
+                            background-image: url(https://cdns.007vin.com/img/spirit.png);
+                            background-repeat: no-repeat;
+                            background-size: 40px;
+                            background-position: 16px -1955px;
+                        }
+                       .btn-left{
+
+                        }
+                        .btn-right{
+                            background-position: 16px -1995px;
+                        }
+                        .disable {
+                            background-color: rgba(51,51,51,0.20);
+                            cursor: default;
+                        }
+                    }
+                    .control-container {
+                        flex: 1;
+                        display: flex;
+                        .text-container {
+                            flex: 1;
+                            line-height: 40px;
+                            overflow: hidden;
+                            height: 40px;
+                            font-size: 14px;
+                            color: #666666;
+                        }
+                        .left-container {
+                            width: 150px;
+                            .df;
+                            align-items: center;
+                            span {
+                                width: 50px;
+                                height: 24px;
+                                border-radius: 4px;
+                                display: flex;
+                                box-shadow: 0 0 1px rgba(51,51,51,0.5);
+                                margin:0 10px;    
+                                cursor: pointer;                            
+                            }
+                            .car-detail {
+                                // background: url(https://cdns.007vin.com/img/icon_car.png) no-repeat 12px -1596px;
+                                background: url(/img/icon_car.png) no-repeat 4px -7px;                   
+                                background-size: 40px;
+                                background-color: white;
+                            }
+                            .config {
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 12px -1596px;
+                                background-size: 40px;
+                                background-color: white;
+                            }
+                        }
+                        
+                    }
+                }
+                .special-box {
+                    position: relative;
+                    .df;
+                    // flex: 1;
+                    justify-content: center;
+                    align-items: center;
+                    height: e('calc(100% - 40px)');
+                    width: 100%;
+                    
+                    .left-control-box{
+                        width: 160px;
+                        height: 100%;
+                        box-sizing: border-box;
+                        background: #EDEDEF;
+                        border: 1px solid #A7A7A8;
+                        .left-item{
+                            padding-left:10px;
+                            cursor: pointer;
+                            height: 40px;
+                            display: flex;
+                            align-items: center;
+                        }
+                        .selected{
+                            color:#fff;
+                            background: #4990E2;
+                        }
+                    }
+                    .right-control-box{
+                        height: 100%;
+                        flex:1;
+                        .header{
+                            height: 40px;
+                            background: #EDEDEF;
+                            display: flex;
+                            .title-item{
+                                display: flex;
+                                flex:1;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                        }
+                        .list-body{
+                            // height: 40px;
+                            .item-row{
+                                height: 40px;
+                                display: flex;
+                                cursor: pointer;
+                                .item-cell{
+                                    flex:1;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                }
+                                &:nth-child(even){
+                                    background: #EDEDEF;
+                                }
+                                &:hover{
+    
+                                }
+                            }
+                        }
+                        &>.container-main-group {
+                            // width: 37.8%;
+                            min-width: 378px;
+                            height: 100%;
+                            background: #fff;
+                            &>.header {
+                                height: 40px;
+                                background: #F5F5F5;
+                                font-size: 14px;
+                                color: #333;
+                                padding-left: 10px;
+                                justify-content: space-between;
+                                border-bottom: 1px solid @bColor;
+                                position: relative;
+                                .df;
+                                align-items: center;
+                                &>.search {
+                                    position: absolute;
+                                    flex: 1;
+                                    right: 86px;
+                                    height: 40px;
+                                    height: 40px;
+                                    &>.input {
+                                        position: absolute;
+                                        top: 4px;
+                                        right: 7px;
+                                        width: 174px;
+                                        height: 30px;
+                                        padding-left: 10px;
+                                        padding-right: 40px;
+                                        border-radius: 4px;
+                                        background-color: white;
+                                    }
+                                    .input-search-error{
+                                        position: absolute;
+                                        top: 36px;
+                                        right: 7px;
+                                        height: 30px;
+                                        background: rgb(255, 255, 255);
+                                        text-align: left;
+                                        line-height: 30px;
+                                        padding-left: 20px;
+                                        width: 204px;
+                                        color: rgb(51, 51, 51);
+                                        box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.24) 0px 2px 4px 0px;
+                                    }
+                                    &>.img {
+                                        position: absolute;
+                                        top: 11px;
+                                        right: 17px;
+                                        width: 20px;
+                                        height: 20px;
+                                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -720px;
+                                        background-size: 40px;
+                                    }
+        
+                                    &>.clear {
+                                        position: absolute;
+                                        top: 10px;
+                                        right: 41px;
+                                        width: 20px;
+                                        height: 20px;
+                                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                                        background-size: 200%;
+                                        cursor: pointer;
+                                    }
+                                }
+        
+                                .changeTitle{
+                                    width: 80px;
+                                    height: 40px;
+                                    display: flex;
+                                    border: 1px solid #d8d8d8;
+                                    cursor: pointer;
+                                    span{
+                                        flex:1;
+                                    }
+                                    .imgList{
+                                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                        background-position-y: -548px;
+                                        background-size: 100%;
+                                        background-position-x: 12px;
+                                    }
+                                    .imgListSelected{
+                                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                        background-position-y: -587px;
+                                        background-size: 100%;
+                                        background-position-x: 12px;
+                                        background-color: #fff;
+                                    }
+                                    .dataListSelected{
+                                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                        background-position-y: -665px;
+                                        background-size: 100%;
+                                        background-position-x: 12px;
+                                        background-color: #fff;
+                                    }
+                                    .dataList{
+                                        // background: green;
+                                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                        background-position-y: -624px;
+                                        background-size: 100%;
+                                        background-position-x: 12px;
+                                    }
+                                }
+                            }
+                            .overflow-container{
+                                max-height: e('calc(100% - 41px)');
+                                overflow: auto;                            
+                                &>.content {
+                                    .df;
+                                    flex-wrap: wrap;
+                                    // overflow-y: auto;
+                                    background: #fff;
+                                    &>.main-group-data {
+                                        .df;
+                                        align-items: center;
+                                        height: 40px;
+                                        width: 100%;
+                                        background: #fff;
+                                        &:hover {
+                                            box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.30);
+                                            margin-bottom: 2px;
+                                        }
+                                        &>div {
+                                            height: 100%;
+                                            margin-left: 8px;
+                                            .df;
+                                            align-items: center;
+                                        }
+            
+                                        &>.title {
+                                            width: 54px;
+                                            border-right: 1px solid @bColor;
+                                            padding-right: 5px;
+                                            justify-content: flex-end;
+                                        }
+                                    }
+            
+                                    .search{
+                                        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                        margin-bottom: 2px;
+                                    }
+                                    &>.main-group-data:nth-child(2n) {
+                                        background-color: #F2F2F2;
+                                    }
+                                    &>.main-group {
+                                        // margin-top: 10px;
+                                        width: 110px;
+                                        height: 110px;
+                                        .df;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        align-items: center;
+                                        border: 1px solid #d8d8d8;
+                                        border-radius: 4px;
+                                        font-size: 12px;
+                                        box-sizing: border-box;
+                                        color: #333;
+                                        background-color: white;
+                                        // margin: 0 10px 10px 0;
+                                        margin: 10px;
+                                        span{
+                                            word-break: break-all;
+                                            text-align: center;
+                                        }
+                                        &:hover {
+                                            width: 110px;
+                                            height: 110px;
+                                            // border: 1px solid #4A90E2;
+                                            // box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.12), 0px 2px 4px 0px rgba(0,0,0,0.24);
+                                            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                            cursor: pointer;
+                                        }
+                                        .search{
+                                            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                        }
+                                        &>img {
+                                            width: 50%;
+                                            height: 50%;
+                                        }
+                                    }
+                                    &>.selected {
+                                        // box-shadow: 0 0 2px black;
+                                        border: 2px solid #3385FF !important;
+                                        width: e('calc(100% - 4px)');
+                                    }
+            
+                                    &>.main-group:last-child {
+                                        margin-bottom: 10px;
+                                    }
+        
+                                    .one-row {
+                                        height: 32px;
+                                        line-height: 32px;
+                                        padding-left: 20px;
+                                        width: 100%;
+                                        background: #fff;
+                                        box-sizing: border-box;
+                                        &:nth-child(even) {
+                                            background: #F2F2F2;
+                                        }
+                                        &:hover {
+                                            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                            margin-bottom: 2px;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                            }
+                           
+                        }
+        
+                    }
+                }
+                &>.container-car-info-sub-img {
+                    position: fixed;
+                    right: 16px;
+                    bottom: 12px;
+                    width: 240px;
+                    height: 158px;
+                    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+                    background-color: white;
+                    overflow: hidden;
+                    .df;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    &>.car-info-sub-remind {
+                        font-size: 12px;
+                        color: #333;
+                        width: 100%;
+                        padding-left: 8px;
+                        padding-top: 4px;
+                    }
+
+                    &>.car-info-sub-img {
+                        height: e('calc(100% - 40px)');
+                    }
+
+                    &>.close-canvas {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+            }
+            &>.content{
+                position: relative;
+                .df;
+                flex: 1;
+                justify-content: center;
+                align-items: center;
+                // padding-top: 6px;
+                overflow: auto;
+                width: 100%;
+                height: e('calc(100% - 40px)');
+
+                &>div {
+                    // min-height: 421px;
+                    background: #F5F5F5;
+                    border: 1px solid @bColor;
+                    margin: 0 2px;
+                    height: 100%;
+                    box-sizing: border-box;
+                    // height: e('calc(100vh - 219px)');
+                    overflow: auto;
+                }
+
+                &>.container-main-group {
+                    width: 37.8%;
+                    min-width: 378px;
+                    background: #fff;
+                    &>.header {
+                        height: 40px;
+                        background: #F5F5F5;
+                        font-size: 14px;
+                        color: #333;
+                        padding-left: 10px;
+                        justify-content: space-between;
+                        border-bottom: 1px solid @bColor;
+                        position: relative;
+                        .df;
+                        align-items: center;
+                        &>.search {
+                            position: absolute;
+                            flex: 1;
+                            right: 86px;
+                            height: 40px;
+                            height: 40px;
+                            &>.input {
+                                position: absolute;
+                                top: 4px;
+                                right: 7px;
+                                width: 174px;
+                                height: 30px;
+                                padding-left: 10px;
+                                padding-right: 40px;
+                                border-radius: 4px;
+                                background-color: white;
+                            }
+                            .input-search-error{
+                                position: absolute;
+                                top: 36px;
+                                right: 7px;
+                                height: 30px;
+                                background: rgb(255, 255, 255);
+                                text-align: left;
+                                line-height: 30px;
+                                padding-left: 20px;
+                                width: 204px;
+                                color: rgb(51, 51, 51);
+                                box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.24) 0px 2px 4px 0px;
+                            }
+                            &>.img {
+                                position: absolute;
+                                top: 11px;
+                                right: 17px;
+                                width: 20px;
+                                height: 20px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -720px;
+                                background-size: 40px;
+                            }
+
+                            &>.clear {
+                                position: absolute;
+                                top: 10px;
+                                right: 41px;
+                                width: 20px;
+                                height: 20px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                                background-size: 200%;
+                                cursor: pointer;
+                            }
+                        }
+
+                        .changeTitle{
+                            width: 80px;
+                            height: 40px;
+                            display: flex;
+                            border: 1px solid #d8d8d8;
+                            cursor: pointer;
+                            span{
+                                flex:1;
+                            }
+                            .imgList{
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -548px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                            }
+                            .imgListSelected{
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -587px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                                background-color: #fff;
+                            }
+                            .dataListSelected{
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -665px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                                background-color: #fff;
+                            }
+                            .dataList{
+                                // background: green;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -624px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                            }
+                        }
+                    }
+    
+                    &>.content {
+                        .df;
+                        flex-wrap: wrap;
+                        overflow-y: auto;
+                        
+                        background: #fff;
+                        &>.main-group-data {
+                            .df;
+                            align-items: center;
+                            height: 40px;
+                            width: 100%;
+                            background: #fff;
+                            &:hover {
+                                box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.30);
+                                margin-bottom: 2px;
+                            }
+                            &>div {
+                                height: 100%;
+                                margin-left: 8px;
+                                .df;
+                                align-items: center;
+                            }
+
+                            &>.title {
+                                width: 54px;
+                                border-right: 1px solid @bColor;
+                                padding-right: 5px;
+                                justify-content: flex-end;
+                            }
+                        }
+
+                        .search{
+                            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                            margin-bottom: 2px;
+                        }
+                        &>.main-group-data:nth-child(2n) {
+                            background-color: #F2F2F2;
+                        }
+                        &>.main-group {
+                            // margin-top: 10px;
+                            width: 110px;
+                            height: 110px;
+                            .df;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            border: 1px solid #d8d8d8;
+                            border-radius: 4px;
+                            font-size: 12px;
+                            box-sizing: border-box;
+                            color: #333;
+                            background-color: white;
+                            // margin: 0 10px 10px 0;
+                            margin: 10px;
+                            span{
+                                word-break: break-all;
+                                text-align: center;
+                            }
+                            &:hover {
+                                width: 110px;
+                                height: 110px;
+                                // border: 1px solid #4A90E2;
+                                // box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.12), 0px 2px 4px 0px rgba(0,0,0,0.24);
+                                box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                cursor: pointer;
+                            }
+                            .search{
+                                box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                            }
+                            &>img {
+                                width: 50%;
+                                height: 50%;
+                            }
+                        }
+                        &>.selected {
+                            // box-shadow: 0 0 2px black;
+                            border: 2px solid #3385FF !important;
+                            width: e('calc(100% - 4px)');
+                        }
+
+                        &>.main-group:last-child {
+                            margin-bottom: 10px;
+                        }
+                    }
+
+                    
+                }
+
+                &>.container-car-info-sub {
+                    position: relative;
+                    width: 61.8%;
+                    min-width: 618px;
+
+                    &>.header {
+                        height: 40px;
+                        font-size: 14px;
+                        color: #333;
+                        padding-left: 10px;
+                        border-bottom: 1px solid @bColor;
+                        .df;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: white;
+
+                        &>.search {
+                            position: relative;
+                            flex:1;
+                            height: 40px;
+                            display: none;
+
+                            &>.input {
+                                position: absolute;
+                                top: 4px;
+                                right: 7px;
+                                width: 174px;
+                                height: 30px;
+                                padding-left: 10px;
+                                padding-right: 40px;
+                                border-radius: 4px;
+                                background-color: white;
+                            }
+
+                            .input-search-error{
+                                position: absolute;
+                                top: 36px;
+                                right: 7px;
+                                height: 30px;
+                                background: rgb(255, 255, 255);
+                                text-align: left;
+                                line-height: 30px;
+                                padding-left: 20px;
+                                width: 204px;
+                                color: rgb(51, 51, 51);
+                                box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.24) 0px 2px 4px 0px;
+                            }
+
+                            &>.img {
+                                position: absolute;
+                                top: 11px;
+                                right: 17px;
+                                width: 20px;
+                                height: 20px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -720px;
+                                background-size: 40px;
+                            }
+
+                            &>.clear {
+                                position: absolute;
+                                top: 10px;
+                                right: 41px;
+                                width: 20px;
+                                height: 20px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                                background-size: 200%;
+                                cursor: pointer;
+                            }
+
+                            // &>.hidden {
+                            //     display: none;
+                            // }
+                        }
+                    }
+
+                    &>.content {
+                        height: e('calc(100% - 42px)');
+                        // overflow-y: scroll;
+                        overflow: auto;
+                        border-bottom: 1px solid @bColor;
+
+                        &>.container-info {
+                            .df;
+                            align-items: center;
+                            width: 100%;
+                            height: 40px;
+                            background: #fff;
+                            // border-bottom: 1px solid #ddd;
+
+                            &> div {
+                                width: e("calc(100% - 189px)");
+                                padding-left: 10px;
+                            }
+
+                            &>.title {
+                                width: 189px;
+                                border-right: 1px solid #efefef;
+                            }
+                        }
+                        // &>.container-info:nth-child(2n) {
+                        //     background-color: #F2F2F2;
+                        // }
+                        // &>.container-info:nth-child(2n + 1) {
+                        //     background-color: white;
+                        // }
+
+                        // &>.container-info:hover{
+                        //     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
+                        //     margin-bottom: 2px;
+                        // }
+                    }
+
+                    &>.car-info-sub-img-button {
+                        position: absolute;
+                        right: 16px;
+                        bottom: 12px;
+                        width: 40px;
+                        height: 40px;
+                        cursor: pointer;
+                    }
+
+                    &>.container-car-info-sub-img {
+                        position: fixed;
+                        right: 16px;
+                        bottom: 12px;
+                        width: 240px;
+                        height: 158px;
+                        box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+                        background-color: white;
+                        overflow: hidden;
+                        .df;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        &>.car-info-sub-remind {
+                            font-size: 12px;
+                            color: #333;
+                            width: 100%;
+                            padding-left: 8px;
+                            padding-top: 4px;
+                        }
+
+                        &>.car-info-sub-img {
+                            height: e('calc(100% - 40px)');
+                        }
+
+                        &>.close-canvas {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                        }
+                    }
+                }
+
+                &>.container-search-sub-groups {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-left: 1px solid @bColor;
+                    border-right: 1px solid @bColor;
+
+                    &>.title {
+                        width: 100%;
+                        height: 39px;
+                        background: #4a90e2;
+                        border-bottom: 1px solid #D8D8D8;
+                        .df;
+                        justify-content: flex-end;
+                        align-items: center;
+
+                        &>span {
+                            margin-left: 12px;
+
+                            &>.remind-filter {
+                                color: #FF3232;
+                            }
+                        }
+
+                        &>.search {
+                            position: relative;
+                            margin-right: 40px;
+
+                            &>.input {
+                                width: 239px;
+                                height: 24px;
+                                background: #F9F9F9;
+                                // border: 0px solid #CAC9CA;
+                                border-radius: 4px;
+                                padding-left: 8px;
+                                // outline: none;
+                                // border: 0;
+                                box-shadow: 0 0 1px rgba(51,51,51,0.5);
+
+                                // &:hover, &:focus {
+                                //     box-shadow: 0 0 1px #4A90E2;
+                                // }
+                            }
+
+                            &>.img {
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                width: 24px;
+                                height: 24px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -716px;
+                                background-size: 40px;
+                            }
+                        }
+
+                        &>.close {
+                            position: absolute;
+                            top: 5px;
+                            right: 2px;
+                            width: 28px;
+                            height: 28px;
+                            background: url(https://cdns.007vin.com/img/icon_san.png) -10px;
+                            cursor: pointer;
+                        }
+                    }
+
+                    &>.content {
+                        width: 100%;
+                        height: e('calc(100% - 40px)');
+                        overflow-y: scroll;
+                        .df;
+                        flex-wrap: wrap;
+                        justify-content: space-around;
+                        background-color: white;
+
+                        &>.sub-group {
+                            position: relative;
+                            .df;
+                            align-items: center;
+                            width: 140px;
+                            height: 140px;
+                            margin-top: 10px;
+
+                            &:hover {
+                                // border: 1px solid black;
+                                box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.12), 0px 2px 4px 0px rgba(0,0,0,0.24);
+                            }
+                            
+                            &>img {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            &>.label {
+                                position: absolute;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                height: 24px;
+                                background: rgba(255,255,255,0.80);
+                                .df;
+                                justify-content: center;
+                                align-items: center;
+                            }
+
+                            &>.filter {
+                                color: #ff3333;
+                            }
+                        }
+                        .selected{
+                            border: 2px solid #3385FF !important;
+                        }
+                        &>.search {
+                            border: 1px solid red;
+                            width: 138px;
+                            height: 138px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &>.container-result {
+        width: @w;
+        height: 100%;
+        min-height: 460px;
+        background-color: @bColor;
+        z-index: 1;
+        &>div {
+            width: 100%;
+        }
+
+        &>.container-header {
+            height: 88px;
+            position: relative;
+            z-index: 11;
+            &>.title {
+                width: 100%;
+                height: 28px;
+                .df;
+                justify-content: center;
+                align-items: center;
+                font-size: 12px;
+                color: #333;
+                padding: 0 30px;
+                box-sizing: border-box;
+                span {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    font-size: 12px;
+                }
+              
+                img{
+                    width: 60px;
+                    background: none;
+                }
+            }
+
+            &>.navigator {
+                width: 100%;
+                height: 60px;
+                .df;
+                justify-content: flex-end;
+                align-content: center;
+
+                &>.content {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    .df;
+                    justify-content: space-between;
+
+                    &>.backs {
+                        width: 264px;
+                        display: flex;
+                        // width: 206px;
+                        top: 45px;
+
+                        div{
+                            position: relative;
+                            width: 52px;
+                            height: 24px;
+                            margin-left: 12px;
+                            border: 1px solid #CAC9CA;
+                            box-shadow: 0 0 0 0 rgba(0,0,0,0.3);
+                            border-radius: 4px;
+                            cursor: pointer;
+                            background-image: url(https://cdns.007vin.com/img/spirit.png);
+                            background-repeat: no-repeat;
+                            background-size: 40px;
+                            background-position: 16px -1955px;
+                            background-color: rgb(249, 249, 249);
+                            // background-color: rgba(51, 51, 51, 0.2);
+                            &>span {
+                                position: absolute;
+                                top: 28px;
+                                left: 4px;
+                            }
+                        }
+
+                        .btn-right{
+                            background-position:16px -1995px;
+                        }
+                        .death{
+                            background-color: rgba(51, 51, 51, 0.2);
+                        }
+                    }
+
+                    &>.utils {
+                        align-self: center;
+                        max-width: 374px;
+                        .df;
+
+                        &>.container-util {
+                            width: 52px;
+                            .df;
+                            flex-direction: column;
+                            align-items: center;
+                            margin-right: 12px;
+
+                            &>.img {
+                                width: 100%;
+                                height: 24px;
+                                border-radius: 4px;
+                                box-shadow: 0 0 1px rgba(51,51,51,0.5);
+                            }
+
+                            .img:active {
+                                box-shadow: 0 0 2px white;
+                            }
+
+                            .back-setting {
+                                background-size: 40px;
+                                background-color: white;
+                            }
+
+                            span {
+                                margin-top: 5px;
+                            }
+
+                            &>.group {
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 16px -1556px;
+                                .back-setting;
+                            }
+
+                            &>.config {
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 12px -1596px;
+                                .back-setting;
+                            }
+
+                            &>.filter {
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1636px;
+                                .back-setting;
+                            }
+
+                            &>.no-filter {
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1676px;
+                                .back-setting;
+                            }
+
+                            &>.container-imgs {
+                                &>div {
+                                    position: relative;
+                                    &:hover {
+                                        .hover-class {
+                                            display: block;
+                                        }
+                                    }
+                                    .hover-class {
+                                        width: 80px;
+                                        height: 20px;
+                                        background-color: #F2F2F2;
+                                        box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.20);
+                                        border-radius: 2px;
+                                        position: absolute;
+                                        top: 29px;
+                                        left: -19px;
+                                        font-size: 12px;
+                                        /* color: #333; */
+                                        line-height: 20px;
+                                        padding-left: 10px;
+                                        box-sizing: border-box;
+                                        display: none;
+                                    }
+                                }
+                                width: 100%;
+                                .df;
+                                border-radius: 4px;
+                                box-shadow: 0 0 1px rgba(51,51,51,0.5);
+                                background-color: white;
+
+                                &>.img {
+                                    height: 24px;
+                                }
+
+                                &>.main {
+                                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1794px;
+                                    background-size: 40px;
+                                    .hover-class {
+                                        background: url(/img/sprite2.png) #f2f2f2 no-repeat 67px -317px;
+                                        background-size: 40px;
+                                    }
+                                }
+
+                                &>.main-next {
+                                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1834px;
+                                    background-size: 40px;
+                                    .hover-class {
+                                        background: url(/img/sprite2.png) #f2f2f2 no-repeat 67px -357px;
+                                        background-size: 40px;
+                                    }
+                                }
+
+                                &>.sub {
+                                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1874px;
+                                    background-size: 40px;
+                                    .hover-class {
+                                        background: url(/img/sprite2.png) #f2f2f2 no-repeat 64px -392px;
+                                        background-size: 40px;
+                                    }
+                                }
+
+                                &>.sub-next {
+                                    background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1914px;
+                                    background-size: 40px;
+                                    .hover-class {
+                                        background: url(/img/sprite2.png) #f2f2f2 no-repeat 64px -432px;
+                                        background-size: 40px;
+                                    }
+                                }
+
+                                &>.previous {
+                                    width: e('calc(50px - 1px)');
+                                    border-right: 1px solid #cac9ca;
+                                }
+
+                                &>.next {
+                                    width: 50px;
+                                }
+                            }
+                        }
+
+                        &>.large {
+                            width: 88px;
+                        }
+                    }
+
+                    &>.container-input {
+                        position: absolute;
+                        top: 8px;
+                        right: 80px;
+                        &>.input {
+                            width: 200px;
+                            height: 26px;
+                            margin-right: 10px;
+                            background: #F9F9F9;
+                            border-radius: 4px;
+                            box-sizing: border-box;
+                            font-size: 12px;
+                            padding-left: 6px;
+                            box-shadow: 0 0 1px rgba(51,51,51,0.5);
+                        }
+
+                        &>.clear {
+                            position: absolute;
+                            top: 3px;
+                            right: 52px;
+                            width: 20px;
+                            height: 20px;
+                            background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                            background-size: 200%;
+                            cursor: pointer;
+                        }
+
+                        &>.img {
+                            position: absolute;
+                            top: 0;
+                            color: #fff;
+                            display: flex;
+                            line-height: 25px;
+                            right: 10px;
+                            /* text-align: center; */
+                            width: 41px;
+                            background-color: #fff;
+                            height: 26px;
+                            background: url(/img/p_search.png) no-repeat;
+                            cursor: pointer;
+                            background: #4A90E2;
+                            background-size: 24px;
+                            /* background-image: url(/img/p_search.png); */
+                            background-position: center;
+                            text-align: center;
+                            align-items: center;
+                            justify-content: center;
+                            &:hover {
+                                background-color: #1d77e0;
+                            }
+
+                            &:active {
+                                background-color: #135eb6;
+                            }
+                            .search-button-loading{
+                                position: absolute;
+                                width: 100%;
+                                /* z-index: 1211231; */
+                                top: 0;
+                                left: 0;
+                                height: 100%;
+                                background-color: #4A90E2;
+                                display: none;
+                                background-image: url(/img/load.gif);
+                                background-repeat: no-repeat;
+                                background-size: 20px;
+                                background-position: center;
+                            }
+                        }
+                        .part-search-error{
+                            position: absolute;
+                            top: 28px;
+                            font-family: PingFang-SC-Regular;
+                            font-size: 12px;
+                            color: #333333;
+                            z-index: 11;
+                            right: 10px;
+                            height: 25px;
+                            background: #fff;
+                            text-align: left;
+                            line-height: 25px;
+                            padding-left: 20px;
+                            width: 179px;
+                            color: #333;
+                            box-shadow: rgba(0,0,0,0.12) 0 0 4px 0, rgba(0,0,0,0.24) 0 2px 4px 0;
+                        // &>.hidden {
+                        //     display: none;
+                        // }
+                        }
+                        
+                        .key-words-container{
+                            background: #FFFFFF;
+                            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.40);
+                            border-radius: 4px;
+                            width: e('calc(100% - 10px)');
+                            .key-words-title{
+                                font-size: 12px;
+                                color: #999999;
+                            }
+                            &>div{
+                                height: 32px;
+                                line-height: 32px;
+                                padding-left: 12px;
+                            }
+                            .key-word-item{
+                                font-size: 14px;
+                                color: #333333;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                &:hover{
+                                    background: #EDEDEF;
+                                }
+                            }
+                        }
+                    }
+
+                    &>.search {
+                        .df;
+                        width: 264px;
+                        justify-content: flex-end;
+                        margin-right: 12px;
+                        align-self: center;
+                        &>.container-edit {
+                            .df;
+                            flex-direction: column;
+                            align-items: center;
+                            &>.img {
+                                width: 52px;
+                                height: 24px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 17px -1716px;
+                                background-size: 40px;
+                                border-radius: 4px;
+                                background-color: #fff;
+                                box-shadow: 0 0 1px rgba(51,51,51,0.5);
+                                cursor: pointer;
+                                border-radius: 4px;
+                                box-shadow: 0 0 1px rgba(51,51,51,0.5);
+                            }
+                        }
+
+                        // &>.hidden {
+                        //     display: none;
+                        // }
+                    }
+                }
+            }
+        }
+
+        &>.container-content {
+            position: relative;
+            height: e('calc(100% - 128px)');
+            background-color: white;
+            &>.container-group-selector {
+                .df;
+                justify-content: space-between;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+
+                &>.container-main-groups {
+                    width: 37.8%;
+                    min-width: 378px;
+                    border: 1px solid #d8d8d8;
+                    height: 100%;
+                    box-sizing: border-box;
+                    &>.title {
+                        height: 40px;
+                        font-size: 14px;
+                        color: #333;
+                        padding-left: 10px;
+                        background: #f2f2f2;
+                        justify-content: space-between;
+                        position: relative;
+                        border-bottom: 1px solid @bColor;
+                        .df;
+                        &>.search {
+                            position: absolute;
+                            flex: 1;
+                            right: 86px;
+                            height: 40px;
+                            height: 40px;
+                            &>.input {
+                                position: absolute;
+                                top: 4px;
+                                right: 7px;
+                                width: 174px;
+                                height: 30px;
+                                padding-left: 10px;
+                                padding-right: 40px;
+                                border-radius: 4px;
+                                background-color: white;
+                            }
+                            .input-search-error{
+                                position: absolute;
+                                top: 36px;
+                                right: 7px;
+                                height: 30px;
+                                background: rgb(255, 255, 255);
+                                text-align: left;
+                                line-height: 30px;
+                                padding-left: 20px;
+                                width: 204px;
+                                color: rgb(51, 51, 51);
+                                box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.24) 0px 2px 4px 0px;
+                            }
+                            &>.img {
+                                position: absolute;
+                                top: 11px;
+                                right: 17px;
+                                width: 20px;
+                                height: 20px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -720px;
+                                background-size: 40px;
+                            }
+
+                            &>.clear {
+                                position: absolute;
+                                top: 10px;
+                                right: 41px;
+                                width: 20px;
+                                height: 20px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                                background-size: 200%;
+                                cursor: pointer;
+                            }
+                        }
+
+
+                        align-items: center;
+                        .changeTitle{
+                            width: 80px;
+                            height: 40px;
+                            display: flex;
+                            border: 1px solid #d8d8d8;
+                            cursor: pointer;
+                            span{
+                                flex:1;
+                            }
+                            .imgList{
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -548px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                            }
+                            .imgListSelected{
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -587px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                                background-color: #fff;
+                            }
+                            .dataListSelected{
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -665px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                                background-color: #fff;
+                            }
+                            .dataList{
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -624px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                            }
+                        }
+                    }
+
+                    &>.content {
+                        .df;
+                        flex-wrap: wrap;
+                        // justify-content: space-around;
+                        overflow-y: auto;
+                        max-height: e('calc(100% - 41px)');
+                        // padding: 12px;
+                        background: #fff;
+                        &>.main-group-data {
+                            .df;
+                            align-items: center;
+                            height: 40px;
+                            width: 100%;
+                            background: #F2F2F2;
+                            &:hover {
+                                box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.30);
+                                margin-bottom: 2px;
+                            }
+                            &>div {
+                                height: 100%;
+                                margin-left: 8px;
+                                .df;
+                                align-items: center;
+                            }
+
+                            &>.title {
+                                width: 54px;
+                                border-right: 1px solid @bColor;
+                                padding-right: 5px;
+                                justify-content: flex-end;
+                            }
+                        }
+                        &>.selected {
+                            // box-shadow: 0 0 2px black;
+                            border: 2px solid #3385FF !important;
+                            width: e('calc(100% - 4px)');
+                        }
+
+                        &>.main-group-data:nth-child(2n) {
+                            background-color: #fff;
+                        }
+
+                        &>.main-group {
+                            width: 110px;
+                            height: 110px;
+                            .df;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 12px;
+                            box-sizing: border-box;
+                            color: #333;
+                            border: 1px solid #d8d8d8;
+                            border-radius: 4px;
+                            background-color: white;
+                            // margin: 0 10px 10px 0;
+                            margin: 10px;
+
+                            span{
+                                word-break: break-all;
+                                text-align: center;
+                            }
+
+                            &:hover {
+                                width: 110px;
+                                height: 110px;
+                                // border: 1px solid #4A90E2;
+                                // box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.12), 0px 2px 4px 0px rgba(0,0,0,0.24);
+                                box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                cursor: pointer;
+                            }
+
+                            &>img {
+                                width: 50%;
+                                height: 50%;
+                            }
+                            &>.selected {
+                                // box-shadow: 0 0 2px black;
+                            border: 2px solid #3385FF !important;
+                                width: e('calc(100% - 4px)');
+                            }
+                        }
+
+                        &>.main-group:last-child {
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+
+                &>.container-sub-groups {
+                    width: 61.8%;
+                    min-width: 618px;
+                    height: 100%;
+                    border-left: 1px solid @bColor;
+                    border-right: 1px solid @bColor;
+                    &>.title {
+                        width: 100%;
+                        height: 42px;
+                        position: relative;
+                        background: #F2F2F2;
+                        border-bottom: 1px solid #D8D8D8;
+                        .df;
+                        justify-content: space-between;
+                        align-items: center;
+                        .subChangeTitle{
+                            width: 80px;
+                            height: 40px;
+                            border: 1px solid #d8d8d8;
+                            display: flex;
+                            cursor: pointer;
+                            
+                            span{
+                                flex:1;
+                            }
+                            .imgList{
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -548px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                            }
+                            .imgListSelected{
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -587px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                                background-color: #fff;
+                            }
+                            .dataListSelected{
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -665px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                                background-color: #fff;
+                            }
+                            .dataList{
+                                // background: green;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+                                background-position-y: -624px;
+                                background-size: 100%;
+                                background-position-x: 12px;
+                            }
+                        }
+
+                        &>span {
+                            margin-left: 12px;
+
+                            &>.remind-filter {
+                                color: #FF3232;
+                            }
+                        }
+
+                        &>.search {
+                            position: absolute;
+                            right: 95px;
+                            z-index: 1;
+
+                            &>.input {
+                                width: 239px;
+                                height: 24px;
+                                background: #F9F9F9;
+                                border-radius: 4px;
+                                padding-left: 8px;
+                                box-shadow: 0 0 1px rgba(51,51,51,0.5);
+                            }
+
+                            &>.transparent{
+                                width: 40px;
+                                opacity: 0;
+                            }
+
+                            &>.img {
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                width: 24px;
+                                cursor: pointer;
+                                height: 24px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -716px;
+                                background-size: 40px;
+                            }
+
+                            .input-search-error{
+                                // display: block;
+                                position: absolute;
+                                top:26px;
+                                left: 0;
+                                height: 30px;
+                                background: rgb(255, 255, 255);
+                                text-align: left;
+                                line-height: 30px;
+                                padding-left: 20px;
+                                width: e("calc(100% - 20px)");
+                                color: rgb(51, 51, 51);
+                                box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.24) 0px 2px 4px 0px;
+                            }
+
+                            &>.clear {
+                                position: absolute;
+                                top: 3px;
+                                right: 30px;
+                                width: 20px;
+                                height: 20px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 2px 2px;
+                                background-size: 200%;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    &>.content {
+                        width: e('calc(100% - 24px)');
+                        max-height: e('calc(100% - 67px)');
+                        overflow-y: auto;
+                        .df;
+                        flex-wrap: wrap;
+                        padding: 12px;
+                        &>.filter {
+                            height: 30px;
+                            width: 100%;
+                            margin-bottom: 10px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: red;
+                        }
+                        &>.search {
+                            // border: 1px solid #3385ff;
+                            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                            margin-bottom: 2px;
+                        }
+
+                        .selected{
+                            border:2px solid #3385ff;
+                        }
+                    }
+
+                    &>.content-list{
+                        width: 100%;
+                        max-height: e('calc(100% - 64px)');
+                        overflow-y: auto;
+                        .df;
+                        flex-wrap: wrap;
+
+                        .list-container{
+                            width: 100%;
+
+                            .sub-list-title{
+                                height: 40px;
+                                background: #D8D8D8;
+                                line-height: 40px;
+                                display: flex;
+                                flex-direction: row;
+                                .sub-list-title-item{
+                                    align-items: center;
+                                    text-align: center;
+                                    justify-content: center;
+                                    &:nth-child(1){
+                                        flex:6
+                                    }
+                                    &:nth-child(2){
+                                        flex:6
+                                    }
+                                    &:nth-child(3){
+                                        flex:13
+                                    }
+                                    &:nth-child(4){
+                                        flex:42;
+                                        // justify-content:flex-start;
+                                    }
+                                    &:nth-child(5){
+                                        flex:16
+                                    }
+                                    &:nth-child(6){
+                                        flex:17
+                                    }
+                                }
+                            }
+                            .list-body-container{
+                                flex:1;
+                                background: #f2f2f2;
+                                overflow: auto;
+                                height: e('calc(100% - 40px)');
+                                .sub-list-items{
+                                    cursor: pointer;
+                                    &:hover{
+                                        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                                        margin-bottom: 2px;
+                                    }
+                                    padding: 12px 4px;
+                                    flex-direction: row;
+                                    display: flex;
+                                    flex: 1;
+                                    &:nth-child(2n-1){
+                                        background: #fff;
+                                    }
+                                    .sub-list-item{
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        border-right: 1px solid #EFEFEF;
+                                        &:nth-child(1){
+                                            flex: 6;
+                                            justify-content: flex-end;
+                                            padding-right: 5px;
+                                        }
+                                        &:nth-child(2){
+                                            flex:6;
+                                            justify-content: flex-end;
+                                            padding-right: 5px;
+                                        }
+                                        &:nth-child(3){
+                                            flex:13;
+                                            justify-content: flex-end;
+                                            padding-right: 5px;
+                                        }
+                                        &:nth-child(4){
+                                            flex:42;
+                                            justify-content: flex-start;
+                                            padding-left: 5px;
+                                        }
+                                        &:nth-child(5){
+                                            flex:16;
+                                            justify-content: flex-start;
+                                            padding-left: 5px;
+                                        }
+                                        &:nth-child(6){
+                                            flex:17;
+                                            border-right: none;
+                                            justify-content: flex-start;
+                                            padding-left: 5px;
+                                        }
+                                    }
+                                }
+                                .filter{
+                                    align-items: center;
+                                    justify-content: center;
+                                    color: red;
+                                    div{
+                                        color: red;
+                                    }
+                                }
+                            }
+                        }
+                        .search {
+                            // border: 1px solid #3385ff;
+                            box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+                            margin-bottom: 2px;
+                        }
+                        .selected{
+                            border:2px solid #3385ff;
+                        }
+                    }
+                }
+            }
+        }
+
+        &>.container-remind {
+            height: 40px;
+            line-height: 40px;
+            display: flex;
+            background: #3F424D;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            span{
+                font-size: 12px;
+                color: #FFFFFF;
+            }
+            // div{
+            //     display: flex;
+            //     width: 325px;
+            //     font-size: 12px;
+            //     color: #666666;
+            //     span{
+            //         margin-left:25px;
+            //         font-size: 12px;
+            //     }
+            // }
+            // &>span {
+            //     font-size: 12px;
+            //     color: #666666;
+            //     flex:1;
+            //     text-align: center;
+            // }
+        }
+    }
+}
+#part {
+    .container-result{
+        min-height: 641px;
+    }
+}
+
+#seealso{
+    z-index: 23;
+    // height: auto;
+    // min-height: 100%;
+    .container-result{
+        height: e('calc(100% - 128px)');
+        background-color: transparent;
+        &>.container-header{
+            height: 44px;
+            padding-top: 128px;
+            .title-main-bar{
+                height: 44px;
+                background: #4a90e2;
+                color: #fff;
+                position: relative;
+                line-height: 44px;
+                padding-left: 20px;
+                &>.close{
+                    position: absolute;
+                    top: 7px;
+                    right: 14px;
+                    width: 28px;
+                    height: 28px;
+                    cursor: pointer;
+                    background: url(../img/operate_spirit.png) no-repeat 0 -237px;
+                    display: block;
+                    background-size: 40px;
+                }
+            }
+        }
+        .container-content{
+            height: e('calc(100% - 80px)');
+        }
+    }
+}

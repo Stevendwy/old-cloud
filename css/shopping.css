@@ -1,0 +1,449 @@
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container-content .shopping-cart {
+  min-width: 390px;
+  position: fixed;
+  min-height: 300px;
+  left: 0;
+  top: 128px;
+  bottom: 40px;
+  width: 37.8%;
+  background-color: white;
+  z-index: 11;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+.container-content .shopping-cart .shopping-title {
+  background: #4A90E2;
+  height: 40px;
+  font-size: 14px;
+  color: #FFFFFF;
+  line-height: 40px;
+  padding-left: 20px;
+  position: relative;
+}
+.container-content .shopping-cart .shopping-title .close {
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  background: url(../img/operate_spirit.png) no-repeat 0px -237px;
+  display: block;
+  background-size: 40px;
+}
+.container-content .shopping-cart .shopping-title .close:hover {
+  background: url(../img/operate_spirit.png) no-repeat 0px -277px;
+  background-size: 40px;
+}
+.container-content .shopping-cart .shopping-list {
+  overflow: auto;
+  height: calc(100% - 82px);
+}
+.container-content .shopping-cart .shopping-list .list-title {
+  background: #D8D8D8;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #333333;
+}
+.container-content .shopping-cart .shopping-list .list-title div {
+  flex: 6;
+  padding-left: 7px;
+}
+.container-content .shopping-cart .shopping-list .list-title span {
+  flex: 1;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: #4A90E2;
+  cursor: pointer;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row {
+  background: #fff;
+  height: 40px;
+  display: flex;
+  border: 1px solid #EFEFEF;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item img {
+  background: none;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item:nth-child(1) {
+  flex: 1;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item:nth-child(2) {
+  flex: 3;
+  justify-content: flex-start;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item:nth-child(3) {
+  flex: 2;
+  position: relative;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item:nth-child(4) {
+  flex: 1;
+  cursor: pointer;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item .list-item-partcode {
+  width: 100%;
+  text-align: right;
+  padding-right: 25px;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item .list-item-partcode .coby-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  background: url(https://cdns.007vin.com/img/spirit.png) no-repeat;
+  background-size: 50px auto;
+  background-position: 4px -1700px;
+  cursor: pointer;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item .list-item-partcode .coby-icon .cody-success {
+  display: none;
+  position: absolute;
+  font-size: 12px;
+  background: #dcdcdc;
+  width: 59px;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid #ddd;
+  text-align: center;
+  top: 0;
+  right: -62px;
+  z-index: 1;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item .list-item-partcode .coby-icon .coby-msg {
+  display: none;
+  position: absolute;
+  font-size: 12px;
+  background: #dcdcdc;
+  width: 59px;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid #ddd;
+  text-align: center;
+  top: 0;
+  right: 15px;
+  z-index: 1;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item .list-item-partcode .coby-icon:active .cody-success {
+  display: block;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row .list-cell-item .list-item-partcode .coby-icon:hover .coby-msg {
+  display: block;
+}
+.container-content .shopping-cart .shopping-list .list-body .list-row:nth-child(even) {
+  background: #f5f5f5;
+}
+.container-content .shopping-cart .shopping-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px -2px 4px 0px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+.container-content .shopping-cart .shopping-footer div {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+.container-content .shopping-cart .shopping-footer span {
+  background: #F5A623;
+  box-shadow: 0px 2px 4px 0px rgba(245, 166, 35, 0.4);
+  border-radius: 4px;
+  width: 90%;
+  height: 32px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  margin-right: 10px;
+  line-height: 32px;
+}
+.container-content .shopping-cart .shopping-footer span:hover {
+  background: #E08C00;
+}
+.container-content .shopping-cart .shopping-footer span:active {
+  background: #BE7600;
+}
+.container-content .shopping-cart .shopping-clear {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 40px);
+  top: 40px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+.container-content .shopping-cart .shopping-clear img {
+  width: 160px;
+  background: none;
+  margin-bottom: 40px;
+}
+.container-content .shopping-cart .shopping-clear .history {
+  width: 200px;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 4px;
+}
+.container-content .share-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 12;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.container-content .share-background-container .share-container {
+  position: fixed;
+  top: 44px;
+  width: 944px;
+  left: calc(50% - 472px);
+  height: calc(100% - 80px);
+  min-height: 516px;
+  background: #fff;
+}
+.container-content .share-background-container .share-container .title {
+  height: 40px;
+  color: #fff;
+  padding-left: 20px;
+  background: #4A90E2;
+  border-radius: 4px 4px 0px 0px;
+}
+.container-content .share-background-container .share-container .title div {
+  font-size: 14px;
+  color: #FFFFFF;
+  line-height: 40px;
+}
+.container-content .share-background-container .share-container .title span {
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  width: 28px;
+  height: 28px;
+  background: url(https://cdns.007vin.com/img/icon_san.png) -10px;
+  cursor: pointer;
+}
+.container-content .share-background-container .share-container .share-body-container {
+  height: calc(100% - 40px);
+  overflow: auto;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main {
+  padding: 10px;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-top-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-top-container img {
+  width: 100px;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-top-container .share-detail-msg {
+  margin-left: 12px;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-top-container .share-detail-msg span {
+  font-family: PingFang-SC-Medium;
+  font-size: 14px;
+  color: #333333;
+  line-height: 22px;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-top-container .share-detail-msg input {
+  width: 140px;
+  height: 24px;
+  line-height: 24px;
+  overflow: hidden;
+  background: #F2F2F2;
+  border: 1px solid #D8D8D8;
+  border-radius: 2px;
+  font-size: 10px;
+  color: #333333;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-top-container .share-detail-msg .button-container {
+  display: flex;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-top-container .share-detail-msg .button {
+  margin-right: 20px;
+  background: #4A90E2;
+  border-radius: 2px;
+  width: 80px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #FFFFFF;
+  position: relative;
+  cursor: pointer;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-top-container .share-detail-msg .button:hover {
+  background: #1D77E0;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-top-container .share-detail-msg .button:active {
+  background: #135EB6;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-top-container .share-detail-msg .button span {
+  position: absolute;
+  top: 0;
+  right: -52px;
+  display: none;
+  width: 48px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  background: #EFEFEF;
+  border: 0px solid #BBBBBB;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  font-size: 10px;
+  color: #333333;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-top-container .share-detail-msg .button:active span {
+  display: flex;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .share-msg-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .form-title {
+  border: 1px solid #000000;
+  border-bottom: none;
+  background: #F2F2F2;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #333333;
+  line-height: 22px;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .form-title-row {
+  height: 40px;
+  background: #F2F2F2;
+  display: flex;
+  border-left: 1px solid #000;
+  border-top: 1px solid #000;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .form-title-row .form-title-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 0 8px;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .form-title-row .form-title-cell:nth-child(1) {
+  flex: 37;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .form-title-row .form-title-cell:nth-child(2) {
+  flex: 300;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .form-title-row .form-title-cell:nth-child(3) {
+  flex: 216;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .form-title-row .form-title-cell:nth-child(4) {
+  flex: 120;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .form-title-row .form-title-cell:nth-child(5) {
+  flex: 120;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .form-title-row .form-title-cell:nth-child(6) {
+  flex: 120;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .from-body-container {
+  border-left: 1px solid #000;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .from-body-container .from-body-row {
+  height: 40px;
+  display: flex;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .from-body-container .from-body-row div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0 8px;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .from-body-container .from-body-row div:nth-child(1) {
+  flex: 37;
+  justify-content: flex-end;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .from-body-container .from-body-row div:nth-child(2) {
+  flex: 300;
+  justify-content: flex-start;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .from-body-container .from-body-row div:nth-child(3) {
+  flex: 216;
+  justify-content: flex-end;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .from-body-container .from-body-row div:nth-child(4) {
+  flex: 120;
+  justify-content: flex-start;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .from-body-container .from-body-row div:nth-child(5) {
+  flex: 120;
+  justify-content: flex-end;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .form-container .from-body-container .from-body-row div:nth-child(6) {
+  flex: 120;
+  justify-content: flex-end;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .detail-bottom div {
+  margin: 7px 0;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .detail-bottom .row-total {
+  display: flex;
+  justify-content: space-between;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .detail-bottom .row-total div span {
+  margin-left: 20px;
+}
+.container-content .share-background-container .share-container .share-body-container .share-main .detail-bottom .base-msg {
+  display: flex;
+  justify-content: space-between;
+}
+.container-price-menu-back {
+  position: fixed !important;
+  z-index: 13;
+}
+.container-price-menu-back .price-menu {
+  min-height: 516px !important;
+  position: fixed;
+  height: calc(100% - 80px) !important;
+  top: 40px;
+  left: calc(50% - 472px);
+}
+.container-price-menu-back .price-menu .price-menu-content {
+  height: calc(100% - 40px) !important;
+}
