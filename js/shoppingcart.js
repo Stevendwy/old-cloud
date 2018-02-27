@@ -142,7 +142,11 @@ export default class ShoppingCart extends Root{
         return(
             <div className={"shopping-cart " + isHidden}>
                 <div className="shopping-title">
-                    购物车（共{this.state.total_type}种，共{this.state.total_quantity}件）
+                    {
+                        lge === "zh"
+                        ? `购物车（共${this.state.total_type}种，共${this.state.total_quantity}件）`
+                        : `Cart(Type: ${this.state.total_type}, Quantity: ${this.state.total_quantity})`
+                    }
                     <span className="close" onClick={this.hideen.bind(this)}></span>
                 </div>
                 <div className="shopping-list">
@@ -150,7 +154,7 @@ export default class ShoppingCart extends Root{
                         <div>
                             {_title}
                         </div>
-                        <span onClick={this.clearAll.bind(this)}>清空</span>
+                        <span onClick={this.clearAll.bind(this)}>{TR("清空")}</span>
                     </div>
                     <div className="list-body">
                         {
@@ -170,7 +174,7 @@ export default class ShoppingCart extends Root{
                                                 _content = <div className="list-item-partcode">{item[it]}
                                                                 <span className="coby-icon" title="复制" onClick={e => _cobyPart(item[it], e)}>
                                                                     <span className="cody-success">
-                                                                        复制成功
+                                                                        {TR("复制成功")}
                                                                     </span>
                                                                 </span>
                                                             </div>
@@ -189,16 +193,16 @@ export default class ShoppingCart extends Root{
                     </div>
                 </div>
                 <div className="shopping-footer">
-                    <span className="button" onClick={this.getPriceMenu.bind(this)}>报价</span>
+                    <span className="button" onClick={this.getPriceMenu.bind(this)}>{TR("报价")}</span>
                 </div>
                 <div className="shopping-clear">
                     <img src="/img/p_null.png"/>
-                    <a className="blue-button  history" href="/user/profile?binds=shopping">查看历史报价单</a>
+                    <a className="blue-button  history" href="/user/profile?binds=shopping">{TR("查看历史报价单")}</a>
                 </div>
                 <Prompt
-                    content="确认清空购物车？"
-                    confirm="确认"
-                    other="取消"
+                    content={TR("确认清空购物车？")}
+                    confirm={TR("确认")}
+                    other={TR("取消")}
                     show={this.state.showDialog}
                     fun={() =>{
                         this.clearAllSure()

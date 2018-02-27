@@ -98,7 +98,6 @@ export default class Car extends VCP {
             partListShow: true,
             isPartShow: false,
             resultgo:false
-
         })
     }
 
@@ -109,7 +108,6 @@ export default class Car extends VCP {
     }
 
     listShowClick(getindex){
-
         this.setState({
             leftindex:getindex,
             inputvalue:"",
@@ -216,7 +214,7 @@ export default class Car extends VCP {
                     this.currentAuth = _auth
                     let _resuledata = _spliclength ? this.state.middledata : this.state.resultdata
                     let _changeindex = selfindex
-                    if(this.state.middleimg == fatherindex && (_code == "benz" || _code == "smart")){
+                    if(this.state.middleimg == fatherindex && (_code == "benz" || _code == "maybach")){
                         let componentCount = 0
                         let _reda = this.state.middledata
                         let newData = _reda.filter((item,index,_reda)=> {
@@ -244,20 +242,15 @@ export default class Car extends VCP {
                         // 特殊处理 中间层分支
                         let _datalist = JSON.parse(JSON.stringify(this.state.datalist))
                         let _titlelist = JSON.parse(JSON.stringify(this.state.titlelist))
-
                             _datalist = _datalist.slice(0, _fatherindex)
                             _titlelist = _titlelist.slice(0, _fatherindex)
                             _titleworldlist = _titleworldlist.slice(0, fatherindex)
                             _selectlist = _selectlist.slice(0, fatherindex)
-
                         this.setState({
                             titlelist:_titlelist,
-                            datalist:_datalist,
-                            
+                            datalist:_datalist,  
                         })
-
                     }
-
                     this.setState({
                         titleworldlist:_titleworldlist,
                         selectlist:_selectlist,
@@ -294,16 +287,14 @@ export default class Car extends VCP {
         }
     }
     
-    dataGetnew(type,typess,url,obj,_selectlist,_titleworldlist,_fatherindex){
+    dataGetnew(type,typess,url,obj,_selectlist,_titleworldlist,_fatherindex) {
         let _datalist = JSON.parse(JSON.stringify(this.state.datalist))
         let _titlelist = JSON.parse(JSON.stringify(this.state.titlelist))
         let _islast = type ? _fatherindex : -2
-
-        Utils.ctrlMum('show');
+        Utils.ctrlMum('show')
         Utils.get(url, obj, (response) => {
             Utils.ctrlMum('hidden');
-
-            let _titlelistadd = type ? "选择主组信息":response.title
+            let _titlelistadd = type ? TR("选择主组信息") :response.title
             let _resultdata = type ? response.data : []
              _datalist[_fatherindex] = response.data
             _titlelist[_fatherindex] = _titlelistadd
@@ -312,7 +303,6 @@ export default class Car extends VCP {
             let _splicelist = JSON.parse(JSON.stringify(_titlelist))
             let _splicetitlelist = JSON.parse(JSON.stringify(_titleworldlist))
             let _spliceselectlist = JSON.parse(JSON.stringify(_selectlist))
-
             if (_datalist.length>=_fatherindex+2) {
                 _datalist = _splicedata.slice(0, _fatherindex+1)
                 _titlelist = _splicelist.slice(0, _fatherindex+1)
@@ -544,7 +534,7 @@ export default class Car extends VCP {
                           <div className="btn-right" style={{backgroundColor:_btnrightcolor}} onClick={this.upAndDown.bind(this,"down")}></div>
                         </div>
                         <div className="title-include">
-                            <span onClick={this.listShowClick.bind(this,0)}>选择品牌</span>
+                            <span onClick={this.listShowClick.bind(this,0)}>{TR("选择品牌")}</span>
                             {_navshow}
                         </div>
                     </div>

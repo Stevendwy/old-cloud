@@ -51,10 +51,11 @@ export default class CardSelector extends Component {
 					onClick={e => e.stopPropagation()}>
 					<div className="PriceLoadingShow"></div>
 					<div className={this.props.isSpecial ? "hidden" : "bluePartTitle"}>
-						零件详情
+						{TR("零件详情")}
 						<div className="close" onClick={this.hidden.bind(this)}></div>
 					</div>
 					<Header
+						{...this.props}
 						hidden={this.hidden.bind(this)}
 						titles={this.props.titles}
 						selected={this.selected.bind(this)}
@@ -70,19 +71,42 @@ export default class CardSelector extends Component {
 }
 
 class Header extends Component {
+	constructor(props) {
+		super(props)
+		this.enTranslate = {
+			"prices": "渠道价格",
+			"technical info": "技术信息",
+			"applicable veh": "适用车型",
+			"component": "组件",
+			"supersession": "替换件",
+			"articles": "品牌件"
+		}
+	}
+
 	getCards() {
 		let _titles = this.props.titles
 		if (_titles && _titles.length > 0) return (
 			_titles.map((item, index) => {
 				let _className = 'card'
-				// console.log(item === this.props.selectedTitle)
-				// console.log(item)
-				// console.log(this.props.selectedTitle)
-				if (item === this.props.selectedTitle) _className += ' card-selected'
+				let _item = item
+				let _chooseItem = item
+				if(this.props.specialEng) {
+					if (_chooseItem === this.props.selectedTitle) _className += ' card-selected'
+				} else {
+					if(lge === "en") {
+						if(item === "基础信息") {
+							_item = "Basic"
+						} else {
+							_chooseItem = this.enTranslate[item.toLowerCase()]
+						}
+					}
+					if (_chooseItem === this.props.selectedTitle) _className += ' card-selected'
+				}
+				
 				return (
 					<div key={index} className={_className}
-                        onClick={() => this.props.selected(item)}>
-                        {item}
+                        onClick={() => this.props.selected(_chooseItem)}>
+                        {_item}
                     </div>
 				)
 			})

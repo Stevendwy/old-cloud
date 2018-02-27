@@ -156,7 +156,7 @@
                             padding-left: 20px;
                             background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -477px;
                             background-size: 40px;
-                            width: 80px;
+                            width: 180px;
                         }
                     }
                 }
@@ -306,6 +306,7 @@
                                 background: #FFFFFF;
                                 z-index: 2;
                                 top: 90px;
+                                left: 0;
                                 box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
                                 border-radius: 2px;
                                 display: none;
@@ -318,6 +319,7 @@
                                 }
                             }
                         }
+
                         .flex-column {
                             flex-direction: column;
                             // overflow: hidden;
@@ -348,6 +350,7 @@
                             }
                         }
                         .partImg {
+                            cursor: pointer;
                             img {
                                 max-height: 88px;
                                 max-width: 88px;
@@ -451,44 +454,57 @@
                     width: 1024px;
                     overflow: auto;
                     margin: 0 auto;
+                    padding-bottom: 40px;
                     .brand-cell {
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        position: relative;
-                        width: 130px;
-                        height: 90px;
-                        background: #FFFFFF;
+                        position: relative; 
                         border: 1px solid #D8D8D8;
                         border-radius: 4px;
                         float: left;
                         margin: 10px;
+                        flex-direction: column;
+                        transition: all .2s;
                         cursor: pointer;
+                        &:hover {
+
+                            box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
+                            cursor: pointer;
+                        }
+                        .cell-box {
+                            width: 130px;
+                            height: 90px;
+                            background: #FFFFFF;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
                         img {
                             max-height: 88px;
                             max-width: 130px;
                         }
-                        &:hover .cell-hover {
-                            display: block;
-                        }
-                        .cell-hover {
-                            // position: absolute;
-                            // background: #FFFFFF;
-                            // box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
-                            // border-radius: 2px;
-                            // display: none;
-                            // padding: 10px 20px;
-                            // color: #333;
-                            position: absolute;
-                            background: #FFFFFF;
-                            z-index: 2;
-                            top: 90px;
-                            box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
-                            border-radius: 2px;
-                            display: none;
-                            padding: 1px 3px;
-                            color: #333;
-                        }
+                        .cell-text {
+                            height: 40px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            .cell-hover {
+                                // height: 40px;
+                                max-width: 132px;
+                                max-height: 40px;
+                                background: #FFFFFF;
+                                text-align: center;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: #333;
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 2;
+                                overflow: hidden;
+                            }
+                        }  
                     }
                 }
                 .load-more {

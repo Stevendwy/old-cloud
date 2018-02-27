@@ -57,8 +57,14 @@ export default class SearchError extends Root {
 					this.props.dataList 
 					? 	<div className="vin-list-container">
 							<div className="vin-list-title">
-								<span>为您找到相关结果约{this.props.dataList.length}个</span>
-								<span>*同类车型图片，仅供参考</span>
+								<span>
+									{
+										lge === "zh" 
+										?	`为您找到相关结果约${this.props.dataList.length}个`
+										:	`Find ${this.props.dataList.length} relevant results for you`
+									}
+								</span>
+								<span>*{TR("同类车型图片, 仅供参考")}</span>
 							</div>
 							<SearchResultList
 								data={this.props.dataList}

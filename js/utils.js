@@ -15,7 +15,7 @@ const specialUrl = {
     "/engine/parts_search": true
 }
 
-const alertErrorUrl = {
+const alertErrorUrl = {                 //监听的接口
     "/ppyvin/searchvins": true,
     "/engine/search_comp": true,
     "/ppyvin/vingroup": true,
@@ -31,7 +31,6 @@ const alertErrorUrl = {
     "/articles/details": true,
     "/articles/oe_engine_search": true
 }
-
 var otherEnter = false
 export default class Utils {
     /**
@@ -76,6 +75,10 @@ export default class Utils {
         }
         //
         $.ajax({
+            headers: {
+                // Accept: "application/json; charset=utf-8"
+                "Sys-Language": lge
+            },
             type: type,
             url: hostPort + url,
             data: datas,
@@ -90,6 +93,11 @@ export default class Utils {
                 }
                 // -1000 直接弹框验证，不做其他任何处理
                 if (data.code === -1000) {
+                    $("#container-gt #title-gt").html(`
+                        <span>尊敬的用户，因您的查询过于频繁，</span>
+                        <span>您需要点击下方按钮进行验证，</span>
+                        <span>验证通过即可继续查询。</span>
+                    `)
                     createGT()
                     return
                 }
@@ -121,7 +129,11 @@ export default class Utils {
                 // else if(data.code === 400) location.href = '/logout'
                 else {
                     if(!otherEnter) {
-                        alert(data.msg)
+                        let text = data.msg
+                        if(lge === "en" && lg[data.msg]) {
+                            text = TR(data.msg)
+                        }
+                        alert(text)
                     }
                     Utils.hideDom(".login-loading")
                     Utils.hideDom(".list-foot-loading")
@@ -144,7 +156,11 @@ export default class Utils {
                 Utils.hideDom(".search-loading-container .page-box")
                 if(!otherEnter) {
                     if(alertErrorUrl[url]) {
-                        alert("网络繁忙，请5秒后重试！")                        
+                        if(lge === "en") {
+                            alert("Server are busy currently, please retry 5 seconds later!")
+                        } else {
+                            alert("网络繁忙，请5秒后重试！")                            
+                        }
                     }
                 }
             },

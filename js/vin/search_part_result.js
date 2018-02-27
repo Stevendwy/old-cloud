@@ -478,7 +478,7 @@ export default class SearchPartResult extends Root {
         return(
             <div className={this.state.keyWordsShow ? "key-words-container" : "key-words-container hidden"}>
             <div className="key-words-title">
-                热门搜索
+                {TR("热门搜索")}
             </div>
             {
                 this.state.keyWords.map((item,index)=>{
@@ -544,7 +544,8 @@ export default class SearchPartResult extends Root {
             <div className={this.props.isShow ? 'container-search-part-result' : 'container-search-part-result hidden'} onClick={window.hiddenSearchPartResult}>
                 <div className={"container-overauto"+enterTypeClass} onClick={e => e.stopPropagation()}>
                     <div className='title-main-bar'>
-                        {this.props.searchEnter == 'vin' ? (this.props.vin +"  ") :  (this.listTitle +" ")}零件搜索:
+                        {this.props.searchEnter == 'vin' ? (this.props.vin +"  ") :  (this.listTitle +" ")} 
+                        {TR("零件搜索")}:
                         <div className="close" onClick={window.hiddenSearchPartResult}></div>                        
                     </div>
                     <div className='container-title'>
@@ -558,23 +559,23 @@ export default class SearchPartResult extends Root {
                                 {/* <div className="choose-item-container"> */}
                                     <span onClick={this.chooseSearchType.bind(this, 'norPart')}>
                                         <input type="radio" name="norPart" checked={this.state.partSearchType === 'norPart'}/>
-                                        <label htmlFor="norPart">零件号</label>
+                                        <label htmlFor="norPart">{TR("零件号")}</label>
                                     </span>
                                     {
                                         engCodeBrand(this.props.brands)
                                         ? <span onClick={this.chooseSearchType.bind(this, 'engPart')}>
                                             <input type="radio" name="engPart" checked={this.state.partSearchType === 'engPart'}/>
-                                            <label htmlFor="engPart">工程编号</label>
+                                            <label htmlFor="engPart">{TR("工程编号")}</label>
                                           </span>
                                         : <span onClick={this.chooseSearchType.bind(this, 'faultCode')}>
                                             <input type="radio" name="faultCode" checked={this.state.partSearchType === 'faultCode'}/>
-                                            <label htmlFor="faultCode">故障码</label>
+                                            <label htmlFor="faultCode">{TR("故障码")}</label>
                                           </span>
                                     }
                                 {/* </div> */}
                             </div>
                             <input className='input'
-                                placeholder={this.state.partSearchType == 'norPart' ? '输入零件原厂名/零件号' : this.state.partSearchType === 'engPart' ? "输入工程编号" : "输入故障码"} 
+                                placeholder={this.state.partSearchType == 'norPart' ? TR('输入零件原厂名/零件号') : this.state.partSearchType === 'engPart' ? TR("输入工程编号") : TR("输入故障码")} 
                                 ref = "searchPart"
                                 autoFocus
                                 onChange={this.partVinInputChange.bind(this)}
@@ -598,7 +599,7 @@ export default class SearchPartResult extends Root {
                         </div>
 
                         <div className={this.props.searchEnter == 'vin'? "btn-container" : "hidden" }>
-                            <div className="img config" title="车辆配置信息" onClick={this.props.showCarInfo.bind(this)}></div>
+                            <div className="img config" title={TR("车辆配置信息")} onClick={this.props.showCarInfo.bind(this)}></div>
                             <div className={"img " + _filterClass} title="切换过滤状态" onClick={this.changeFilter.bind(this)}></div>
                         </div>
                         {/* <div className="close" onClick={window.hiddenSearchPartResult}></div> */}
@@ -662,8 +663,8 @@ export default class SearchPartResult extends Root {
                                     <div className='img'></div>
                                 </div>
                                 <div className="changeTitle">
-                                    <span className={_imgSelected} onClick={this.changeListType.bind(this,"imgList")} title='以图片方式显示'></span>
-                                    <span className={_dataSelected} onClick={this.changeListType.bind(this,"dataList")} title='以列表方式显示'></span>
+                                    <span className={_imgSelected} onClick={this.changeListType.bind(this,"imgList")} title={TR('以图片方式显示')}></span>
+                                    <span className={_dataSelected} onClick={this.changeListType.bind(this,"dataList")} title={TR('以列表方式显示')}></span>
                                 </div>
                             </div>
                         

@@ -28,6 +28,7 @@ app.get('*', (req, res) => {
             // 设置些需要的头
             .set('Content-Type', 'application/json;charset=UTF-8')
             // set cookie字段
+            // .set('Sys-Language', 'en')    
             .set('Cookie', ServerCookie)
             .end(function(err, response) {
                 if (err || !response.ok) {
@@ -77,6 +78,7 @@ app.post("*", (req, res) => {
     superagent.post(url)
         // 设置些需要的头
         .set('Content-Type', 'application/json;charset=UTF-8')
+        .set('Sys-Language', 'en')
         // set cookie字段
         .set('Cookie', ServerCookie)
         .send(req.body)
@@ -97,7 +99,7 @@ app.post("*", (req, res) => {
         })
 })
 
-const host = '127.0.0.1'
+const host = '0.0.0.0'
 app.listen(8083, host, () => {
     console.log(`start ${host} 8083`)
 })

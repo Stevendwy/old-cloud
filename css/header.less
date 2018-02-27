@@ -7,7 +7,11 @@
 }
 .df{
     display: flex
-};
+}
+
+.operateGuide {
+    cursor: pointer;
+}
 #header {
     position: relative;
     width: 100%;
@@ -19,7 +23,8 @@
 
     .content {
         .df;
-        justify-content: space-between;
+        // justify-content: space-between;
+        justify-content: center;        
         width: @w;
         height: 100%;
 
@@ -32,8 +37,12 @@
         }
 
         &>img {
-            width: 95px;
-            height: 23px;
+            // width: 95px;
+            // height: 23px;
+            position: absolute;
+            left: 0;
+            width: 188px;
+            height: 21px;
             margin-top: 9px;
             background: none;
             margin-left: 20px;
@@ -110,6 +119,86 @@
         }
 
         .account {
+            position: absolute;
+            right: 0;
+            .eng-control {
+                position: absolute;
+                width: 101px;
+                line-height: 40px;
+                height: 40px;
+                // right: 184px;
+                right: 119px;
+                // background: #fff;
+                b {
+                    background: url(/img/spiritEN.png) no-repeat;
+                    background-size: 40px;
+                    width: 20px;
+                    height: 20px;
+                    margin-top: 7px;
+                    margin-right: 5px;                    
+                    display: block;
+                }
+                .en {
+                    background-position: 0 -2433px; 
+                }
+                .zh {
+                    background-position: 0 -2393px;
+                }
+                .chooseed-lang-box {
+                    display: flex;
+                    padding-left: 20px;
+                    cursor: pointer;
+                    height: 100%;
+                    .lang-icon {
+                        background: url(/img/spiritEN.png) no-repeat;
+                        background-size: 40px;
+                        width: 20px;
+                        height: 20px;
+                        margin-top: 7px;
+                        display: block;
+                    }
+                    .en {
+                        background-position: 0 -2433px; 
+                    }
+                    .zh {
+                        background-position: 0 -2393px;
+                    }
+                    .choose-lang {
+
+                    }
+                }
+                &:hover  {
+                    .change-lang {
+                        display: block;
+                    }
+                }
+                .change-lang {
+                    cursor: pointer;
+                    display: none;
+                    background: #fff;
+                    
+                    div {
+                        display: flex;
+                        padding-left: 20px;
+                        transition: all 0.2s linear;
+                    }
+                    div:hover {
+                        background: #D8D8D8;
+                    }
+                    .zh-lang {
+                        b {
+
+                        }
+                    }
+                    .en-lang {
+                        b {
+
+                        }
+                    }
+                }
+
+            }
+
             .df;
             align-items: center;
             margin-right: 40px;
@@ -120,6 +209,9 @@
         }
 
         .utils {
+            position: absolute;
+            right: 0;
+
             .sizeWidth;
             line-height: 40px;
             cursor: pointer;
@@ -136,9 +228,86 @@
                     background-size: 40px;
                     // width: 40px;
                 }
+                .eng-control {
+                    position: absolute;
+                    width: 101px;
+                    // right: 260px;
+                    right: 193px;
+                    // background: #fff;
+                    b {
+                        background: url(/img/spiritEN.png) no-repeat;
+                        background-size: 40px;
+                        width: 20px;
+                        height: 20px;
+                        margin-top: 7px;
+                        margin-right: 5px;
+                        display: block;
+                    }
+                    .en {
+                        background-position: 0 -2433px; 
+                    }
+                    .zh {
+                        background-position: 0 -2393px;
+                    }
+                    .chooseed-lang-box {
+                        display: flex;
+                        padding-left: 20px;
+                        cursor: pointer;
+                        .lang-icon {
+                            background: url(/img/spiritEN.png) no-repeat 0 -2433px;
+                            background-size: 40px;
+                            width: 20px;
+                            height: 20px;
+                            margin-top: 7px;
+                            display: block;
+                        }
+                        .zh {
+                            background-position: 0 -2393px;
+                        }
+                        .en {
+                            background-position: 0 -2433px; 
+                        }
+                        .choose-lang {
+
+                        }
+                    }
+                    &:hover  {
+                        .change-lang {
+                            display: block;
+                        }
+                    }
+                    .change-lang {
+                        display: none;
+                        cursor: pointer;
+                        background: #fff;
+                        div {
+                            display: flex;
+                            padding-left: 20px;
+                            transition: all 0.2s linear;
+                        }
+                        div:hover {
+                            background: #D8D8D8;
+                        }
+                        .zh-lang {
+                            b {
+
+                            }
+                        }
+                        .en-lang {
+                            b {
+
+                            }
+                        }
+                    }
+
+                }
+
                 .shoppingCart{
                     position: absolute;
-                    right: 220px;
+                    // right: 220px;
+                    // right: 233px;
+                    // right: 172px;
+                    right: 166px;
                     color: #333;
                     padding-left: 30px;
                     // background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -867px;
@@ -165,7 +334,12 @@
                 .operateGuide {
                     position: relative;
                     height: 40px;
-                    right: 50px;
+                    // right: 50px;
+                    // right: 60px;
+                    // right: -2px;
+                    right: -11px;
+                    
+                    
                     .update-box {
                         position: absolute;
                         width: 186px;
@@ -176,9 +350,11 @@
                         border: 2px solid #FFD100;
                         box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
                     }
+                    
                     .update-title {
 
                     }
+                    
                     .update-main {
                         // height: 40px;
                         line-height: 20px;
@@ -221,9 +397,11 @@
                     }
                     &>.center {
                         padding-right: 16px;
-                        background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 60px -182px;
+                        // background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 60px -182px;
+                        background: url(/img/spirit.png) no-repeat 60px -182px;
+                        
                         background-size: 40px;
-                        width: 60px;
+                        width: 80px;
                         // overflow-y: hidden;
                         position:relative;
                         .RedPoint {
@@ -235,12 +413,16 @@
                             background-color: #ff3232;
                             border-radius: 2px;
                         }
+
                         #user-lge {
-                            width: 80px;
+                            // width: 80px;
+                            width: 48px;
                             display: inline-table;
                             height: 40px;
                             position: relative;
-                            left: -29px;
+                            // left: -29px;
+                            // left: -26px;
+                            left: -4px;
                             text-align: right;
                         }
                     }
@@ -253,7 +435,7 @@
                         text-align: left;
                         cursor: pointer;
                         top: 40px;
-                        background: #FFFFFF;
+                        background: rgb(124, 85, 85);
                         box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
                         padding: 0px;
                         width: 110px;
@@ -263,7 +445,7 @@
                             line-height: 32px;
                             position: relative;
                             display: flex;
-                            font-size: 12px;
+                            font-size: 14px;
                             align-items: center;
                             color: #333333;
                             img{

@@ -956,11 +956,15 @@ class Right extends Root {
 			<div className="container-left">
 				<div className="container-left-main">
 					<div className="choose-brand-button" onClick={this.props.toggleShow.bind(this)}>
-						{this.props.chooseBrandArray ? this.props.chooseBrandArray.brandName : "全部品牌"}
+						{this.props.chooseBrandArray ? this.props.chooseBrandArray.brandName : TR("全部品牌")}
 					</div>
 					<textarea className="textarea"
 							ref="textarea"
-							placeholder={ _brandsArray ?("输入"+ _brandsArray.brandName + _brandsArray.shot_pid_length + "位或者完整零件号" + (window.engCodeBrand(_brandsArray.brand) ? "/工程编号" : "")) : TR("输入完整零件号")}
+							placeholder={
+								lge === "zh" 
+								? _brandsArray ?("输入"+ _brandsArray.brandName + _brandsArray.shot_pid_length + "位或者完整零件号" + (window.engCodeBrand(_brandsArray.brand) ? "/工程编号" : "")) : TR("输入完整零件号")
+								: _brandsArray ? ("Entire or last " + _brandsArray.shot_pid_length +" OE Number"  + (window.engCodeBrand(_brandsArray.brand) ? "/Eng Pid" : "")) : TR("输入完整零件号")
+							}
 							value={value}
 							onChange={inputChange}/>		
 					<div className={this.state.clearShow ? 'clear' : 'clear hidden'}
@@ -976,9 +980,9 @@ class Right extends Root {
 						window.lge === "en" 
 						?   <div className="remind">
 								*Tips：<br/>
-								1.Only support single brand parts query；<br/>
-								2.Mutiple OE numbers query needs to enter OE number in mutiple rows；<br/>
-								3.Supports up to 5 OE numbers at the same time.<br/>
+								1. Single brand only; <br/>
+								2. Enter OE Numbers in multiple rows for multiple query; <br/>
+								3. Maximum 5 OE Numbers supported; <br/>
 							</div>
 						:	<div className="remind">
 								*说明：<br/>
@@ -987,7 +991,6 @@ class Right extends Root {
 								3.最多支持5个零件号同时查询。<br/>
 							</div>
 					}
-					
 					<div className="container-histories">
 						<div className="histories-all" onClick={()=>{location.href="/histroy/parts?brand=all"}}>
 							    {/* <img src={this.cdnHost+"/img/icon_recentlyhistory.png"} alt="所有历史记录"/>     */}

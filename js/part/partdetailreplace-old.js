@@ -22,7 +22,9 @@ export default class Listdetailrepace extends Root {
 		this.oldstore = 0 //存储长度
 		this.newstore = 0 //存储长度新
 		this.displaynum = [] //存储隐藏节点
-		this.titleList = ["品牌", "零件号","零件名称", "件数", "型号", "参考价格"]
+		this.titleList = lge === "zh"
+						 ? ["品牌", "零件号","零件名称", "件数", "型号", "参考价格"]
+						 : ["OE Number", "Brand", "Name", "Quantity", "Type", "Price"]
 		this.store = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] //存储点击值
 	}
 
@@ -262,7 +264,9 @@ class Listrepace extends Root {
 
 		this.state = {};
 		this.head = "替换件"
-		this.title = ["零件号", "品牌", "零件名称", "件数", "型号", "参考价格"]
+		this.title = lge === "zh" 
+					 ? ["零件号", "品牌", "零件名称", "件数", "型号", "参考价格"]
+					 : ["OE Number", "Brand", "Name", "Quantity", "Type", "Price"]
 		this.datatitle = ["pid", "brandcn", "lable", "counts", "ptype", "prices"]
 	}
 	render() {

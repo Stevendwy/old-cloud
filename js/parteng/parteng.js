@@ -48,7 +48,7 @@ export default class PartEng extends VCP {
                             {title: "Article Number", width: "10%", key: "article_number"},
                             {title: "Model", width: "10%", key: "model"},
                             {title: "Description", width: "26%", key: "comments"},
-                            {title: "Picture", width: "10%", key: "article_url"},
+                            {title: "Image ", width: "10%", key: "article_url"},
                             {title: "", width: "4%", key: "detail"},
                             {title: "", width: "4%", key: "cart"},
                         ]
@@ -71,7 +71,7 @@ export default class PartEng extends VCP {
                                 {title: "Article Number", width: "10%", key: "article_number"},
                                 {title: "Model", width: "8%", key: "model"},
                                 {title: "Description", width: "24%", key: "comments"},
-                                {title: "Picture", width: "10%", key: "article_url"},
+                                {title: "Image ", width: "10%", key: "article_url"},
                                 {title: "", width: "4%", key: "detail"},
                                 // {title: "", width: "4%", key: "cart"},
                               ]
@@ -323,7 +323,7 @@ export default class PartEng extends VCP {
         this.state.cardTitleList = []
         this.enterManufacture = supplier_matchcode
         this.article_number = article_number
-        this.getHasTitle(_obj,"基础信息", id)
+        this.getHasTitle(_obj,TR("基础信息"), id)
     }
 
     showImgDetail(src,article_number, supplier_matchcode, code, img, label, id) {
@@ -340,7 +340,7 @@ export default class PartEng extends VCP {
         this.state.cardTitleList = []
         this.enterManufacture = supplier_matchcode
         this.article_number = article_number
-        this.getHasTitle(_obj,"零件图片", id)
+        this.getHasTitle(_obj,TR("零件图片"), id)
 
         // this.enterManufacture = manufacturer_matchcode
         // this.setState({
@@ -377,7 +377,7 @@ export default class PartEng extends VCP {
                                     }else if(_key === 'detail') {
                                         return(
                                             <div className="result-cell detail" key={ins} onClick={this.detailShow.bind(this, item.article_number, item.supplier_matchcode, item.article_number, item.supplier_url, item.label, item.id)} style={{width:it.width}}> 
-                                                <span>详情</span>
+                                                <span>{TR("详情")}</span>
                                             </div>
                                         )
                                     }else if(_key === 'cart') {
@@ -715,22 +715,22 @@ export default class PartEng extends VCP {
                                 className="input"
                                 onFocus= {this.getHistory.bind(this)}
                                 onBlur = {this.blurHistory.bind(this)}
-                                placeholder={this.state.searchType == "eng" ? "输入品牌编号" : "输入原厂完整OE号"} 
+                                placeholder={this.state.searchType == "eng" ? TR("输入品牌编号") : TR("输入原厂完整OE号")} 
                                 onChange={this.inputChange.bind(this)}
                                 onKeyPress={this.keyPress.bind(this)}
                             />
                             <div className={_showNumberAndClear ? 'clear' : 'clear hidden'}
                                 onClick={this.clear.bind(this)}></div>
-                            <input type="button" className="search" onClick={this.searchEngPart.bind(this)} value="查询"/>
+                            <input type="button" className="search" onClick={this.searchEngPart.bind(this)} value={TR("查询")}/>
                             <span className="partEng-search-loading"></span>
                         </div>
                         <div className='container-history' style={{display: this.state.showHistorys ? 'block' : 'none'}}>
                             {_historys}
                             <div className='container-more'>
                                 <a className='more'
-                                    onClick={this.moreHistorys.bind(this)}><div>更多历史</div></a>
+                                    onClick={this.moreHistorys.bind(this)}><div>{TR("更多历史")}</div></a>
                                 <a className='close'
-                                    onClick={this.closeHistorys.bind(this)}><div>关闭</div></a>
+                                    onClick={this.closeHistorys.bind(this)}><div>{TR("关闭")}</div></a>
                             </div>
                         </div>
                     </div>
@@ -738,7 +738,19 @@ export default class PartEng extends VCP {
                         <div className={this.state.hasResult ? "center-result-box" : "hidden"}>
                             {
                                 this.state.certainBrand !== "all"
-                                ?   <div className="special-title">零零汽为您找到品牌 <span>{this.state.certainBrand}</span> 相关结果：</div>
+                                ?   <div className="special-title">
+                                        {
+                                            lge === "zh" 
+                                            ? "零零汽为您找到品牌"
+                                            : "Find results for you "
+                                        }
+                                        <span>{this.state.certainBrand}</span> 
+                                        {
+                                            lge == "zh"
+                                            ? "相关结果:"
+                                            : ":"
+                                        }                                
+                                    </div>
                                 :   <div className="table-title">
                                         {
                                             window.lge === "en"
@@ -747,12 +759,12 @@ export default class PartEng extends VCP {
                                         }
                                         <div className={this.state.isFactoryOpen ? "overflow-box" : "overflow-box over-flow"} style={{display: this.state.ensureType === "oe" ? "block" : "none"}}>
                                             <div className="table-brands" ref="factorylist">
-                                                <span>厂商：</span>
+                                                <span>{TR("厂商")}：</span>
                                                 <div className="brand-container">
                                                     {this.getFactoryTitle()}
                                                 </div>
                                                 <span className={this.state.hasFactoryMore ? "hasMore" : "hidden"} onClick={this.toggleHasFactoryMore.bind(this)}>
-                                                    {this.state.isFactoryOpen ? "收起全部" : "显示全部"}
+                                                    {this.state.isFactoryOpen ? TR("收起全部") : TR("显示全部")}
                                                 </span>
                                             </div>
                                         </div>
@@ -763,7 +775,7 @@ export default class PartEng extends VCP {
                                                     {this.getBrandTitle()}
                                                 </div>
                                                 <span className={this.state.hasMore ? "hasMore" : "hidden"} onClick={this.toggleHasMore.bind(this)}>
-                                                    {this.state.isOpen ? "收起全部" : "显示全部"}
+                                                    {this.state.isOpen ? TR("收起全部") : TR("显示全部")}
                                                 </span>
                                             </div>
                                         </div>
@@ -791,15 +803,28 @@ export default class PartEng extends VCP {
                             <div>
                                 {this.state.ensureType === "eng" ?
                                     <p>
-                                        很抱歉，品牌编号 
-                                            <span>{this.state.searchPid}</span>
-                                        没有相关的品牌件。
+                                        {
+                                            lge === "zh" 
+                                            ?   <div> 
+                                                    很抱歉，品牌编号
+                                                    <span>{this.state.searchPid}</span>
+                                                    没有相关的品牌件。 
+                                                </div>
+                                            : `Sorry! no result finded for article ${this.state.searchPid}.`
+                                        }
+                                        
                                     </p>
                                     :
                                     <p>
-                                        很抱歉，原厂OE号
-                                            <span>{this.state.searchPid}</span>
-                                        没有相关的品牌件。
+                                        {
+                                            lge === "zh"
+                                            ? <div>
+                                                很抱歉，原厂OE号
+                                                <span>{this.state.searchPid}</span>
+                                                没有相关的品牌件。
+                                              </div>
+                                            : `Sorry! no result finded for OE Number ${this.state.searchPid}. `
+                                        }
                                     </p>
 
                                 //    "抱歉未查到该品牌编号信息：请核对品牌编号是否正确" :
@@ -807,9 +832,9 @@ export default class PartEng extends VCP {
                                 }
                             </div>
                             <p className="blur-text">
-                                温馨提示：请检查您的输入是否正确&nbsp;&nbsp;&nbsp;&gt;&gt;
+                                {TR("温馨提示：请检查您的输入是否正确")}&nbsp;&nbsp;&nbsp;&gt;&gt;
                                 <span onClick={this.reSetResult.bind(this)}>
-                                    重新输入
+                                    {TR("重新输入")}
                                 </span>
                             </p>
                             

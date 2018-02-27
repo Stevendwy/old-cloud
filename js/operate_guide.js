@@ -45,18 +45,18 @@ export default class OperateGuide extends Root{
         return (
             <div className={this.state.show ? 'operate-guide' : 'operate-guide hidden'}>
                 <div className='operate-guide-ctrl'>
-                    <div className='operate-guide-remind'>操作指引</div>
+                    <div className='operate-guide-remind'>{TR("操作指引")}</div>
                     <div className='operate-guide-ctrl-previous'
                         onClick={this.previous.bind(this)}>
-                        <div className='operate-guide-ctrl-remind'>上一步</div>
+                        <div className='operate-guide-ctrl-remind'>{TR("上一步")}</div>
                     </div>
                     <div className='operate-guide-ctrl-next'
                         onClick={this.next.bind(this)}>
-                        <div className='operate-guide-ctrl-remind'>下一步</div>
+                        <div className='operate-guide-ctrl-remind'>{TR("下一步")}</div>
                     </div>
                     <div className='operate-guide-ctrl-close'
                         onClick={this.toggle.bind(this)}>
-                        <div className='operate-guide-ctrl-remind'>关闭</div>
+                        <div className='operate-guide-ctrl-remind'>{TR("关闭")}</div>
                     </div>
                 </div>
                 <img src={`../img/operateGuide${this.state.index}.png`} alt="operate-guide" />

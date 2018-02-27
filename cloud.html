@@ -15,32 +15,30 @@
   <!-- <link rel="stylesheet" href="https://cdns.007vin.com/css/flipTimer.css"> -->
   <link rel="stylesheet" href="https://cdns.007vin.com/css/cloud.css">
   <script src="/js/language.js"></script>
-  
 </head>
-
 <body>
   <div id='header'>
     <div class='content'>
-      <img id='logo' src='https://cdns.007vin.com/img/p_007.png' alt='logo' onclick="showHomepage()" />      
+      <img id='logo' src='https://cdns.007vin.com/img/p_007text.png' alt='logo' onclick="showHomepage()" />      
       <!-- <div id='any-activity' onclick="showAnyActivity()"> -->
-      <!-- <div id='any-activity' onclick="loopLocation('/activity/activity_page?activity_code=2017buy1get1free_audi')"> -->
+      <!-- <div id='any-activity' onclick="loopLocation('/activity/activity_page?activity_code=2017goodbye')"> -->
       <div id='any-activity'>
-        <!-- <img class="any-activity-run" src="https://cdns.007vin.com/img/p_moon.png" alt=""> -->
+        <!-- <img class="any-activity-run" src="https://cdns.007vin.com/img/p_dog.png" alt=""> -->
         <!-- <img class="any-activity-cartoon" src="https://cdns.007vin.com/img/p_moon1.gif" alt=""> -->
-        <div id="any-activity-poster-back">
+        <!-- <div id="any-activity-poster-back">
           <div class="any-activity-poster">
             <img class="any-activity-poster-img" src="https://cdns.007vin.com/img/p_moonp.png" alt="any-activity-poster-img" />
-            <!-- <div class="any-activity-poster-time">
+            <div class="any-activity-poster-time">
               <div class="dowebok">
                 <div class="days"></div>
                 <div class="hours"></div>
                 <div class="minutes"></div>
                 <div class="seconds"></div>
               </div>
-            </div> -->
+            </div>
             <div class="any-activity-poster-close" onclick="hiddenAnyActivity(event)"></div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class='inquires'>
         <span class="error-refash" style="display:none" onclick="showdanger()">
@@ -88,10 +86,20 @@
         </b>
       </div>
       <div id='header-account' class='account'>
+        <div class="eng-control"  onclick="showLangToggle()" onmouseover="showLangToggle(true)" onmouseleave="showLangToggle(false)">
+          <div class="chooseed-lang-box">
+              <b class="lang-icon zh"></b>
+              <span class="choose-lang">中文</span>
+          </div>
+          <div class="change-lang">
+            <div class="zh-lang" onclick="chooseLang('zh')"><b class="zh"></b><span>中文</span></div>
+            <div class="en-lang" onclick="chooseLang('en')"><b class="en"></b><span>English</span></div>        
+          </div>
+        </div>
         <div class="operateGuide" id="help-lge" onclick="window.operateGuideClick()">
           <!-- 操作指引 -->
           <script>
-            document.getElementById("help-lge").innerHTML = lg["操作指引"][lge]
+            document.getElementById("help-lge").innerHTML = lg["指引"][lge]
           </script>
         </div>
         <a href='/user/register_web' id="regist-lge">
@@ -108,13 +116,23 @@
       </div>
       <div id='header-utils' class='utils'>
         <div class='show'>
+          <div class="eng-control"  onclick="showLangToggle()" onmouseover="showLangToggle(true)"  onmouseleave="showLangToggle(false)">
+            <div class="chooseed-lang-box">
+                <b class="lang-icon zh"></b>
+                <span class="choose-lang">中文</span>
+            </div>
+            <div class="change-lang">
+              <div class="zh-lang" onclick="chooseLang('zh')"><b class="zh"></b><span>中文</span></div>
+              <div class="en-lang" onclick="chooseLang('en')"><b class="en"></b><span>English</span></div>        
+            </div>
+          </div>
           <div class="shoppingCart" onclick="window.showShoppingCart()" title='查看购物车'>
             <span class="cret_icon"></span>
           </div>
           <div class="operateGuide" onclick="window.operateGuideClick()">
             <span id="operate-lge">
                 <script>
-                  document.getElementById("operate-lge").innerHTML = lg["操作指引"][lge]
+                  document.getElementById("operate-lge").innerHTML = lg["指引"][lge]
                 </script>
             </span>
             <div class="update-box">
@@ -139,14 +157,17 @@
           <a>
  
           </a>
+          <div class="FeedBackButton" id="feedback-lge"></div>
+          <script>
+            document.getElementById("feedback-lge").innerHTML = lg["问题反馈"][lge]
+          </script>
           <div id='person' class='person'>
             <div class="center">
               <span class="icon"></span>
                <span id="user-lge">
                   <!-- 个人中心                   -->
                   <script>
-                    document.getElementById("user-lge").innerHTML = lg["个人中心"][lge]
-                    
+                    document.getElementById("user-lge").innerHTML = lg["我的"][lge]
                   </script>
               </span> 
 
@@ -155,26 +176,26 @@
             <div class='person-hidden'>
               <div class="LogoutItem" onclick='location.href = "/user/profile?binds=search&type=messages"'>
                 <img src="https://cdns.007vin.com/img/icon_mess.png" />
-                <span>
+                <span id="Message-lge">
                   消息中心
                 </span>
                 <div class="RedPoint" style="display:none"></div>
               </div>
               <div class="LogoutItem" onclick='location.href = "/user/profile?binds=search"'>
                 <img src="https://cdns.007vin.com/img/user_icon.png" />
-                <span>
+                <span id="MyAccount-lge">
                   个人中心
                 </span>
               </div>
               <div class="LogoutItem" onclick='location.href = "/user/profile?binds=home"'>
                 <img src="https://cdns.007vin.com/img/p_pay.png" />
-                <span>
+                <span id="Purchase-lge">
                   续费
                 </span>
               </div>
               <div class="LogoutItem" onclick='location.href = "/logout"'>
                 <img src="https://cdns.007vin.com/img/icon_exit.png" />
-                <span>
+                <span id="LogOut-lge">
                   退出
                 </span>
               </div>
@@ -184,7 +205,7 @@
       </div>
     </div>
   </div>
-  <div class="FeedBackButton">问题反馈</div>
+  
   <div id='app'></div>
   <div id="homepage">
     <div class="homepage-top-container">
@@ -197,6 +218,10 @@
           <img src='img/banner_next.png' alt='next' />
         </div>
         <div id='homepage-index-points'></div>
+      </div>
+      <div id="carousel-img-float" style="display: none">
+        <div title="关闭" class="close" onclick="closeFloatImg()"></div>
+        <img id="float-carousel-img" src="" alt="">
       </div>
       <div id="homepage-login" class='container-login'>
         <span class='title' id="login-lge">
@@ -225,7 +250,7 @@
                 </script>
             </span>
           </label>
-          <a href='https://007vin.com/findpwd' id="forget-lge">
+          <a href='javascript:showForgetBox()' id="forget-lge">
             <!-- 忘记密码 -->
             <script>
               document.getElementById("forget-lge").innerHTML = lg["忘记密码"][lge] + "?"         
@@ -233,21 +258,80 @@
             
           </a>
         </div>
-        <input class='button-login' type='button' value='登录' onclick="login()" />
+        <input class='button-login' id="button-login-lge" type='button' value='登录' onclick="login()" />
         <span id='homepage-login-loading' class="login-loading"></span>
         <div class='container-regist'>
           <span id="no-count-lge">
             <!-- 没有账号？ -->
             <script>
-              document.getElementById("no-count-lge").innerHTML = lg["没有账号"][lge] + "?" 
+              document.getElementById("no-count-lge").innerHTML = lg["没有账号"][lge] + "? " 
             </script>
           </span>
+          &nbsp;
+          &nbsp;
           <a href='https://007vin.com/user/register_web' id="regist-now-lge">
-            
             <script>
               document.getElementById("regist-now-lge").innerHTML = lg["立即注册"][lge] 
             </script>
           </a>
+        </div>
+      </div>
+      <div id="homepage-forget" class='container-login container-forget'>
+        <p class="back" onclick="showLoginBox()" id="forget-back-lge">
+          <!-- < 登录 -->
+          <script>
+            document.getElementById("forget-back-lge").innerHTML = ("< " + lg["登录"][lge])
+          </script>
+        </p>
+        <p class="forget-title" id="forget-title-lge">
+            <!-- 密码重置 -->
+            <script>
+              document.getElementById("forget-title-lge").innerHTML = lg["密码重置"][lge]    
+            </script>
+        </p>
+        <div class="choose-control">
+          <span class="choose-left-title" id="choose-left-title-lge">
+              <!-- 选择方式  -->
+              <script>
+                document.getElementById("choose-left-title-lge").innerHTML = lg["选择方式"][lge]    
+              </script>
+          </span>
+          <span>
+            <input type="radio" checked onclick="chooseChangeType(event, 'phone')" name="phone">
+            <label for="phone" id="phone-lge">
+              <!-- 手机号 -->
+              <script>
+                document.getElementById("phone-lge").innerHTML = lg["手机号"][lge]    
+              </script>
+            </label>
+          </span>
+          <span style="display: none">
+              <input type="radio" onclick="chooseChangeType(event, 'email')" name="email">
+              <label for="email" id="email-lge">
+                <!-- 邮箱 -->
+                <script>
+                  document.getElementById("email-lge").innerHTML = lg["邮箱"][lge]    
+                </script>
+              </label>
+          </span>
+        </div>
+        <div class="phone-email-box">
+          <input type="text" placeholder="手机号" class="phone-email-input">
+        </div>
+        <div class="verification-code-box">
+          <input type="text" placeholder="验证码" class="verification-code-input">
+          <div class="get-code" onclick="getCode()">
+            发送验证码
+          </div>
+        </div>
+        <div class="password-box">
+          <input type="password" placeholder="新密码" class="password-input">
+        </div>
+        <div class="password-repeat-box">
+          <input type="password" placeholder="重复密码" class="password-repeat-input">
+        </div>
+        <div class="submit-box">
+          <button id="submit-box-lge" class="submit blue-button" onclick='resetSubmit()'>提交</button>
         </div>
       </div>
     </div>
@@ -348,7 +432,7 @@
       </div>
       <div class='homepage-bottom-license'>
         © 2016-2017 007vin.com
-        <span> 版权所有 浙ICP备：<span onclick="window.open('http://www.miitbeian.gov.cn/')">17026959号-2</span></span>
+        <span> <span class="copy-right-lge">版权所有</span> 浙ICP备：<span onclick="window.open('http://www.miitbeian.gov.cn/')">17026959号-2</span></span>
       </div>
     </div>
   </div>
@@ -434,11 +518,11 @@
     }
 
     function showCooperation() {
-      document.getElementById('any-activity-poster-cooperation').style.display = 'flex'
+      // document.getElementById('any-activity-poster-cooperation').style.display = 'flex'
+      window.open("https://api.007vin.com")
     }
+
     function loopLocation(link) {
-      // console.log(link)
-      // location.href = link
       window.open(link)
     } 
 
@@ -456,6 +540,7 @@
         e.stopPropagation()
       }
       $(".update-box").hide()
+      $(".new-msg-container").css("top", "0px")
       localStorage.setItem("update", 4)
     }
 
@@ -467,6 +552,181 @@
         $(".update-box").show()
       }
     })()
+
+    function chooseLang(lang) {
+      localStorage.setItem("lang", lang)
+      location.reload()
+    }
+    var chooseSmsType = 'phone'
+    function chooseChangeType(e, type) {
+      $(".choose-control input").attr("checked", false)
+      $(e.target).attr("checked", true)
+      chooseSmsType = type
+      var phonePlaceholder
+      if(type == "phone") {
+        phonePlaceholder = lg["手机号"][lge]
+      } else {
+        phonePlaceholder = lg["邮箱"][lge]
+      }
+      $(".phone-email-input").attr("placeholder", phonePlaceholder)
+    }
+
+    function resetSubmit() {
+      if(chooseSmsType == "phone") {
+        var _resetObj = {
+          phone: $(".phone-email-input")[0].value,
+          password1: $(".password-input")[0].value,
+          password2: $(".password-repeat-input")[0].value,
+          verify_code: $(".verification-code-input")[0].value
+        }
+        $.post("/user/pwd_reset_phone", _resetObj, function(res) {
+          if(res.code == 1) {
+            alert("修改成功")
+          }else {
+            alert(res.msg)
+          }
+        })
+      } else {
+        var _resetObj = {
+          email: $(".phone-email-input")[0].value,
+          password1: $(".password-input")[0].value,
+          password2: $(".password-repeat-input")[0].value,
+          verify_code: $(".verification-code-input")[0].value
+        }
+        $.post("/user/pwd_reset_email", _resetObj, function(res) {
+          if(res.code == 1) {
+            alert("修改成功")
+          }else {
+            alert(res.msg)
+          }
+        })
+      }
+    }
+
+    var intervalTimer
+    function getCode() {
+      if(waitTime !== 60) {
+        return
+      }
+      var emailOrPhone = $(".phone-email-input").val()
+      if(chooseSmsType == "phone" && emailOrPhone) {
+        var captchaObj = null
+        var timestamp = Date.parse(new Date());
+        var gtUrl = "/geetest/verification_guest?t="+timestamp;
+        var cgt = document.getElementById('container-gt')
+        $("#container-gt #title-gt").html(" <span>您需要点击下方按钮进行验证，</span><span>验证通过即可发送短信。</span>")
+        cgt.style.display = 'flex'
+        $.ajax({
+            url: gtUrl,
+            type: 'GET',
+            data: {
+                username: emailOrPhone
+            },
+        })
+        .done(function(res) {
+            initGeetest({
+                // 以下配置参数来自服务端 SDK
+                gt: res.gt,
+                challenge: res.challenge,
+                offline: !res.success,
+                new_captcha: res.new_captcha
+            }, function (obj) {
+                captchaObj = obj //获取并绑定
+                configGT(cgt)
+            })
+        })
+        var hasGT = false
+        function configGT(cgt) {
+            var pg = document.getElementById('play-gt')
+            if(!hasGT) {
+                captchaObj.appendTo(pg)
+                hasGT = true
+            }
+
+            captchaObj.onSuccess(function() {
+                setTimeout(function() {
+                    pg.innerHTML = ''
+                    cgt.style.display = 'none'
+                    hasGT = false
+                }, 2000)
+
+                var result = captchaObj.getValidate()
+
+                $.ajax({
+                    url: '/geetest/validate_guest',
+                    type: 'POST',
+                    data: {
+                        geetest_challenge: result.geetest_challenge,
+                        geetest_validate: result.geetest_validate,
+                        geetest_seccode: result.geetest_seccode,
+                        username: emailOrPhone,
+                        // 其他服务端需要的数据，比如登录时的用户名和密码
+                    },
+                })
+                .done(function(data) {
+                    // 根据服务端二次验证的结果进行跳转等操作
+                    if(data.code === 1) {
+                      $.post("/smscode", {mobile: emailOrPhone, type: 5}, function(res) {
+                        if(res.code == 1) {
+                          waitTime = 59
+                          intervalTimer = setInterval(waitTimeRun, 1000)              
+                        }else {
+                          alert(res.msg)
+                        }
+                      })
+                    }
+                })
+            })
+        }
+      } else if(chooseSmsType == "email" && emailOrPhone) {
+        $.post("/user/send_email_verification_code", {email: emailOrPhone, purpose: "pwd_reset"}, function(res) {
+          if(res.code == 1) {
+            intervalTimer = setInterval(waitTimeRun, 1000)              
+          }else {
+            alert(res.msg)
+          }
+        })
+      }
+    }
+
+    var waitTime = 60
+    function waitTimeRun() {
+      if(waitTime == 0) {
+        clearInterval(intervalTimer)
+        intervalTimer = null
+        // lg["关于我们"][lge]
+        $(".get-code").html(lg["发送验证码"][lge])
+        waitTime = 60
+      } else {
+        $(".get-code").html(waitTime + lg["s后再试"][lge])
+        waitTime--
+      }
+    }
+    
+    function showForgetBox() {
+      $("#homepage-login").hide()
+      $("#homepage-forget").css("display", "flex")
+    }
+
+    function showLoginBox() {
+      $("#homepage-forget").hide()      
+      $("#homepage-login").show()
+    }
+
+    function showLangToggle(flag) {
+      if(flag) {
+        $(".change-lang").css("display", "block")     
+        return;   
+      } else if(flag == false){
+        $(".change-lang").css("display", "none")     
+        return;   
+      }
+      if($(".change-lang").css("display") === "block") {
+          $(".change-lang").css("display", "none")
+      } else {
+        $(".change-lang").css("display", "block")
+      }
+    }
 
     // var treeIndex = 1   //logo右边的图片动画
     // function flash(){
@@ -488,7 +748,6 @@
     //       newSrc = "https://cdns.007vin.com/img/p_moon1.png"
     //       break; 
     //   }
-
     //   $(".any-activity-cartoon").attr('src', newSrc)
     //   // if($(".any-activity-run").attr('src') == "https://cdns.007vin.com/img/1111.png") {
     //   //   $(".any-activity-run").attr('src', "https://cdns.007vin.com/img/2222.png")
@@ -496,13 +755,9 @@
     //   //   $(".any-activity-run").attr('src', "https://cdns.007vin.com/img/1111.png")
     //   // }
     // }
-
-
     // (function() {
     //   setInterval(flash, 500)
     // })()
-
-
     // })
     // $(function(){
     //     var d = new Date()
@@ -513,6 +768,42 @@
     //         date: myDate
     //     })
     // })
+    function testEn() {
+      if(lge === "en") {
+        $("#logo").attr("src", "https://cdns.007vin.com/img/p_007vin.png").css("width", "69px").css("height", "15px").css("margin-top", "15px")
+        $("#feedback-lge").css("right", "97px")
+        $("#header-utils .eng-control").css("right", "253px")
+        $("#header-account .eng-control").css("right", "163px")
+        
+        $(".shoppingCart").css("right", "216px")
+        $(".operateGuide").css("right", "48px")
+        $(".chooseed-lang-box .lang-icon").removeClass("zh").addClass("en")
+        $(".chooseed-lang-box .choose-lang").html("English")
+        $("#regist-lge").attr("href", "/intl/regiest")
+        $("#regist-now-lge").attr("href", "/intl/regiest")
+        $("#any-activity").css("display", "none")
+        $(".phone-email-input").attr("placeholder", "Phone")
+        $(".password-input").attr("placeholder", "New password")
+        $(".password-repeat-input").attr("placeholder", "Repeat new password")        
+        $(".verification-code-input").attr("placeholder", "Verification-code")
+        $(".get-code").html("Get code")
+        $("#button-login-lge").val("Log In")
+        $("#Message-lge").html("Message")
+        $("#MyAccount-lge").html("Account")
+        $("#Purchase-lge").html("Purchase")
+        $("#LogOut-lge").html("Log out")
+        $("#login-username").attr("placeholder", "Phone Number")
+        $("#login-password").attr("placeholder", "Password")
+        $("#submit-box-lge").html("Submit")
+        $(".copy-right-lge").html("Copyright")
+        var queryHtml = ""
+        $.each(brandsQueryList, function(index, item) {
+          queryHtml+= '<span><a class="homepage-car-list-item" href="javascript:changeType(' + " 'car' " +' )">' + item + '</a></span>'
+        })
+        $(".homepage-car").html(queryHtml)
+      }
+    }
+    testEn()
 
   </script>
   <script async src="dist/app.js"></script>

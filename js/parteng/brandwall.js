@@ -60,9 +60,13 @@ export default class BrandWall extends Component {
         return(
             this.state.brandList.map((item,index)=> {
                 return(
-                    <div className="brand-cell" onClick={this.chooseItem.bind(this,item.supplier_matchcode)} key={index}>
-                        <img src={item.supplier_url} alt={item.brand}/>
-                        <span className="cell-hover">{item.supplier}</span>
+                    <div className="brand-cell"  title={item.supplier} onClick={this.chooseItem.bind(this,item.supplier_matchcode)} key={index}>
+                        <div className="cell-box">
+                            <img src={item.supplier_url} alt={item.brand}/>
+                        </div>
+                        <div className="cell-text">
+                            <span className="cell-hover">{item.supplier}</span>
+                        </div>
                     </div>
                 )
             })
@@ -84,10 +88,11 @@ export default class BrandWall extends Component {
                 if(_item == "全部") {
                     _item = ""
                 }
+                let _items = _item ? _item : TR("全部")
                 let _className = this.state.chooseType === _item ? "title-item selected" : "title-item"
                 return(
                     <div className={_className} key={index} onClick={this.chooseedType.bind(this,item)}>
-                        {item}
+                        {_items}
                     </div>
                 )
             })
@@ -97,7 +102,6 @@ export default class BrandWall extends Component {
     loadMore() {
         this.getData(++this.state.page)
     }
-
     render() {
         return(
             <div className="brand-wall">
@@ -110,7 +114,7 @@ export default class BrandWall extends Component {
                     {this.getList()}
                 </div>
                 <div className={this.state.hasMore ? "load-more" : "load-more hidden"}>
-                    <span onClick={this.loadMore.bind(this)}>加载更多</span>
+                    <span onClick={this.loadMore.bind(this)}>{TR("加载更多")}</span>
                 </div>
             </div>
         )

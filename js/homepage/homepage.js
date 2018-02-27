@@ -49,7 +49,9 @@ class Header extends Root {
         this.state = {
             showDialog: false,
             carouselImgsData: [], // 轮播数据
-            loginShow: true // 是否显示 login, 不显示就是销毁
+            loginShow: true, // 是否显示 login, 不显示就是销毁
+            floatImgShow: false,
+            floatImgSrc: ""
         }
 
         this.carouselRestart = null // carousel restart
@@ -84,16 +86,26 @@ class Header extends Root {
 
     bannerClick(item) {
 
-        if(item.url_param){
+        if(!item.url) { 
+            this.setState({
+                floatImgShow: true,
+                floatImgSrc: item.img
+            })
             // this.props.showActive(item.url_param.actcode)
         } 
+    }
+
+    closeFloatImg() {
+        this.setState({
+           floatImgShow: false,
+           floatImgSrc: "" 
+        })
     }
 
     render() {
         let _login = this.login.bind(this)
         let _forget = this.forget.bind(this)
         let _regist = this.regist.bind(this)
-
         return (
             <div className='container-header'>
                 <div className='content'>
@@ -112,6 +124,10 @@ class Header extends Root {
                             bannerClick={this.bannerClick.bind(this)}
             				banners={this.state.carouselImgsData}
                         	setCarouselRestart={handle => this.carouselRestart = handle}/>
+                        <div className="floatImg" style={{display: this.state.floatImgShow ? "block" : "none"}}>
+                            <img src="" alt="关闭" className='close' onClick={this.closeFloatImg.bind(this)}/>
+                            <img src={this.state.floatImgSrc} alt=""/>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,14 @@ body {
   min-width: 1024px;
   overflow: auto;
 }
+body .commentPlugin div,
+body .commentPlugin span,
+body .commentPlugin a,
+body .commentPlugin input,
+body .commentPlugin textarea {
+  font-size: 14px;
+  color: #fff;
+}
 div,
 span,
 a,
@@ -509,7 +517,7 @@ input:focus {
   padding-left: 20px;
   background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -477px;
   background-size: 40px;
-  width: 80px;
+  width: 180px;
 }
 .vin > .container-search > .error,
 #cars > .container-search > .error,
@@ -636,7 +644,7 @@ input:focus {
   display: flex;
   line-height: 25px;
   right: 10px;
-  width: 41px;
+  width: 50px;
   background-color: #fff;
   height: 26px;
   background: url(/img/p_search.png) no-repeat;
@@ -2004,6 +2012,8 @@ input:focus {
   display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
+  align-content: flex-start;
+  height: calc(100% - 41px);
   background: #fff;
 }
 .vin > .container-search > .choose > .content > .container-main-group > .content > .main-group-data,
@@ -2226,6 +2236,8 @@ input:focus {
   align-items: center;
   width: 100%;
   height: 40px;
+  min-height: 33px;
+  box-sizing: border-box;
   background: #fff;
 }
 .vin > .container-search > .choose > .content > .container-car-info-sub > .content > .container-info > div,
@@ -2583,7 +2595,7 @@ input:focus {
 #part > .container-result > .container-header > .navigator > .content > .utils,
 #seealso > .container-result > .container-header > .navigator > .content > .utils {
   align-self: center;
-  max-width: 374px;
+  max-width: 400px;
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
@@ -2640,7 +2652,7 @@ input:focus {
 #cars > .container-result > .container-header > .navigator > .content > .utils > .container-util > .config,
 #part > .container-result > .container-header > .navigator > .content > .utils > .container-util > .config,
 #seealso > .container-result > .container-header > .navigator > .content > .utils > .container-util > .config {
-  background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 12px -1596px;
+  background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 16px -1596px;
   background-size: 40px;
   background-color: white;
 }
@@ -2648,7 +2660,7 @@ input:focus {
 #cars > .container-result > .container-header > .navigator > .content > .utils > .container-util > .filter,
 #part > .container-result > .container-header > .navigator > .content > .utils > .container-util > .filter,
 #seealso > .container-result > .container-header > .navigator > .content > .utils > .container-util > .filter {
-  background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1636px;
+  background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 21px -1636px;
   background-size: 40px;
   background-color: white;
 }
@@ -2656,7 +2668,7 @@ input:focus {
 #cars > .container-result > .container-header > .navigator > .content > .utils > .container-util > .no-filter,
 #part > .container-result > .container-header > .navigator > .content > .utils > .container-util > .no-filter,
 #seealso > .container-result > .container-header > .navigator > .content > .utils > .container-util > .no-filter {
-  background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1676px;
+  background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 21px -1676px;
   background-size: 40px;
   background-color: white;
 }
@@ -2830,7 +2842,7 @@ input:focus {
   line-height: 25px;
   right: 10px;
   /* text-align: center; */
-  width: 41px;
+  width: 50px;
   background-color: #fff;
   height: 26px;
   background: url(/img/p_search.png) no-repeat;
@@ -2951,6 +2963,7 @@ input:focus {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
 }

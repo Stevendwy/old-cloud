@@ -31,3 +31,57 @@
         -webkit-animation: shrink 0.3s forwards;
     }
 }
+
+.new-msg-container {
+    position: absolute !important;
+    width: 186px;
+    top: 0;
+    right: 34px;
+    z-index: 11;
+    display: block;
+    box-sizing: border-box;
+    padding-left: 10px;
+    background: #FFFDE1;
+    border: 2px solid #FFD100;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+    .new-msg-title {
+        line-height: 40px;
+        height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-right: 40px;
+    }
+    .new-msg-main {
+        text-overflow:ellipsis;
+        color: #2A2A2A;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        margin-bottom: 12px;
+    }
+    .new-msg-footer {
+        line-height: 20px;
+        margin-bottom: 5px;
+        a {
+            height: 20px;
+            line-height: 20px;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 12px;
+            color: #0076FF;
+            line-height: 20px;
+            margin-bottom: 5px;
+        }
+    }
+    .new-msg-close {
+        position: absolute;
+        right: 11px;
+        top: 5px;
+        cursor: pointer;
+        img {
+            width: 20px;
+        }
+    }
+}

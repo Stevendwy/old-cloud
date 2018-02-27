@@ -43,6 +43,7 @@ export default class PartDetail extends Root {
 		this.storeFiveData = {}
 		this.hrefname = ["headtoview", "pricetoview", "repacetoview", "parttoview", "messagetoview", "carstoview"]
 		this.titleStore = ["基础信息", "渠道价格", "替换件", "品牌件", "组件", "技术信息", "适用车型"]
+		this.titleStoreEn = ["基础信息", "Prices", "Supersession", "Articles", "Component", "Technical Info", "Applicable Veh"]
 		this.urllist = [
 			"不用该参数",
 			"ppys/partprices",
@@ -133,7 +134,9 @@ export default class PartDetail extends Root {
 			// _datalist[4] = listFive.data
 			// _datalist[5] = datapartcars.data
 		let _data = date.headname
-		let _titlelist = this.titleStore
+		let _titlelist = lge === "en" 
+						 ? this.titleStoreEn
+						 : this.titleStore
 		let _hreflist = []
 		let _indexconsole = []
 		for (let o = 0; o < _data.length; o++) {
@@ -194,7 +197,6 @@ export default class PartDetail extends Root {
 		Model.addData(obj, res => {
 			let _nextadd = res.data
 			_datatest[6] = _adddatsnew[6].concat(_nextadd)
-
 			this.setState({
 				isLast: res.last,
 				datatest: _datatest
@@ -298,16 +300,17 @@ export default class PartDetail extends Root {
 		let _back = this.props.type == "search" ? <div/> : <div className="btn" onClick={this.props.tohide.bind(this)}>&lt; 返回</div>
 
 		let switchCom = ""
-		let cardselector = this.state.showOnce ? <CardSelector
-													titles={this.state.titles}
-													hidden={this.hiddenCardSelector.bind(this)}
-													listHead={this.state.listHead}
-													brand = {this.state.brand}
-													res = {this.state.res}
-													part = {this.state.part}
-													chooseTitle = {this.state.chooseTitle}
-													/> : <div/>
-
+		let cardselector =  this.state.showOnce 
+							? <CardSelector
+								titles={this.state.titles}
+								hidden={this.hiddenCardSelector.bind(this)}
+								listHead={this.state.listHead}
+								brand = {this.state.brand}
+								res = {this.state.res}
+								part = {this.state.part}
+								chooseTitle = {this.state.chooseTitle}
+							   /> 
+							: <div/>
 		switch (this.props.title) {
 			case "基础信息":
 				switchCom = <div>
@@ -350,7 +353,6 @@ export default class PartDetail extends Root {
 									:
 									<Listdetailrepace haveDetail={this.props.haveDetail} updateCardSelector={this.updateCardSelector.bind(this)} whitchIs={"2"} newbrand={_brand} nexmess={_listrepace}/>
 								}
-								
 								<ListreplaceTP datalist={_listreplaceTP} newbrand={_brand}/>
 								<Listpart getpart={_listpart} newbrand={_brand}/>
 								<Listmessage getmessage={_listmessage} />
@@ -403,11 +405,12 @@ export default class PartDetail extends Root {
 								src={"https://cdns.007vin.com"+ _logosrc} alt="loading"/>
 						<div className="pagetitle">
 							<div className="part-code-box">
-								<span>零件号: </span>
+								<span>{TR("零件号")}
+									: </span>
 								<span className="partCode">{_partNum}
-									<span className="coby-icon" title="复制" onClick={e => _cobyPart(_partNum, e)}>
+									<span className="coby-icon" title={TR("复制")} onClick={e => _cobyPart(_partNum, e)}>
 										<span className="cody-success">
-											复制成功
+											{TR("复制成功")}
 										</span>
 									</span>
 								</span>
@@ -416,7 +419,7 @@ export default class PartDetail extends Root {
 							
 							<div className="part-name-box">
 								<div className="part-name-key">
-									零件名称：
+									{TR("零件名称")}：
 								</div>
 								<div className="part-name-value">
 									{_partName}
@@ -524,9 +527,9 @@ class Headermessage extends Component {
 						<span className="listmessage-left" dangerouslySetInnerHTML={{__html: itemkey}} ></span>
 						<span className="listmessage-right">
 							{itemvalue}
-							<span className={itemkey == "工程编号" ? "coby-icon" : "hidden"} title="复制" onClick={e => _cobyPart(itemvalue, e)}>
+							<span className={itemkey == "工程编号" ? "coby-icon" : "hidden"} title={TR("复制")} onClick={e => _cobyPart(itemvalue, e)}>
 								<span className="cody-success">
-									复制成功
+									{TR("复制成功")}
 								</span>
 							</span>
 						</span>
@@ -549,8 +552,11 @@ class Listdetailrepace extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
-		this.head = "替换件"
-		this.title = ["品牌", "品牌零件号", "零件名称", "件数", "型号", "参考价格"]
+		this.head = TR("替换件")
+		this.title = lge === "zh" 
+					 ? ["品牌", "品牌零件号", "零件名称", "件数", "型号", "参考价格"]
+					 : ["Brand", "OE Number", "Name", "Quantity", "Type", "Price"]
+
 		this.datatitle = ["brandcn", "pid", "lable", "counts", "ptype", "prices"]
 		this.widthArr = [1, 1.5, 4, 2, 1, 1.5]
 	}
@@ -621,9 +627,9 @@ class Listdetailrepace extends Component {
 					}
 					if( ins == 1){
 						html = <div className="list-item-partcode">{item[_keys]}
-							<span className="coby-icon" title="复制" onClick={e => _cobyPart(item[_keys], e)}>
+							<span className="coby-icon" title={TR("复制")} onClick={e => _cobyPart(item[_keys], e)}>
 								<span className="cody-success">
-									复制成功
+									{TR("复制成功")}
 								</span>
 							</span>
 						</div>
@@ -662,8 +668,10 @@ class ListreplaceTP extends Component {
 		super(props)
 		this.state = {
 		}
-		this.head = "品牌件"
-		this.title = ["品牌", "零件名称", "品牌编号", "型号", "注释", "零件图片"]
+		this.head = TR("品牌件")
+		this.title = lge === "zh" 
+					 ? ["品牌", "零件名称", "品牌编号", "型号", "注释", "零件图片"]
+					 : ["Brand", "Name", "OE Number", "Type", "", ""]
 		this.datatitle = ["brandcn", "lable", "pid", "ptype", "advise", "imgs"]
 		this.width = [17300/784, 10000/784, 13300/784, 9500/784, 18000/784, 9200/784]
 	}
@@ -728,9 +736,9 @@ class ListreplaceTP extends Component {
 							<div key={ins} style={{width:this.width[ins]+"%"}}  className="listhead-listchild">
 								<span className="tp-coby-container">
 									{_content}
-									<span className="coby-icon" title="复制" onClick={e => _cobyPart(_content, e)}>
+									<span className="coby-icon" title={TR("复制")} onClick={e => _cobyPart(_content, e)}>
 										<span className="cody-success">
-											复制成功
+											{TR("复制成功")}
 										</span>
 									</span>
 								</span>
@@ -780,7 +788,9 @@ class Listhead extends Component {
 
 		this.state = {};
 		this.head = "基础信息"
-		this.title = ["零件号", "名称", "件数", "型号", "参考价格"]
+		this.title = lge === "zh" 
+					 ? ["零件号", "名称", "件数", "型号", "参考价格"]
+					 : ["OE Number", "Name", "Quantity", "Type", "Price"]
 		this.datatitle = ["pid", "label", "num", "model", "prices"]
 	}
 	render() {
@@ -885,8 +895,10 @@ class Listpart extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
-		this.head = "组件"
-		this.title = ["位置", "零件号", "名称", "型号", "备注", "件数"]
+		this.head = TR("组件")
+		this.title = lge === "zh" 
+					 ? ["位置", "零件号", "名称", "型号", "备注", "件数"]
+					 : ["Pos", "OE Number", "Name", "Type", "Remark", "Quantity"]
 		this.datatitle = ["id", "pid", "label", "remark", "advise", "num"]
 	}
 	newFloatwindow(item, type, e) {
@@ -931,9 +943,9 @@ class Listpart extends Component {
 					let html = item[_keys]
 					if( ins == 1){
 						html = <div className="list-item-partcode">{item[_keys]}
-							<span className="coby-icon" title="复制" onClick={e => _cobyPart(item[_keys], e)}>
+							<span className="coby-icon" title={TR("复制")} onClick={e => _cobyPart(item[_keys], e)}>
 								<span className="cody-success">
-									复制成功
+									{TR("复制成功")}
 								</span>
 							</span>
 						</div>
@@ -967,10 +979,9 @@ class Listpart extends Component {
 
 class Listmessage extends Component {
 	constructor(props) {
-		super(props);
-
-		this.state = {};
-		this.head = "技术信息"
+		super(props)
+		this.state = {}
+		this.head = TR("技术信息")
 	}
 
 	cobyPart(code, e) {
@@ -1019,11 +1030,12 @@ class Listprice extends Component {
 		super(props);
 
 		this.state = {};
-		this.head = "渠道价格"
+		this.head = TR("渠道价格")
 		// this.title = ["零件类型", "厂家", "备注","进价(未含税)","进价(含税)","销售价"]
 		// this.datatitle = ["mill", "remark", "eot_price", "cost_price", "prices"]
-
-		this.title = ["零件类型", "厂商", "说明", "地区", "库存", "进价(未含税)","销售价(含税)", "服务商"]
+		this.title = lge === "zh" 
+					 ? ["零件类型", "厂商", "说明", "地区", "库存", "进价(未含税)","销售价(含税)", "服务商"]
+					 : ["Part type", "Manufacturer", "Description", "Area", "Stocklist", "Cost VAT exclusive","Price VAT inclusive", "Provider"]
 		this.datatitle = ["mill", "remark", "location", "amount", "eot_price", "prices", "supplier"]
 	}
 	render() {
@@ -1085,9 +1097,11 @@ class Listprice extends Component {
 class ListPartCars extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
-		this.head = "适用车型"
-		this.title = [" ", "车型", "市场", "年份", "零件组", ""]
+		this.state = {}
+		this.head = TR("适用车型")
+		this.title = lge === "zh"
+					 ? [" ", "车型", "市场", "年份", "零件组", ""]
+					 : [" ", "Type", "Area", "Year", "Subgroup", ""]
 		this.datatitle = ["", "cars_model", "market", "year", "group_name", "uri_param"]
 	}
 
@@ -1135,7 +1149,7 @@ class ListPartCars extends Component {
 								}
 								itvalue = it[value]
 								if(value == "uri_param"){
-									itvalue = this.props.haveDetail ? "查看" : ""
+									itvalue = this.props.haveDetail ? TR("查看" ): ""
 									
 								}
 								return(
@@ -1163,7 +1177,7 @@ class ListPartCars extends Component {
 				<div className="listhead-title">{_title}</div>
 				<div className="listhead-body">
 					{_datatitle}
-					<div className="list-more" style={{display:_footshow}} onClick={this.props.addDataFive.bind(this,_pages)}>加载更多</div>
+					<div className="list-more" style={{display:_footshow}} onClick={this.props.addDataFive.bind(this,_pages)}>{TR("加载更多")}</div>
 				</div>
 			</div>
 		)

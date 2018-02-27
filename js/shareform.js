@@ -9,7 +9,9 @@ export default class ShareForm extends Root{
             isShareShow: true,
             dataList: null
         }
-        this.title = ["序号","零件名称","零件号","采购类型","数量","单价"]
+        this.title = lge === "zh"
+                     ? ["序号","零件名称","零件号","采购类型","数量","单价"]
+                     : ["Index", "Name", "OE Number", "Purchase method", "Quantity", "Retail Price"]
         this.key = ["num","pname","pid","factory_type","quantity","price"]
         this.data = []
     }
@@ -71,15 +73,15 @@ export default class ShareForm extends Root{
                             <div className="share-top-container">
                                 <img src={qr_img}/>
                                 <div className="share-detail-msg">
-                                    <span>微信扫一扫分享报价单</span>
+                                    <span>{TR("微信扫一扫分享报价单")}</span>
                                     <input value={url}/>
                                     <div className="button-container">
-                                        <span className="button" title="复制" onClick={this.coby.bind(this,url)}>
-                                            复制链接
-                                            <span>复制成功</span>
+                                        <span className="button" title={TR("复制")} onClick={this.coby.bind(this,url)}>
+                                            {TR("复制链接")}
+                                            <span>{TR("复制成功")}</span>
                                         </span>
                                         <span className="button" title="导出Excel" onClick={this.downLoad.bind(this)}>
-                                            导出Excel
+                                            {TR("导出Excel")}
                                         </span>
                                     </div>
                                     
@@ -87,11 +89,11 @@ export default class ShareForm extends Root{
                             </div>
                             <div className="share-msg-container">
                                 <div>{title}</div>
-                                <div>日期：{createtime}</div>
+                                <div>{TR("日期")}：{createtime}</div>
                             </div>
                             <div className="form-container">
                                 <div className="form-title">
-                                    配件报价表
+                                    {TR("配件报价表")}
                                 </div>
                                 <div className="form-title-row">
                                     {
@@ -139,25 +141,25 @@ export default class ShareForm extends Root{
                                                 {total_type}种，共{total_quantity}件
                                             </span>
                                             <span>
-                                                合计：{total_money}
+                                                {TR("合计")}：{total_money}
                                             </span>
                                         </div>
                                         
                                     </div>
                                     <div>
-                                        报价方资料
+                                        {TR("报价方资料")}
                                     </div>
                                     <div className="base-msg">
-                                        公司名称：{company}
+                                        {TR("公司名称")}：{company}
                                         <span>
-                                            联系人：{person}
+                                            {TR("联系人")}：{person}
                                         </span>
                                         <span>
-                                            联系电话：{contact_tel}
+                                           {TR("联系电话")}：{contact_tel}
                                         </span>
                                     </div>
                                     <div>
-                                        备注：{remark}
+                                        {TR("备注")}：{remark}
                                     </div>
                                 </div>
                         </div>

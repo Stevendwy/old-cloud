@@ -17,11 +17,9 @@ export default () => {
           clearInterval(runInterval)
           return
         }
-
         runners.cars.innerText = parseInt(runsData.cars / runTimes)
         runners.brands.innerText = parseInt(runsData.brands / runTimes)
         runners.parts.innerText = parseInt(runsData.parts / runTimes)
-
         runTimes--
       }, 100)
     })
@@ -45,7 +43,9 @@ export default () => {
         var left = "left: " + index * 100 + "%"
         var src = banner.img
         var _cursor = banner.url == "" ? "default" : "pointer"
-        var cursor = ";cursor: " + _cursor
+        // var cursor = ";cursor: " + _cursor
+        var cursor = ";cursor: pointer"
+        
         homepageBanners.dom.innerHTML += "<img class='banner' style=\'" + left + cursor + "\' src=\'" + src + "\' onclick='bannerClick()'/>"
         if (index > 0 && index < bannersLength - 1) {
           var pointClass = 'index-point'
@@ -72,14 +72,22 @@ export default () => {
 
   homepageAjax()
 
+  window.closeFloatImg = function() {
+    document.getElementById("carousel-img-float").style.display = "none"
+  }
+
   window.bannerClick = function() {
     // console.log(homepageBanners.currentIndex)
     let url = homepageBanners.list[homepageBanners.currentIndex].url
-    if (url.length < 1) return
+    if (url.length < 1) {
+      let _src = homepageBanners.list[homepageBanners.currentIndex].img
+      document.getElementById("float-carousel-img").setAttribute("src", _src)
+      document.getElementById("carousel-img-float").style.display = "block"
+    }
     else window.open(url)
     // else location.href = url    
   }
-
+  
   window.carouselPrevious = function() {
     if (homepageBanners.animating || homepageBanners.onlyOne) return
 

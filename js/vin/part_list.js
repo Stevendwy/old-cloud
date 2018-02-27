@@ -10,9 +10,9 @@ export default class PartList extends Component {
         super()
         this.state = {
             itid: '-1',
-            showMessage: false, //是否需要显示警告
-            titles: [], // card_selector titles
-            cardSelectorShow: false, // hidden card_selector
+            showMessage: false,         //是否需要显示警告
+            titles: [],                 // card_selector titles
+            cardSelectorShow: false,    // hidden card_selector
             listHead: [],
             showOnce: false,
             res: "",
@@ -129,7 +129,7 @@ export default class PartList extends Component {
             if(res.code == 1) {
                 Utils.setValue(".cret_icon" , res.counts)                
             }
-            if(data.code === 400) {
+            if(res.code === 400) {
                 location.href = '/logout'
                 return
             }
@@ -236,7 +236,7 @@ class Header extends Row {
 class Message extends Component {
     render() {
         return (
-            <div className={this.props.show ? 'container-message' : 'container-message hidden'}>网络超时，以下为基础零件数据。</div>
+            <div className={this.props.show ? 'container-message' : 'container-message hidden'}>{TR("网络超时，以下为基础零件数据。")}</div>
         )
     }
 }
@@ -244,7 +244,7 @@ class Message extends Component {
 class Filterworld extends Component {
     render() {
         return (
-            <div className={this.props.filter == 0 ? 'container-message' : 'container-message hidden'}>*红色字体：非此车架号的零件（参照原厂数据）</div>
+            <div className={this.props.filter == 0 ? 'container-message' : 'container-message hidden'}>*{TR("红色字体：非此车架号的零件（参照原厂数据）")}</div>
         )
     }
 }
@@ -269,19 +269,6 @@ class Footer extends Row {
     }
 
     itemClick(itid, choosepid) {
-        // let infos = []
-        // this.props.data.data.map((item,index)=>{
-        //     if(item[0].itid === itid) {
-        //         item.map((it,ins)=> {
-        //             if(it.sa_code) {
-        //                 infos[ins] = {
-        //                     step: it.step,
-        //                     sa_code: it.sa_code
-        //                 }
-        //             }
-        //         })
-        //     }
-        // })
         this.props.changeItid(itid, "listclick", choosepid)
     }
 
@@ -310,7 +297,6 @@ class FooterSubRow extends Component {
      * @param  {[boo]l} canFold [can it fold]
      */
     itemClick(index, canFold, supIndex, itid, pid, step, pname, quantity, prices, e) {
-        window.showCarMI({data:[]})
         if (index === 0 && canFold && supIndex === 0) {
             this.setState({
                 isFold: !this.state.isFold
@@ -327,6 +313,7 @@ class FooterSubRow extends Component {
                     part: pid
             },"基础信息")
         } else if(index === 5) {
+            // window.showCarMI({data:[]})
             let _obj = {
                 sa_info: this.props.item[supIndex].sa_code,
                 auth: this.props.auth || this.props.anyAuth || this.props.params.auth,
@@ -342,16 +329,16 @@ class FooterSubRow extends Component {
             }
         } else if(index === 6) {
             let _obj = {
-                        "p" : "",
-                        "code":"",
-                        "type":"",
-                        "itid":"" ,
-                        "auth":""
-                    }
+                "p" : "",
+                "code":"",
+                "type":"",
+                "itid":"" ,
+                "auth":""
+            }
             if (this.props.type != "seealso") {
                 let _refmid_list = this.props.item[supIndex].refmid_list ? this.props.item[supIndex].refmid_list : []
                 if (_refmid_list.length > 0 ){
-                        let _contents = "参见：" + _refmid_list[0].mid.slice(0,3) + "-"+ _refmid_list[0].mid.slice(3,6)
+                        let _contents = TR("参见") +"：" + _refmid_list[0].mid.slice(0,3) + "-"+ _refmid_list[0].mid.slice(3,6)
                         if (_refmid_list[0].itid != "") {
                             _contents = _contents + "," + _refmid_list[0].itid
                         }
@@ -362,7 +349,7 @@ class FooterSubRow extends Component {
                         _obj.itid= _refmid_list[0].itid
                         _obj.auth =_refmid_list[0].auth 
                         _obj.title = _contents
-
+                        _obj.props = this.props
                     if (this.props.type == "vin") {
                         _obj.vin = this.props.vin
                         _obj.filter = 0
@@ -418,15 +405,53 @@ class FooterSubRow extends Component {
         } else if(index === 10){
             if(this.props.type == "part") return;
             // let type = this.props.vin ? this.props.vin : Utils.getValue(".container-header .title").split(">")[0]         
-            let _type = this.props.type == "search" ? "vin" : this.props.type
+            // let _type = this.props.type == "search" ? "vin" : this.props.type
+            let _headname
+            let _auth
+            let _type = this.props.type
+            if(this.props.type === "vin") {        
+                _headname = this.props.vin
+                _auth = this.props.anyAuth       
+            } else if(this.props.type === "cars") {
+                _headname = this.props.titleworld.join(">")
+                _auth = this.props.auth
+            } else if(this.props.type === "part") {
+                _headname = this.props.title
+                _auth = this.props.params.auth
+                _brandCode = this.props.params.code
+            } else if(this.props.type === "seealso") {
+                if(this.props.params.type === "cars") {
+                    _type = "cars"
+                    _headname = this.props.params.props.title.info[0]
+                    _auth = this.props.auth
+                } else if(this.props.params.type === "vin") {
+                    _type = "vin"
+                    _headname = this.props.params.props.vin
+                    _auth = this.props.anyAuth                    
+                } else if(this.props.params.type === 'part') {
+                    _type = "part"                    
+                    _headname = this.props.params.title.split(">")[0]
+                    _auth = this.props.params.auth
+                }
+            } else if(this.props.type === "search") {
+                if(this.props.searchEnter === "vin") {
+                    _headname = this.props.vin
+                    _type = "vin"
+                } else {
+                    _type = "cars"                    
+                    _headname = this.props.titleworldlist.join(">")
+                }
+                _auth = this.props.anyAuth
+            }
+
             let _obj = {
                 pid: pid,
                 pname: pname,
-                brand: this.props.brands,
+                brand: this.props.brands || "",
                 quantity: quantity,
                 type: _type,
-                title: this.props.vin ? this.props.vin : Utils.getValue("#cars .container-header .title").split(">")[0],
-                auth: this.props.anyAuth ? this.props.anyAuth : this.props.auth,
+                title: _headname,
+                auth: _auth,
                 stilladd: 0,
                 price: prices
             }
@@ -513,7 +538,7 @@ class FooterSubDetail extends Row {
     constructor() {
         super()
         this.keys = ['', 'num', 'pid', 'label', 'quantity', 'model', 'remark', 'prices', "", 'detail',"pid"]
-        this.textalign = ['center', 'flex-end', 'flex-end', 'flex-start', 'flex-end', 'flex-start', 'flex-start', 'flex-end', 'center','center']
+        this.textalign = ['center', 'center', 'flex-start', 'flex-start', 'flex-end', 'flex-start', 'flex-start', 'flex-end', 'center','center']
         this.isSelected = false
     }
 
@@ -528,18 +553,16 @@ class FooterSubDetail extends Row {
         this.props.itemClick(index, this.props.canFold, this.props.index, this.props.item['itid'], this.props.item['real_pid'], this.props.item['step'],this.props.item["label"],this.props.item["quantity"], price, e)
     }
 
-
     ugcAddMsg(e, pid) {
         let _headname = []
         let _auth
         let _brandCode
-        // console.log(this.props)
         if(this.props.type === "vin") {
-            this.props.title.info[1] = this.props.title.mainGroup
-            this.props.title.info[2] = this.props.title.subGroup            
-            _headname = this.props.title.info
+            _headname[0] = this.props.title.info 
+            _headname[1] = this.props.title.mainGroup
+            _headname[2] = this.props.title.subGroup                    
             _auth = this.props.anyAuth
-            _headname = _headname.join(">")         
+            _headname = _headname.join(">")     
         } else if(this.props.type === "cars") {
             _headname[0] = this.props.titleworld.join(">")
             _headname[1] = this.props.title.mainGroup
@@ -555,7 +578,6 @@ class FooterSubDetail extends Row {
             _auth = this.props.anyAuth
             _brandCode = this.props.brands
         }
-        
         let callback = this.commitCallback.bind(this,e.target)
         let obj = {
             pid: pid || "",
@@ -637,7 +659,7 @@ class FooterSubDetail extends Row {
                         }
                     return (
                         <div className="show_seealso_seealso" key={indexs}>
-                            <span>参见：</span>
+                            <span>{TR("参见")}：</span>
                             <span className={_spanclass}>{_contents}</span>
                             {/* <span className={_spanclass} dangerouslySetInnerHTML={{__html: _contents}} /> */}
                          </div>
@@ -700,7 +722,7 @@ class FooterSubDetail extends Row {
                 case 1:
                     msg = "R";
                     msgAlert = "替换件"
-                    if(window.currentBrands == "land_rover"){
+                    if(window.currentBrands == "land_rover" || this.props.brands === "land_rover"){
                         msg = "Y"                
                         msgAlert = "替换件"
                     }
@@ -735,7 +757,9 @@ class FooterSubDetail extends Row {
                     </span>
                 </div>
             )
-        } else if( index == 10 ){  //购物车
+        }else  if(index === 9) {
+            return TR(_content)
+        }else if( index == 10 ){  //购物车
             if(this.props.type == "part"){ return ""}
             if(_content.length < 1){ return ""}
             return(
@@ -772,8 +796,7 @@ class FooterSubDetail extends Row {
                                         {_content}
                                     </div>  
 
-                                    <b className={"ugc-icon "+ _class} title="留言" onClick={e => _ugcAddMsg(e, this.props.item.pid)}>
-                                    
+                                    <b className={"ugc-icon "+ _class} title={TR("留言")} onClick={e => _ugcAddMsg(e, this.props.item.pid)}>
                                     </b>
                                 </div>
                     }
@@ -781,7 +804,7 @@ class FooterSubDetail extends Row {
                     return (
                         <div>
                             {_content}
-                            <b className={"ugc-icon "+ _class} title="留言" onClick={e => _ugcAddMsg(e, this.props.item.pid)}></b>
+                            <b className={"ugc-icon "+ _class} title={TR("留言")} onClick={e => _ugcAddMsg(e, this.props.item.pid)}></b>
                         </div>
                     )
                         
@@ -790,7 +813,7 @@ class FooterSubDetail extends Row {
                 return (
                     <div>
                         {_content}
-                        <b className={"ugc-icon "+ _class} title="留言" onClick={e => _ugcAddMsg(e, this.props.item.pid)}></b>
+                        <b className={"ugc-icon "+ _class} title={TR("留言")} onClick={e => _ugcAddMsg(e, this.props.item.pid)}></b>
                     </div>
                 )
             }
@@ -807,6 +830,7 @@ class FooterSubDetail extends Row {
             let _paddingright = this.textalign[index] == "flex-end" ? "5px" : "0px"
             if (index == 2) {
                 _paddingright = "15px"
+                _paddingleft = "5px"
             }
             if (index !== 2 && index !== 8 && index !== 7 && index !== 10 && index !== 6 && index !== 1) {
 
@@ -852,14 +876,12 @@ class Model {
             brandCode
         }, res => callback(res))
     }
-
     static listHead(obj, callback) {
         let url = "/ppys/partssearchs"
         Utils.get(url, obj, res => {
             callback(res)
         })
     }
-
     static addCart(obj,callback){
         let url = "/quotes/spcart/add"
         Utils.post(url,obj,res=>{

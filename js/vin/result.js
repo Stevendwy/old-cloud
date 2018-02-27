@@ -446,13 +446,13 @@ class Header extends Root {
                                         <div className='img sub previous'
                                             onClick={this.subPreviousClick.bind(this)}>
                                             <div className="hover-class">
-                                                {window.isSpecial() ? '上一组' : TR('上一分组')}
+                                                {window.isSpecial() ? TR('上一组') : TR('上一分组')}
                                             </div>
                                         </div>
                                         <div className='img sub next sub-next'
                                             onClick={this.subNextClick.bind(this)}>
                                             <div className="hover-class">
-                                                {window.isSpecial() ? '下一组' : TR('下一分组')}
+                                                {window.isSpecial() ? TR('下一组') : TR('下一分组')}
                                             </div>
                                         </div>
                                     </div>
@@ -479,7 +479,7 @@ class Header extends Root {
                                     <b></b>
                                 </div>
                             </div> */}
-                            <input className='input' placeholder={_defaultMsg}
+                            <input className='input' placeholder={TR(_defaultMsg)}
                                 ref = "vinPart"
                                 // onChange={this.partVinInputChange.bind(this)}
                                 style={{display: _defaultdisplaypart}}

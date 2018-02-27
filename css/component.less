@@ -330,7 +330,7 @@
                             padding-left: 20px;
                             background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 0 -477px;
                             background-size: 40px;
-                            width: 80px;
+                            width: 180px;
                         }
                     }
                 }
@@ -425,7 +425,7 @@
                             display: flex;
                             line-height: 25px;
                             right: 10px;
-                            width: 41px;
+                            width: 50px;
                             background-color: #fff;
                             height: 26px;
                             background: url(/img/p_search.png) no-repeat;
@@ -1411,7 +1411,8 @@
                         .df;
                         flex-wrap: wrap;
                         overflow-y: auto;
-                        
+                        align-content: flex-start;
+                        height: e('calc(100% - 41px)');
                         background: #fff;
                         &>.main-group-data {
                             .df;
@@ -1581,6 +1582,8 @@
                             align-items: center;
                             width: 100%;
                             height: 40px;
+                            min-height: 33px;
+                            box-sizing: border-box;
                             background: #fff;
                             // border-bottom: 1px solid #ddd;
 
@@ -1864,7 +1867,7 @@
 
                     &>.utils {
                         align-self: center;
-                        max-width: 374px;
+                        max-width: 400px;
                         .df;
 
                         &>.container-util {
@@ -1900,17 +1903,17 @@
                             }
 
                             &>.config {
-                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 12px -1596px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 16px -1596px;
                                 .back-setting;
                             }
 
                             &>.filter {
-                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1636px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 21px -1636px;
                                 .back-setting;
                             }
 
                             &>.no-filter {
-                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 18px -1676px;
+                                background: url(https://cdns.007vin.com/img/spirit.png) no-repeat 21px -1676px;
                                 .back-setting;
                             }
 
@@ -2036,7 +2039,7 @@
                             line-height: 25px;
                             right: 10px;
                             /* text-align: center; */
-                            width: 41px;
+                            width: 50px;
                             background-color: #fff;
                             height: 26px;
                             background: url(/img/p_search.png) no-repeat;
@@ -2126,6 +2129,7 @@
                         align-self: center;
                         &>.container-edit {
                             .df;
+                            display: none;
                             flex-direction: column;
                             align-items: center;
                             &>.img {

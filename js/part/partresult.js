@@ -151,7 +151,6 @@ class Part extends Root {
     render() {
         let _itid = this.state.itid
         let _changeItid = this.changeItid.bind(this)
-        console.log(this.props)
         return (
             <div className='container-image-list'>
                 <ShowImageView

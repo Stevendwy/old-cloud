@@ -264,11 +264,11 @@ class Header extends Root {
                                 <div className='img' style={{display:_defaultdisplay}}
                                     onClick={this.searchPart.bind(this)}></div>
                             </div>
-                            <a className='container-edit'
+                            {/* <a className='container-edit'
                                 onClick={this.props.toggleEdit}>
                                 <div className='img'></div>
                                 <span>编辑</span>
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                 </div>

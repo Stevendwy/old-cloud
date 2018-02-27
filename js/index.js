@@ -21,7 +21,6 @@ class App extends Root {
             toggleIsShow: [1, 0],
             groupDetail: false,
         }
-
         //调试用
         window.logout = this.logout.bind(this)
         window.changeType = this.changeType.bind(this)
@@ -142,15 +141,15 @@ class App extends Root {
     }
 
    
-
     thirdHandle() {
         // 星奥隐藏信息
         if (Utils.params().source === 'xa') {
             window.isXA = true
-            document.getElementById('logo').style.opacity = '0'
-            document.getElementById('logo').style.zIndex = '-1'
-            document.getElementById('person').style.opacity = '0'
-            document.getElementById('header-account').style.opacity = '0'
+            document.getElementById('logo').style.display = 'none'
+            document.getElementById('person').style.display = 'none'
+            document.getElementById('header-account').style.display = 'none'
+            document.getElementById('operate-lge').style.display = 'none'            
+            document.getElementsByClassName('combo-home')[0].style.display = 'none'             
         }
     }
 
@@ -279,7 +278,7 @@ class App extends Root {
                 {this.getContent()}
                 <OperateGuide />
                 <FloatWindow
-                    title='用户协议'
+                    title={TR('用户协议')}
                     img='/img/icon_san.png'
                     show={_showUserAgreement}
                     hiddenEvent={() => {

@@ -1004,8 +1004,8 @@ export default class Search extends Root {
                                     {TR("mainGroupTitle",_length)}
                                 </span>
                                 <div className="changeTitle">
-                                    <span className={_imgSelected} onClick={this.changeListType.bind(this,"imgList")} title='以图片方式显示'></span>
-                                    <span className={_dataSelected} onClick={this.changeListType.bind(this,"dataList")} title='以列表方式显示'></span>
+                                    <span className={_imgSelected} onClick={this.changeListType.bind(this,"imgList")} title={TR('以图片方式显示')}></span>
+                                    <span className={_dataSelected} onClick={this.changeListType.bind(this,"dataList")} title={TR('以列表方式显示')}></span>
                                 </div>
                                 <div className='search' style={{display: 'none'}}>
                                     <input ref='search' className='input'
@@ -1015,7 +1015,7 @@ export default class Search extends Root {
                                         onClick={this.clearshow.bind(this)}>
                                     </div>
                                     <div className = "input-search-error" style={{display:_mainErrorShow}}>
-                                        未搜索到相关结果
+                                        {TR("未搜索到相关结果")}
                                     </div>
                                     <div className='img'></div>
                                 </div>
@@ -1029,10 +1029,10 @@ export default class Search extends Root {
                             <div className='header'>
                                 <span>{TR("车辆配置")}</span>
                                 <div className='search'>
-                                    <input ref='carInfoSearch' className='input' placeholder='输入配置信息'
+                                    <input ref='carInfoSearch' className='input' placeholder={TR('输入配置信息')}
                                         onChange={this.carInfoSearchChange.bind(this)}     />
                                     <div className = "input-search-error" style={{display:_errorShow}}>
-                                        未搜索到相关结果
+                                        {TR("未搜索到相关结果")}
                                     </div>
                                     <div className={this.state.carInfoSearchshow ? 'clear' : 'clear hidden'}
                                         onClick={this.carInfoSearchClear.bind(this)}></div>
@@ -1114,7 +1114,7 @@ export default class Search extends Root {
                         radioChange = {this.radioChange.bind(this)}
                         staticBradnUrl = {this.state.staticBradnUrl}
                         placeholder={this.state.staticPlaceholder}
-                        defaultValue={TR('车架号查询')}
+                        defaultValue={TR('车架号查询s')}
                         checkHistory = {this.checkHistory.bind(this)}
                         setResponseRadioChange={handle => this.searchVINResponseRadioChange = handle}
                         setInputValue={inputValue => this.inputValue = inputValue}
@@ -1125,9 +1125,9 @@ export default class Search extends Root {
                         {_historys}
                         <div className='container-more'>
                             <a className='more'
-                                onClick={this.moreHistorys.bind(this)}><div>更多历史</div></a>
+                                onClick={this.moreHistorys.bind(this)}><div>{TR("更多历史")}</div></a>
                             <a className='close'
-                                onClick={this.closeHistorys.bind(this)}><div>关闭</div></a>
+                                onClick={this.closeHistorys.bind(this)}><div>{TR("关闭")}</div></a>
                         </div>
                     </div>
                 </div>
@@ -1192,7 +1192,7 @@ export default class Search extends Root {
                                 <div className={this.state.partVinInput ? 'clear' : 'clear hidden'}
                                             onClick={this.partVinInputClear.bind(this)}></div>
                                 <div className='img' onClick={this.vinPartSearch.bind(this)} style={{display: _defaultdisplay}}>
-                                    搜索
+                                    {TR("搜索")}
                                     <div className="search-button-loading">
 
                                     </div>
@@ -1285,7 +1285,7 @@ export default class Search extends Root {
                     <span className='handle'>handle>></span>
                 </div>
                 <FloatWindow
-					title="选择品牌"
+					title={TR("选择品牌")}
 					img="/img/icon_san.png"
 					top="137px"
 					left="calc(50% - 314px)"
@@ -1474,14 +1474,16 @@ class SpecialMainGroup extends Root{
                 )
             })
         }
-
         return(
             <div className='container-main-group'>
                 <div className='header'>
-                    <span>选择主组(共{_length}组)：</span>
+                    <span>
+                        {/* 选择主组(共{_length}组) */}
+                    {TR("mainGroupTitle", _length)}
+                    ：</span>
                     <div className="changeTitle">
-                        <span className={_imgSelected} onClick={this.changeListType.bind(this,"imgList")} title='以图片方式显示'></span>
-                        <span className={_dataSelected} onClick={this.changeListType.bind(this,"dataList")} title='以列表方式显示'></span>
+                        <span className={_imgSelected} onClick={this.changeListType.bind(this,"imgList")} title={TR('以图片方式显示')}></span>
+                        <span className={_dataSelected} onClick={this.changeListType.bind(this,"dataList")} title={TR('以列表方式显示')}></span>
                     </div>
                     {/* <div className='search' style={{display: 'none'}}>
                         <input ref='search' className='input'
@@ -1536,7 +1538,7 @@ class SpecialBenzGroup extends Root{
         this.state = {
             chooseIndex:0,
             listType: "imgList",
-            chooseItem: ["选择主组"],
+            chooseItem: [TR("选择主组")],
             titleList: [],
             listData: [],
             subImgShow: true
@@ -1688,11 +1690,11 @@ class SpecialBenzGroup extends Root{
             let _url = "/ppycars/group?"+item.keys
             Utils.get(_url, null, res=>{
                 if(this.state.chooseIndex == this.state.chooseItem.length -1) {
-                    this.state.chooseItem.push("选择主组信息")
+                    this.state.chooseItem.push(TR("选择主组信息"))
                 }else {
                     let arr = this.state.chooseItem
                     let index = this.state.chooseIndex+1
-                    arr.splice(index,arr.length-1,"选择主组信息")
+                    arr.splice(index,arr.length-1,TR("选择主组信息"))
                 }
                 this.state.listData[this.state.chooseIndex] = res.data
                 this.state.titleList[this.state.chooseIndex] = item.name               
@@ -1769,7 +1771,12 @@ class SpecialBenzGroup extends Root{
                 <div className='header'>
                     <span>
                          {this.state.chooseItem[this.state.chooseIndex]}
-                         (共{length}组)
+                         {
+                             lge === "zh" 
+                             ?  "(共"+length+"组)"
+                             : "("+ length +")"
+                         }
+                        
                     </span>
                 </div>
                 <div className="overflow-container">
@@ -1837,7 +1844,7 @@ class SpecialBenzGroup extends Root{
                     </div>
                 </div>
                 <div className={this.state.subImgShow ? 'container-car-info-sub-img' : 'container-car-info-sub-img hidden'}>
-                    <div className='car-info-sub-remind'>同类车型图片, 仅供参考</div>
+                    <div className='car-info-sub-remind'>{TR("同类车型图片, 仅供参考")}</div>
                     <img className='car-info-sub-img' src={this.props.imglogo} />
                     <CloseCanvas
                         show={true}

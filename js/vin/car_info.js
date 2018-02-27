@@ -99,15 +99,15 @@ export class CarInfo extends Root {
             <div className={this.getClassName()} onClick={(e)=>{e.stopPropagation()}}>
                 <div className='header'>
                     <div className='car-info-title-move'>
-                        <span>车辆配置：</span>
+                        <span>{TR("车辆配置")}：</span>
                         <div className='close'
                             onClick={this.props.hiddenCarInfo}></div>
                     </div>
                     <div className='search'>
-                        <input ref='carInfoSearch' className='input' placeholder='输入配置信息'
+                        <input ref='carInfoSearch' className='input' placeholder={TR('输入配置信息')}
                             onChange={this.carInfoSearchChange.bind(this)} />
                         <div className = "input-search-error" style={{display:_errorShow}}>
-                            未搜索到相关结果
+                            {TR("未搜索到相关结果")}
                         </div>
                         <div className={this.state.carInfoSearchShow ? 'clear' : 'clear hidden'}
                             onClick={this.carInfoSearchClear.bind(this)}></div>
@@ -165,8 +165,8 @@ export class CarMI extends Root {
                     <div className="table-row" key={index}>
                         <div className="row-cell">
                             {  item.filter 
-                               ? <b></b> 
-                               : ""
+                               ? ""
+                               : <b></b> 
                             }
                         </div>
                         <div className="row-cell">
@@ -195,6 +195,60 @@ export class CarMI extends Root {
         )
     }
 
+    getFlodTitle() {
+        return(
+            this.props.data.data.map((it,ins) => {
+                
+                return(
+                    <div className="table-box" key={ins}>
+                        <div className="table-row bg-back" key={index}>
+                            <div className="row-cell">
+                            </div>
+                            <div className="row-cell">
+                                {it.sa_family}
+                            </div>
+                            <div className="row-cell">
+                            </div>
+                            <div className="row-cell">
+                            </div>
+                        </div>
+                        {
+                            it.sa_data.map((item,index)=> {
+                                return(
+                                    <div className="table-row" key={index}>
+                                        <div className="row-cell">
+                                            {   
+                                                item.filter 
+                                                ? ""
+                                                : <b></b> 
+                                            }
+                                        </div>
+                                        <div className="row-cell">
+                                        </div>
+                                        <div className="row-cell">
+                                            {
+                                                item.sa
+                                            }
+                                        </div>
+                                        <div className="row-cell">
+                                            {
+                                                item.desc
+                                            }
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+
+
+                    
+                  
+                )
+            })
+        )
+    }
+
     getTable() {
         let type = 1
         switch(this.props.data.flodlist) {
@@ -210,7 +264,18 @@ export class CarMI extends Root {
                     </div>
                 )
                 break;
-            // case 2:
+            case "":
+                return (
+                    <div className="table">
+                        <div className="table-head">
+                            {this.getTitle()}
+                        </div>
+                        <div className="table-body">
+                            {this.getFlodTitle()}
+                        </div>
+                    </div>
+
+                )
         }
     }
 
@@ -221,8 +286,8 @@ export class CarMI extends Root {
             <div onClick={this.props.hiddenMI} className="mi-container">
                 <div className={this.getClassName()} onClick={(e)=> {e.stopPropagation()}}>
                     <div className='header'>
-                        <div className='car-info-title-move'>
-                            <span>设备编号</span>
+                        <div className='car-info-mi-title-move'>
+                            <span>{TR("设备编号")}</span>
                             <div className='close'
                                 onClick={this.props.hiddenMI}></div>
                         </div>
@@ -230,12 +295,12 @@ export class CarMI extends Root {
                     <div className='content' ref='carInfoContent'>
                         <div className="msg-text">
                             <div className={_classHidden}>
-                                *有效（+）：编码与车辆配置信息匹配则零件对车辆有效；<br/>
-                                &nbsp;无效（-）：编码与车辆配置信息匹配则零件对车辆无效；<br/>
+                                {TR("*有效（+）：编码与车辆配置信息匹配则零件对车辆有效；")}<br/>
+                                &nbsp;{TR("无效（-）：编码与车辆配置信息匹配则零件对车辆无效；")}<br/>
                             </div>
                             <span>
                                 <b></b>
-                                ：编码与车辆配置信息匹配。
+                               {TR("：编码与车辆配置信息匹配。")}
                             </span>
                         </div>
                         {

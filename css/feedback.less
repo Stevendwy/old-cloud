@@ -2,7 +2,7 @@
 // @import url("base.less");
 @calcStyle: "calc(100% - 80px)";
 @borderStyle: "calc(100% - 86px)";
-#FeedBackButton{
+#FeedBackButton {
     position: fixed;
     right: 10px;
     bottom: 10px;
@@ -18,15 +18,18 @@
         background: url("https://cdns.007vin.com/img/icon_fankuaidian.png") no-repeat 0 0;
     }
 }
-.FeedBackButton{
+.FeedBackButton {
     position: absolute;
-    right: 84px;
+    // right: 89px;
+    // right: 99px;  
+    right: 73px;  
     cursor: pointer;
     top: 10px;
     display: none;
     z-index: 99999999999999999;
 }
-.FeedBackButton>b{
+
+.FeedBackButton>b {
     width: 20px;
     height: 20px;
     background: url("https://cdns.007vin.com/img/p_group.png") no-repeat -11px -10px;
@@ -34,7 +37,7 @@
     margin-top: 12px;
     margin-right: 7px;
 }
-.FeedBackButton>span{
+.FeedBackButton>span {
    float: left;
    color: #fff;
    font-size: 14px;
@@ -51,7 +54,7 @@
     display: none;
     @heightSize:100%;
 
-    .textAreaContainer{
+    .textAreaContainer {
             position:fixed;
             bottom: -179px;
             right: 0px;
@@ -76,8 +79,8 @@
                     height: 32px;
                     line-height: 32px;
                 }
-                .itemsBody{
-                    .item{
+                .itemsBody {
+                    .item {
                         background: #FFFFFF;
                         height: 24px;
                         float: left;
@@ -89,7 +92,7 @@
                         color: #666666;
                         cursor: pointer;
                         margin: 3px;
-                        &:hover{
+                        &:hover {
                             background: #1D77E0;
                             color:#fff;
                         }
@@ -104,14 +107,14 @@
                     }
                 }
             }
-            .textAreaHearder{
+            .textAreaHearder {
                 background: #1AA0F3;
                 line-height: 28px;
                 text-align: center;
                 color:#fff;
                 cursor: move;
             }
-            .textAreaInput{
+            .textAreaInput {
                 color:#333;
                 border: 0;
                 resize:none;
@@ -127,7 +130,7 @@
         position: relative;
         width: @widthSize;
         height: @heightSize;
-        #canvas{
+        #canvas {
                 position: relative;
         }
         .Image {

@@ -13,6 +13,13 @@ export default class PartDetailEng extends Root {
             '适用车型': {url:'/articles/compatible_vehicle', com: "all", },
             '零件图片': {url:'/articles/compatible_vehicle', com: "all", },
         }
+        this.baseEn = {
+            "Basic": "基础信息",
+            "OE Number": "零件OE号",
+            "Part Image": "零件图片",
+            "Applicable Veh": "适用车型"
+        }
+        
     }
 
     componentDidMount() {
@@ -21,7 +28,11 @@ export default class PartDetailEng extends Root {
 
     getPartItem() {
         let _switchDom = ""
-        switch(this.props.title) {
+        let caseItem = this.props.title
+        if(lge === "en") {
+            caseItem = this.baseEn[this.props.title]
+        }
+        switch(caseItem) {
             case "基础信息":
                 _switchDom = <PartBaseBox
                                 reqData = {this.props.reqData}
@@ -55,10 +66,10 @@ export default class PartDetailEng extends Root {
             <div className="parteng-container">
                 <div className="base-title">
                     <span>
-                        品牌零件号：{this.props.detailPid}
+                        {TR("品牌零件号")}：{this.props.detailPid}
                     </span>
                     <span>
-                        零件名称：{this.props.detailLabel}
+                        {TR("零件名称")}：{this.props.detailLabel}
                     </span>
                     <img src={this.props.detailSrc} alt="品牌"/>
                 </div>
@@ -66,7 +77,7 @@ export default class PartDetailEng extends Root {
             </div>
         )
     }
-}    
+}
 
 class PartBaseBox extends Component {
     constructor(props) {
@@ -74,14 +85,23 @@ class PartBaseBox extends Component {
         this.state = {
             
         }
-        this.mapKey = [
-            {key:"EANumbers", value: "EA号:"},
-            {key:"PackingUnit", value: "包数:"},
-            {key:"QuantityPerPackingUnit", value: "数量/每包:"},
-            {key:"description", value: "描述:"},
-            {key:"replace_numbers", value: "替换件号:"},
-            {key:"label", value: "标签:"}            
-        ]
+        this.mapKey = lge === "zh" 
+                      ? [
+                            {key:"EANumbers", value: "EA号:"},
+                            {key:"PackingUnit", value: "包数:"},
+                            {key:"QuantityPerPackingUnit", value: "数量/每包:"},
+                            {key:"description", value: "描述:"},
+                            {key:"replace_numbers", value: "替换件号:"},
+                            {key:"label", value: "标签:"}            
+                        ]
+                      : [
+                            {key:"EANumbers", value: "EA number:"},
+                            {key:"PackingUnit", value: "Packages:"},
+                            {key:"QuantityPerPackingUnit", value: "Quantity/Package:"},
+                            {key:"description", value: "Description:"},
+                            {key:"replace_numbers", value: "Supersession:"},
+                            {key:"label", value: "Label:"}       
+                        ] 
     }
     render() {
         let data = this.props.data
@@ -89,10 +109,10 @@ class PartBaseBox extends Component {
             <div className="part-base-box">
                 <div className="box-title">
                     <b></b>
-                    <span>基础信息</span>
+                    <span>{TR("基础信息")}</span>
                 </div>
                 <div className="base-box">
-                    <div className="line">General 常规</div>
+                    <div className="line">{TR("General 常规")}</div>
                     {
                         this.mapKey.map((item, index)=> {
                             let keys = item.key
@@ -134,16 +154,21 @@ class PartOeBox extends Component {
         this.state = {
 
         }
-        this.mapBase = [
-            {title:"厂商", key: "manufacture", align: "itemLeft"},
-            {title:"零件OE号", key:"oenumber", align: "itemRight"},
-            {title:"说明", key: "description", align: "itemLeft"},
-            // {title:"地区", key: "area", align: "itemLeft"},
-            // {title:"库存", key: "inventory", align: "itemLeft"},
-            {title:"进价(未含税)", key: "purchase_price_eot", align: "itemRight"},
-            {title:"销售价(含税)", key: "price", align: "itemRight"},
-            // {title:"服务商", key: "service_provider", align: "itemLeft"},
-        ]
+        this.mapBase = lge === 'zh'
+                        ? [
+                                {title:"厂商", key: "manufacture", align: "itemLeft"},
+                                {title:"零件OE号", key:"oenumber", align: "itemRight"},
+                                {title:"说明", key: "description", align: "itemLeft"},
+                                {title:"进价(未含税)", key: "purchase_price_eot", align: "itemRight"},
+                                {title:"销售价(含税)", key: "price", align: "itemRight"},
+                          ]
+                        : [
+                            {title:"Manufacturer", key: "manufacture", align: "itemLeft"},
+                            {title:"OE Number", key:"oenumber", align: "itemRight"},
+                            {title:"Description", key: "description", align: "itemLeft"},
+                            {title:"Cost VAT exclusive", key: "purchase_price_eot", align: "itemRight"},
+                            {title:"Price VAT inclusive", key: "price", align: "itemRight"},
+                          ]
     }
 
     componentWillMount() {
@@ -213,7 +238,7 @@ class PartOeBox extends Component {
             <div className="part-oe-box">
                 <div className="box-title">
                     <b></b>
-                    <span>零件OE号</span>
+                    <span>{TR("零件OE号")}</span>
                 </div>
                 <div className="list-box">
                     <div className="list-title">
@@ -235,12 +260,19 @@ class PartUseCars extends Component {
             closeIndex: ""
         }
         this.closeIndex = []
-        this.mapBase = [
-            {title:"", key:"plusOrSub", },
-            {title:"车型", key:"label", },
-            {title:"年份", key:"year", },
-            {title:"Model", key:"model", },
-        ]
+        this.mapBase = lge === "zh"
+                       ?  [
+                            {title:"", key:"plusOrSub", },
+                            {title:"车型", key:"label", },
+                            {title:"年份", key:"year", },
+                            {title:"Model", key:"model", },
+                          ]
+                        : [
+                            {title:"", key:"plusOrSub", },
+                            {title:"Label", key:"label", },
+                            {title:"Year", key:"year", },
+                            {title:"Model", key:"model", },
+                           ]
     }
 
     componentWillMount() {
@@ -357,7 +389,7 @@ class PartUseCars extends Component {
                 <div className="box-title">
                     <b></b>
                     <span>
-                        适用车型：
+                        {TR("适用车型")}：
                     </span>
                 </div>
                 <div className="list-box">
@@ -392,7 +424,7 @@ class PartDetailImg extends Component {
                 <div className="box-title">
                     <b></b>
                     <span>
-                        零件图片
+                        {TR("零件图片")}
                     </span>
                 </div>
                 <div className="img-container">

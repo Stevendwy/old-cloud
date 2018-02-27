@@ -626,8 +626,8 @@ class Group extends Root {
                         <span>{TR("mainGroupTitle",_mainLength)}：</span>
 
                         <div className="changeTitle">
-                            <span className={_imgSelected} onClick={this.changeListType.bind(this,"imgList")} title='以图片方式显示'></span>
-                            <span className={_dataSelected} onClick={this.changeListType.bind(this,"dataList")} title='以列表方式显示'></span>
+                            <span className={_imgSelected} onClick={this.changeListType.bind(this,"imgList")} title={TR('以图片方式显示')}></span>
+                            <span className={_dataSelected} onClick={this.changeListType.bind(this,"dataList")} title={TR('以列表方式显示')}></span>
                         </div>
                         <div className='search' style={{display: 'none'}}>
                             <input ref='searchMain' className='input'
@@ -653,26 +653,26 @@ class Group extends Root {
                             <span className='remind-filter' style={{display:"none"}}>*红色标记：未经VIN过滤的分组</span></span>
                         <div className='search'>
                             <input ref='search' className={this.state.inputIsShow ? 'input' : 'input transparent'}
-                                placeholder='输入图号/名称'
+                                placeholder={TR('输入图号/名称')}
                                 onBlur = {this.hiddenInput.bind(this)}
                                 onChange={this.searchChange.bind(this)} />
                             <div className={this.state.clearshow ? 'clear' : 'clear hidden'}
                                 onClick={this.clearshow.bind(this)}>
                             </div>
                             <div className = "input-search-error" style={{display:_errorShow}}>
-                                未搜索到相关结果
+                                {TR("未搜索到相关结果")}
                             </div>
                             <div className='img'
                                 onClick = {this.showInput.bind(this)}
                             ></div>
                         </div>
                         <div className="subChangeTitle">
-                            <span className={_subImgSelected} onClick={this.changeSubListType.bind(this,"imgList")} title='以图片方式显示'></span>
-                            <span className={_subDataSelected} onClick={this.changeSubListType.bind(this,"dataList")} title='以列表方式显示'></span>
+                            <span className={_subImgSelected} onClick={this.changeSubListType.bind(this,"imgList")} title={TR('以图片方式显示')}></span>
+                            <span className={_subDataSelected} onClick={this.changeSubListType.bind(this,"dataList")} title={TR('以列表方式显示')}></span>
                         </div>
                     </div>
                     <div className={_subContentClass}>
-                        <div className={this.state.subListType == "imgList" ? 'filter' : 'hidden'} style={{"display":filterShows}}>*红色字体：非此车架号的分组（参照原厂数据）</div>
+                        <div className={this.state.subListType == "imgList" ? 'filter' : 'hidden'} style={{"display":filterShows}}>*{TR("红色字体：非此车架号的分组（参照原厂数据）")}</div>
                        {_subGroupList}
                     </div>
                 </div>

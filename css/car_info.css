@@ -97,6 +97,7 @@ input:focus {
   top: 128px;
   bottom: 40px;
   width: 37.8%;
+  min-width: 390px;
   background-color: white;
   z-index: 23;
   border-radius: 4px;
@@ -112,7 +113,9 @@ input:focus {
   background-color: #4a90e2;
 }
 .container-car-info > .header > .car-info-title-move,
-.container-car-mi > .header > .car-info-title-move {
+.container-car-mi > .header > .car-info-title-move,
+.container-car-info > .header > .car-info-mi-title-move,
+.container-car-mi > .header > .car-info-mi-title-move {
   height: 40px;
   display: -webkit-flex;
   display: -ms-flex;
@@ -120,11 +123,15 @@ input:focus {
   align-items: center;
 }
 .container-car-info > .header > .car-info-title-move > span,
-.container-car-mi > .header > .car-info-title-move > span {
+.container-car-mi > .header > .car-info-title-move > span,
+.container-car-info > .header > .car-info-mi-title-move > span,
+.container-car-mi > .header > .car-info-mi-title-move > span {
   color: white;
 }
 .container-car-info > .header > .car-info-title-move > .close,
-.container-car-mi > .header > .car-info-title-move > .close {
+.container-car-mi > .header > .car-info-title-move > .close,
+.container-car-info > .header > .car-info-mi-title-move > .close,
+.container-car-mi > .header > .car-info-mi-title-move > .close {
   position: absolute;
   top: 5px;
   right: 2px;
@@ -136,7 +143,9 @@ input:focus {
   background-size: 40px;
 }
 .container-car-info > .header > .car-info-title-move > .close:hover,
-.container-car-mi > .header > .car-info-title-move > .close:hover {
+.container-car-mi > .header > .car-info-title-move > .close:hover,
+.container-car-info > .header > .car-info-mi-title-move > .close:hover,
+.container-car-mi > .header > .car-info-mi-title-move > .close:hover {
   background: url(../img/operate_spirit.png) no-repeat 0px -277px;
   background-size: 40px;
 }
@@ -207,6 +216,8 @@ input:focus {
   align-items: center;
   width: 100%;
   padding: 6px 0;
+  min-height: 33px;
+  box-sizing: border-box;
   border-bottom: 1px solid #ddd;
 }
 .container-car-info > .content > .container-info div,
@@ -283,6 +294,7 @@ input:focus {
   height: 40px;
   line-height: 40px;
   display: flex;
+  text-align: center;
   background: #F2F2F2;
 }
 .container-car-mi .content .table .table-head div:nth-child(1) {
@@ -329,4 +341,7 @@ input:focus {
 }
 .container-car-mi .content .table .table-body .table-row div:nth-child(4) {
   flex: 1;
+}
+.container-car-mi .content .table .table-body .bg-back {
+  background: #D8D8D8;
 }

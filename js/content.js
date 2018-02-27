@@ -7,7 +7,7 @@ import Part from './part/part'
 import Utils from './utils'
 import ShoppingCart from './shoppingcart'
 import ShareForm from "./shareform"
-import PriceMenu from "price-menu-react"
+import PriceMenu from "./pricemenu/price_menu"
 import PartEng from "./parteng/parteng"
 import {CarMI} from './vin/car_info'
 export default class Content extends Root {
@@ -17,6 +17,8 @@ export default class Content extends Root {
             towhere:'', //选择调往 续费还是 消息
             inid: "", //message inid
             okMessage: "",
+            // okMessage: "由于网络原因，宝马数据正在维护，请3个小时候重试谢谢。请3个小时候重试谢谢。请3个小时候重试谢谢。请3个小时候重试谢谢。请3个小时候重试谢谢。飞机爱疯骄傲ijgaoij",                        
+            headerTitle: "",
             okshow: "none",
             listData: null,
             shareShow: false,
@@ -27,6 +29,7 @@ export default class Content extends Root {
         $(".inquires a").children().css("fontWeight", "normal")
         // $("#_" + props.type).css("borderBottom", "3px solid #000").children().css("fontWeight", "bold")
         $("#_" + props.type).children().css("fontWeight", "bold")
+        this.topWayHeight = "0px"
     }
 
     componentDidMount() {
@@ -36,23 +39,31 @@ export default class Content extends Root {
             "message_type": "popup",
             "unread": 1
         }
+        
         Utils.get("/user/msglocal", _ajaxtype, responses => {
             //判断是否过期弹框 目前默认none
             let _datalist = []
             let _datainid = []
             let _dataaction = []
+            let _dataTitle = []
             let _resdata = responses.data
             if (_resdata.length >= 1) {
                 for (var i = 0; i < _resdata.length; i++) {
                     _datalist.push(_resdata[i].msg_text)
                     _datainid.push(_resdata[i].inid)
+                    _dataTitle.push(_resdata[i].title)
                     _dataaction.push(_resdata[i].action)
-
+                }
+                if(localStorage.getItem("update") == 4) {
+                    this.topWayHeight = "0px"
+                } else {
+                    this.topWayHeight = "138px"                    
                 }
                 if (_datalist.length >= 1) {
                     this.setState({
                         towhere:_dataaction[0],
                         inid: _datainid[0],
+                        headerTitle: _dataTitle[0],
                         okMessage: _datalist[0],
                         okshow: "block"
                     })
@@ -186,6 +197,29 @@ export default class Content extends Root {
         })
     }
 
+    closeNewMsg() {
+        let _urlread = "/user/msglocalread"
+        let _data = {
+            "inid": this.state.inid
+        }
+        Utils.get(_urlread, _data, res => {
+            // console.log("readmes")
+        })
+        this.setState({
+            okshow: "none"
+        })
+    }
+    readMsgAndLoop() {
+        let _urlread = "/user/msglocalread"
+        let _data = {
+            "inid": this.state.inid
+        }
+        Utils.get(_urlread, _data, res => {
+            // console.log("readmes")
+        })
+        location.href = "/user/profile?binds=search&type=messages"
+    }
+
     render() {
         let _type = this.props.type
         let _okshow = this.state.okshow
@@ -196,13 +230,27 @@ export default class Content extends Root {
         return (
             <div className={this.props.show ? 'container-content' : 'container-content hidden'}>
                 {this.getContent()}
-                <div className="okFatherSearch" style={{display:_okshow}}>
+                {/* <div className="okFatherSearch" style={{display:_okshow}}>
                     <div className="okContentMoveSearch">
                         <div className="okMessageClose" onClick={this.redmessage.bind(this,"none")}></div>
                         <div className="okMessageSearch">{_okmessage}</div>
                         <div className="okFooterLeftSearch" onClick={this.redmessage.bind(this,"none")}>取消</div>
                         <div className="okFooterRightSearch"  onClick={this.redmessage.bind(this,"messages")}>查看详情</div>
                     </div>
+                </div> */}
+                <div className="new-msg-container" style={{display: _okshow, top: this.topWayHeight}}>
+                    <div className="new-msg-title">
+                        <b>{this.state.headerTitle}</b>
+                    </div>
+                    <div className="new-msg-main">
+                        {_okmessage}
+                    </div>
+                    <div className="new-msg-footer">
+                        <a onClick={this.readMsgAndLoop.bind(this)}>查看详情</a>
+                    </div>
+                    <span className="new-msg-close" onClick={this.closeNewMsg.bind(this)}>
+                        <img src="/img/icon_close_black.png" alt="关闭"/>
+                    </span>
                 </div>
                 <ShoppingCart getPriceMenuList={this.getPriceMenuList.bind(this)}/>
                 {this.getPriceMenu()}

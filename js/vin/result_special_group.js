@@ -202,7 +202,7 @@ export default class GroupSelector extends Component {
         return (
             <div className={_className}>
                 <div className='special-group-header'>
-                    <span className='special-group-header-remind'>选择零件组</span>
+                    <span className='special-group-header-remind'>{TR("选择零件组")}</span>
                     {this.getPath(paths)}
                 </div>
                 <div className='special-group-content'>
@@ -238,7 +238,12 @@ class Selector extends Component {
                 return (
                     <div key={index} className={_className}
                         onClick={() => selectorClick(index)}>
-                        {index + 1} 选择{Model.groupName(index)}组(共{group ? group.length : ''}组)
+                        {index + 1}
+                        {
+                            lge === "zh" 
+                            ? (" 选择"+ Model.groupName(index) + "组共"+  (group ? group.length : '') +"组)")
+                            : " " + (TR(Model.groupName(index)) +"("+ (group ? group.length : "") +")" )
+                        }
                     </div>
                 )
             })
@@ -351,7 +356,7 @@ class Group extends Component {
             <div className="list-container">
                 {ListTitle}
                 <div className="list-body-container">
-                    <div className="sub-list-items filter" style={{ "display": filterShows }}>*红色字体：非此车架号的分组（参照原厂数据）</div>
+                    <div className="sub-list-items filter" style={{ "display": filterShows }}>*{TR("红色字体：非此车架号的分组（参照原厂数据）")}</div>
                     {ListBody}
                 </div>
             </div>
@@ -498,16 +503,23 @@ class Group extends Component {
         return (
             <div className='container-special-group-content-group'>
                 <div className='special-group-content-search'>
-                    <span className='special-group-content-search-remind'>选择{Model.groupName(groupShowIndex)}组(共{group ? group.length : ''}组)</span>
+                    <span className='special-group-content-search-remind'>
+                    {/* 选择{Model.groupName(groupShowIndex)}组(共{group ? group.length : ''}组) */}
+                    {
+                        lge === "zh" 
+                        ? (" 选择"+ Model.groupName(groupShowIndex) + "组共"+  (group ? group.length : '') +"组)")
+                        : " " +(TR(Model.groupName(groupShowIndex)) +"("+ (group ? group.length : "") +")" )
+                    }
+                    </span>
                     <div className='special-group-content-search-tools'>
                         <SearchInput
-                            placeholder='输入图号 / 名称'
+                            placeholder={TR('输入图号/名称')}
                             searchClick={this.searchInputClick.bind(this)}
                             inputChange={this.searchInputChange.bind(this)}
                             setClearValue={handle => this.searchInputClearValue = handle} />
                         <div className="subChangeTitle">
-                            <span className={_subImgSelected} onClick={this.changeListType.bind(this, "imgList")} title='以图片方式显示'></span>
-                            <span className={_subDataSelected} onClick={this.changeListType.bind(this, "dataList")} title='；以列表方式显示'></span>
+                            <span className={_subImgSelected} onClick={this.changeListType.bind(this, "imgList")} title={TR('以图片方式显示')}></span>
+                            <span className={_subDataSelected} onClick={this.changeListType.bind(this, "dataList")} title={TR('以列表方式显示')}></span>
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,9 @@ export default class PartList extends Root {
 			bodylist: <div />,
 			closeIndex:[]
 		}
-		this.title = ['','零件号', '名称', '说明', " "]
+		this.title = lge === "zh" 
+					 ? ['','零件号', '名称', '说明', " "]
+					 : ['','OE Number', 'Name', 'Description', " "]
 		this.width = [3, 23, 51, 18, 8]
 		this.closeIndex = []
 	}
@@ -68,23 +70,22 @@ export default class PartList extends Root {
 							it.map((item,index)=>{
 								let _isMsg = ""
 								let _cobyindex = 0
-								let _toSee = "查看"
+								let _toSee = TR("查看")
 								let _imgIcon = ""
 								let _msgDetail = ""
 								let _className = "listitems"
 								let _isBuble = "listitem"
 								if (item.has_replace == 1) {
 									_isMsg = "R"
-									_msgDetail = "含替换件"
-
+									_msgDetail = TR("含替换件")
 								}
 								if (item.has_compt == 1) {
 									_isMsg = "S"
-									_msgDetail = "含组件"
+									_msgDetail = TR("含组件")
 								}
 								if (item.has_replace == 1 && item.has_compt == 1) {
 									_isMsg = "R、S"
-									_msgDetail = "含替换件、组件"
+									_msgDetail = TR("含替换件、组件")
 								}
 								if (item.status == 0) {
 									_toSee = ""
@@ -133,7 +134,7 @@ export default class PartList extends Root {
 													{item.status ? item.label :( 
 														<div>{item.label}
 															<span onClick={this.props.showBrandChoose.bind(this)}> 
-															.尝试选择品牌查询 >>
+															.{TR("尝试选择品牌查询")} >>
 															</span>
 														</div>)
 													}

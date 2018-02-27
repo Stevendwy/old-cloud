@@ -710,7 +710,7 @@ if (tempPart) {
 var list = [
   {mouseDownDom:"shopping-title",moveDom:".shopping-cart"},
   {mouseDownDom:"car-info-title-move",moveDom:".container-car-info"},
-  {mouseDownDom:"car-info-title-move",moveDom:".container-car-mi"},  
+  {mouseDownDom:"car-info-mi-title-move",moveDom:".container-car-mi"},  
   {mouseDownDom:"price-menu-header",moveDom:".price-menu"},
   {mouseDownDom:"title-form-move",moveDom:".share-container"},
 

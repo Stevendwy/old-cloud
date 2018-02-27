@@ -7,7 +7,6 @@ var gtUrl = "/geetest/verification?t="+timestamp;
 function createGT() {
     var cgt = document.getElementById('container-gt')
     cgt.style.display = 'flex'
-
     $.ajax({
         url: gtUrl,
         type: 'GET',
